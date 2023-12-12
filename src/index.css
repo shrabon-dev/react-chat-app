@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities{
+  .d_flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-basis: 250px 250px;
+    flex-direction: row;
+}
+}
+
+@layer components{
+    
+    .input_css{
+      @apply border-2 border-[#11175d38] large_tablet:py-6 tablet:py-4 mobile:py-3 large_tablet:px-12 tablet:px-8 mobile:px-6 rounded-lg font-nunito font-semibold tablet:text-lg mobile:text-sm text-[#11175D] outline-none w-full
+    }
+    .input_span_css{
+      @apply absolute large_tablet:left-10  tablet:left-8 mobile:left-5 -top-5 bg-white py-2 px-2  font-nunito font-semibold text-base text-[#11175db6]
+    }
+    .hoverAfterBefore{
+      @apply  text-center z-10 relative mobile:p-2 tablet:p-4 large_tablet:p-7 after:absolute mobile:after:right-[-10px] tablet:after:right-[-16px]  large_tablet:after:right-[-44px] mobile:after:top-1 tablet:after:top-0 after:h-full after:bg-white after:z-[-1] after:w-[152%] tablet:after:w-[120%] large_tablet:after:w-[152%]  mobile:after:rounded-r-lg tablet:after:rounded-r-none mobile:after:rounded-l-lg tablet:after:rounded-l-3xl mobile:before:w-0  tablet:before:w-4 mobile:before:h-0 tablet:before:h-full before:absolute tablet:before:right-[-16px] large_tablet:before:right-[-44px] before:top-0 before:bg-primary before:z-10 before:rounded-l-2xl before:shadow-ownshadow
+    }
+    .menu{
+      @apply text-center z-10 relative mobile:p-2 tablet:p-4 large_tablet:p-7 
+    }
+    .bold_text{
+      @apply font-poppin text-lg font-semibold text-black
+    }
+    .p_text{
+      @apply font-poppin text-sm font-normal text-[#4d4d4dbd]
+    }
+    .light_mode{
+      @apply p-5 bg-white border border-[#d3d3d3] shadow-xl rounded-3xl mt-8
+    }
+    .dark_mode{
+      @apply p-5 bg-[#323949] border border-[#3d3e51] shadow-xl rounded-3xl mt-8
+    }
+    .search_light_style{
+      @apply w-full h-12 bg-white text-slate-500 font-normal font-poppin text-xl border border-[#d3d3d3] px-12 shadow-xl mt-2  rounded-full outline-0
+    }
+    .search_dark_style{
+      @apply w-full h-12 bg-[#323949] text-white font-normal font-poppin text-xl border border-[#3d3e51] px-12 shadow-xl  mt-2 rounded-full outline-0
+    }
+    .dark_info_style{
+      @apply flex justify-between text-xs font-bold font-nunito text-white
+    }
+    .light_info_style{
+      @apply flex justify-between text-xs font-bold font-nunito text-gray-700
+    }
+    .light_heading{
+      @apply relative text-black font-poppin font-semibold text-xl
+    }
+    .dark_heading{
+      @apply relative text-gray-200 font-poppin font-semibold text-xl
+    }
+    .light_msg_tex{
+      @apply text-sm font-nunito font-semibold text-black bg-white shadow-lg rounded-lg p-3 inline-block
+    }
+    .dark_msg_tex{
+      @apply text-sm font-nunito font-semibold text-gray-300 bg-[#3d3e51] shadow-lg rounded-lg p-3 inline-block
+    }
+    .current_light_msg{
+      @apply text-sm font-nunito font-semibold text-white bg-primary shadow-lg rounded-lg p-3 inline-block;
+    }
+    .current_dark_msg{
+      @apply text-sm font-nunito font-semibold text-white bg-[#60628b] shadow-lg rounded-lg p-3 inline-block;
+    }
+    .light_msg_input{
+      @apply border-gray-400 font-nunito text-base font-semibold w-full focus:outline-none p-3 rounded-sm  border-[1px]
+    }
+    .dark_msg_input{
+      @apply border-gray-400 font-nunito bg-slate-700 text-gray-300 text-base font-semibold w-full focus:outline-none p-3 rounded-sm  border-[1px]
+    }
+  
+
+}
