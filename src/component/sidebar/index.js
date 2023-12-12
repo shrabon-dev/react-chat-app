@@ -121,14 +121,14 @@ export const Sidebar = ({active}) => {
 {/* profile image start */}
   <div  className='group relative overflow-hidden cursor-pointer mobile:w-12 tablet:w-[80px] large_tablet:w-[100px] mobile:h-12 tablet:h-[80px] large_tablet:h-[100px] rounded-full mobile:m-2 mobile:mr-10  tablet:m-auto'>
     <picture>
-       <img  className='mobile:w-12 tablet:w-[80px] large_tablet:w-[100px] mobile:h-12 tablet:h-[80px] large_tablet:h-[100px] rounded-full' src={userData.photoURL} alt='profile image'/>
+       <img  className='mobile:w-12 tablet:w-[80px] large_tablet:w-[100px] mobile:h-12 tablet:h-[80px] large_tablet:h-[100px] rounded-full' src={userData && userData.photoURL} alt='profile image'/>
     </picture>
     <div onClick={showPopupImgUpload} className='group-hover:top-0 duration-300 w-full h-full bg-black/70 rounded-full flex justify-center items-center text-white text-3xl absolute -top-28'>
          {/* <input onChange={(e)=>setProfileImage(e.target.files[0].name)} type={'file'}  /> <BsFillCloudUploadFill /> */}
          <BsFillCloudUploadFill />
     </div>
   </div>
-      <h6 className='text-white font-nunito text-base tablet:block mt-1 mobile:hidden'>{ userData.displayName}</h6>
+      <h6 className='text-white font-nunito text-base tablet:block mt-1 mobile:hidden'>{userData && userData.displayName}</h6>
 {/* profile image end */}
 {/* Navbar start */}
  <div className='Navbar tablet:pt-6 flex tablet:flex-col items-center mobile:space-x-5 tablet:space-x-0 tablet:space-y-2'>
@@ -161,12 +161,7 @@ export const Sidebar = ({active}) => {
     </div>
  </div>
 {/* Navbar end */}
-
-
 </div>
-
-
-
     <>
     { showImgUpload ? 
       <>
