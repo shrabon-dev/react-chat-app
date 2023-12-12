@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# React JS Chat Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Here is live link: https://keen-puffpuff-33c818.netlify.app/
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technology :
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- React JS
+- Firebase
+- Tailwind CSS
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Pages:
 
-### `npm run build`
+ - [Register](https://small-chat-react.netlify.app/registration)
+ - [Sign in](https://small-chat-react.netlify.app/signin)
+ - [Home](https://small-chat-react.netlify.app/)
+ - [Message](https://small-chat-react.netlify.app/)
+ - [Notification](https://small-chat-react.netlify.app/notification)
+ - [Setting](https://small-chat-react.netlify.app/setting)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Home Page
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+There has 6/Six box of  
+### User List, Friend List, Friend Request, Group Create & List, My Group, Unblock.
 
-### `npm run eject`
+On this social platform, users have the ability to send friend requests, create their own groups, join existing groups, and also have the option to block friends etc.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Message Page
+Here is a small problem, without any friend ther have no access to browse that page. If you have minimum one friend or any group then you can browse message page. 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### I will fix this problem very quickly. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Notification Page
+Notifications are displayed when someone sends you a friend request
+## Setting Page
+#### Coming Soon
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+&nbsp;
+&nbsp;
+&nbsp;
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+
+## Created By
+
+[Md Shrabon Hossain](https://github.com/shrabon-dev)
+
+
+![Logo](https://blog.logrocket.com/wp-content/uploads/2020/05/guide-video-playback-react.png)
+
