@@ -1,6 +1,6 @@
 # React JS Chat Application
 
-### Here is live link: https://keen-puffpuff-33c818.netlify.app/
+### Here is live link: https://small-chat-react.netlify.app/
 
 
 
