@@ -156,41 +156,41 @@ const Signin = () => {
 
   return (
      <>
-        <div className='flex '>
-            <div className='tablet:w-1/2 w-full flex items-center tablet:justify-end mobile:justify-center large_tablet:p-0 large_tablet:pr-16 tablet:p-4 mobile:p-4'>
+        <div className='flex justify-center items-center bg-cover bg-no-repeat bg-center h-screen' style={{backgroundImage:'url(./images/auth/log.webp)'}}>
+            <div className='bg-white'>
                 <div>
-                    <h3 className='font-nunito font-bold tablet:text-4xl mobile:text-3xl text-[#11175D]'>Login to your account!</h3>
-                     <button onClick={HandleLoginWithGoogle} className='tablet:py-4 mobile:py-3 tablet:px-8 mobile:px-4 tablet:mt-7 mobile:mt-4 font-nunito font-normal text-base text-[#03014C] bg-white text-center rounded-lg border-2 border-slate-300 flex items-center '><FcGoogle className='mr-1'/> Login with Google</button>
+                    <h3 className='font-nunito font-bold tablet:text-3xl text-center mobile:text-xl text-white/90 bg-black p-4'>Login to your account!</h3>
+                     <div className='p-5 tablet:p-10 rounded-lg overflow-hidden tablet:pt-0'>
+                     <button onClick={HandleLoginWithGoogle} className='tablet:py-4 mobile:py-1 tablet:px-8 mobile:px-2 tablet:mt-7 mobile:mt-4 font-nunito font-normal mobile:text-sm sm:text-base text-[#03014C] bg-white text-center rounded-lg border-2 border-slate-300 flex items-center '><FcGoogle className='mr-1'/> Login with Google</button>
 
-                     <form className='large_tablet:w-[370px]'>
-                          <div className='relative mt-12'>
-                              <input onChange={emailValue}  className='input_css rounded-none border-t-0 border-l-0 border-r-0  border-b pl-1 '  type={'text'} placeholder='Enter Your Email'/>
-                              <span className='input_span_css left-1 mobile:p-0'>Email Address</span>
-                          </div>
+                    <form className='large_tablet:w-[370px]'>
+                        <div className='relative mt-12'>
+                            <input onChange={emailValue}  className='input_css rounded-none border-t-0 border-l-0 border-r-0  border-b pl-1 '  type={'text'} placeholder='Enter Your Email'/>
+                            <span className='input_span_css left-1 mobile:p-0'>Email Address</span>
+                        </div>
 
-                          <div className='relative mt-12'>
-                              <input onChange={passwordValue} className='input_css rounded-none border-t-0 border-l-0 border-r-0  border-b pl-1' type={passwordShow? 'text':'password'} placeholder='input your password' />
-                              <span className='input_span_css left-0 mobile:p-0'>Password</span>
-                              {passwordShow? 
-                              <RiEyeFill onClick={handleShowPassword} className='text-2xl text-slate-600 absolute right-4 top-1/3 cursor-pointer'/>
-                              :
-                              <RiEyeCloseFill onClick={handleShowPassword} className='text-2xl text-slate-600 absolute right-4 top-1/3 cursor-pointer'/>
-                              }
-                          </div>
-                       
-                           {signinError ? 
-                           <p className='text-red-500 bg-red-200 py-2 px-4 font-nunito rounded mt-1'>{signinError}</p>
-                          : ''}
-                          <button onClick={handleSubmit} className='py-5 mt-12 font-nunito font-semibold text-base text-white bg-primary text-center w-full rounded-lg'> Sign in </button>
-                          <p className='font-nunito font-normal text-sm text-left mt-2 text-[#03014C]'>Don’t have an account ?  <Link to='/registration' className='text-[#EA6C00] font-bold'>Sign up </Link> </p>
-                          <p onClick={HandleResetPassword} className='font-nunito  text-sm  mt-2  text-[#EA6C00] font-bold cursor-pointer text-center'> Reset Password  </p>
-                     </form>
+                        <div className='relative mt-12'>
+                            <input onChange={passwordValue} className='input_css rounded-none border-t-0 border-l-0 border-r-0  border-b pl-1' type={passwordShow? 'text':'password'} placeholder='input your password' />
+                            <span className='input_span_css left-0 mobile:p-0'>Password</span>
+                            {passwordShow? 
+                            <RiEyeFill onClick={handleShowPassword} className='text-2xl text-slate-600 absolute right-4 top-1/3 cursor-pointer'/>
+                            :
+                            <RiEyeCloseFill onClick={handleShowPassword} className='text-2xl text-slate-600 absolute right-4 top-1/3 cursor-pointer'/>
+                            }
+                        </div>
+                    
+                        {signinError ? 
+                        <p className='text-red-500 bg-red-200 py-2 px-4 font-nunito rounded mt-1'>{signinError}</p>
+                        : ''}
+                        <button onClick={handleSubmit} className='py-5 mt-12 font-nunito font-semibold text-base text-white bg-primary text-center w-full rounded-lg'> Sign in </button>
+                        <p className='font-nunito font-normal text-sm text-left mt-2 text-[#03014C]'>Don’t have an account ?  <Link to='/registration' className='text-[#EA6C00] font-bold'>Sign up </Link> </p>
+                        <p onClick={HandleResetPassword} className='font-nunito  text-sm  mt-2  text-[#EA6C00] font-bold cursor-pointer text-center'> Reset Password  </p>
+                    </form>
+                     </div>
                 </div>
             </div>
 
-            <div className='tablet:w-1/2 tablet:block hidden'>
-                <img className='w-screen large_tablet:h-screen tablet:h-full object-cover' src='./images/auth/log.webp' />
-            </div>
+             
        </div>
        {showModal ? 
         <div className=' w-1/3 p-10 h-auto bg-white border-gray-700 border-2 rounded-lg absolute top-0 left-1/2 -translate-x-1/2 shadow-lg shadow-gray'>
