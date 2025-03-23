@@ -103,6 +103,11 @@ export const Sidebar = ({active}) => {
         updateProfile(auth.currentUser, {
           photoURL: downloadURL
         }).then(() => {
+          // Update localStorage
+          let updatedUserInfo = { ...userData, photoURL: downloadURL };
+          localStorage.setItem('userInfo', JSON.stringify(updatedUserInfo));
+  
+
            setShowImgUpload(!showImgUpload);
            setImg('')
            setPreimg('')
@@ -113,7 +118,9 @@ export const Sidebar = ({active}) => {
       });
     });
   }
-
+  useEffect(() => {
+   
+  },[userData.photoURL]);
   return (
     <>
     <div className='w-full h-full bg-primary tablet:p-2 tablet:py-5 large_tablet:p-0 large_tablet:pt-6  mobile:flex mobile:items-center mobile:justify-center tablet:block text-center'>

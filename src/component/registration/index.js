@@ -111,26 +111,20 @@ export const Registration = () => {
 
   return (
      <>
-       <div className='flex '>
-            <div className='tablet:w-1/2 w-full flex items-center tablet:justify-end mobile:justify-center large_tablet:p-0 large_tablet:pr-8 tablet:p-4 mobile:p-4'>
-                <div>
-                    <h3 className='font-nunito font-bold tablet:text-4xl mobile:text-2xl  text-[#11175D]'>Get started with easily register</h3>
-                     <p className='font-nunito font-bold tablet:text-xl  mobile:text-lg text-[#11175d83] tablet:mt-4 mobile:mt-2'>Free register and you can enjoy it</p>
+       <div className='flex justify-center items-center bg-cover bg-no-repeat bg-center h-screen w-full' style={{backgroundImage:'url(./images/auth/reg.webp)'}}>
+            <div className=' bg-white/20 backdrop-blur-md border border-white flex items-center tablet:justify-end mobile:justify-center  '>
+                <div className='w-[280px] tablet:w-[450px]'>
+                    <div className=''>
+                    <h3 className='font-nunito font-bold tablet:text-3xl text-center mobile:text-xl text-white/90 bg-black p-4'>Create a free account!</h3>
+                     {/* <p className='font-nunito font-bold tablet:text-xl  mobile:text-lg text-white tablet:mt-4 mobile:mt-2'>Free register and you can enjoy it</p> */}
                      {signupMessage ? 
                       <p className='text-white bg-blue-600 py-2 px-4 font-nunito rounded mt-1'>{signupMessage}</p>
                      :''}
-                     <form className='large_tablet:w-[370px]'>
+                    </div>
+                     <div className='p-10'>
+                     <form className=' '>
 
-                          <div onChange={emailValue} className='relative mt-6'>
-                              <input  className='input_css'  type={'email'} />
-                              <span className='input_span_css'>Email Address</span>
-                          </div>
-                          {emailerror ? 
-                           <p className='text-red-500 bg-red-200 py-2 px-4 font-nunito rounded mt-1'>{emailerror}</p>
-                          : ''}
-                            {emailChecking ? 
-                           <p className='text-red-500 bg-red-200 py-2 px-4 font-nunito rounded mt-1'>{emailChecking}</p>
-                          : ''}
+                          
                           <div className='relative mt-12'>
                               <input onChange={nameValue}  className='input_css'  type={'text'} />
                               <span className='input_span_css'>Full Name</span>
@@ -138,7 +132,16 @@ export const Registration = () => {
                          {nameerror ? 
                            <p className='text-red-500 bg-red-200 py-2 px-4 font-nunito rounded mt-1'>{nameerror}</p>
                          : ''}
-
+                            <div onChange={emailValue} className='relative mt-6'>
+                              <input  className='input_css'  type={'email'} />
+                              <span className='input_span_css'>Email Address</span>
+                            </div>
+                          {emailerror ? 
+                           <p className='text-red-500 bg-red-200 py-2 px-4 font-nunito rounded mt-1'>{emailerror}</p>
+                          : ''}
+                            {emailChecking ? 
+                           <p className='text-red-500 bg-red-200 py-2 px-4 font-nunito rounded mt-1'>{emailChecking}</p>
+                          : ''}
                           <div className='relative mt-6'>
                               <input onChange={passwordValue} className='input_css'  type={passwordShow? 'text':'password'} />
                               <span className='input_span_css'>Password</span>
@@ -152,7 +155,7 @@ export const Registration = () => {
                            <p className='text-red-500 bg-red-200 py-2 px-4 font-nunito rounded mt-1'>{passworderror}</p>
                           : ''}
                           {signupMessage ? '' :
-                          <button onClick={handleSubmit} className='tablet:py-5 mobile:py-3 large_tablet:mt-16 tablet:mt-10 mobile:mt-6 font-nunito font-semibold text-base text-white bg-primary text-center w-full rounded-full'> Sign up </button>
+                          <button onClick={handleSubmit} className='py-5 mt-12 font-nunito font-semibold text-base text-white bg-primary text-center w-full rounded-lg'> Sign up </button>
                           }
                         {signupMessage ? 
                         <div className=' w-10 text-center m-auto mt-2'>  <Oval  className='text-center m-auto '
@@ -171,12 +174,11 @@ export const Registration = () => {
 
                           <p className='font-nunito font-normal text-sm text-center mt-2 text-[#03014C]'>Already  have an account ? <Link to='/signin' className='text-[#EA6C00] font-bold'> Sign In </Link> </p>
                      </form>
+                     </div>
                 </div>
             </div>
 
-            <div className='tablet:w-1/2 tablet:block hidden'>
-                <img className='w-screen large_tablet:h-screen tablet:h-full object-cover' src='./images/auth/reg.webp' />
-            </div>
+           
        </div>
      </>
   )

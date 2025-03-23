@@ -157,7 +157,7 @@ const Signin = () => {
   return (
      <>
         <div className='flex justify-center items-center bg-cover bg-no-repeat bg-center h-screen' style={{backgroundImage:'url(./images/auth/log.webp)'}}>
-            <div className='bg-white'>
+            <div className=' bg-white/20 backdrop-blur-md border border-white'>
                 <div>
                     <h3 className='font-nunito font-bold tablet:text-3xl text-center mobile:text-xl text-white/90 bg-black p-4'>Login to your account!</h3>
                      <div className='p-5 tablet:p-10 rounded-lg overflow-hidden tablet:pt-0'>
@@ -165,13 +165,13 @@ const Signin = () => {
 
                     <form className='large_tablet:w-[370px]'>
                         <div className='relative mt-12'>
-                            <input onChange={emailValue}  className='input_css rounded-none border-t-0 border-l-0 border-r-0  border-b pl-1 '  type={'text'} placeholder='Enter Your Email'/>
-                            <span className='input_span_css left-1 mobile:p-0'>Email Address</span>
+                            <input onChange={emailValue}  className='input_css  '  type={'text'} placeholder='Enter Your Email'/>
+                            <span className='input_span_css  '>Email Address</span>
                         </div>
 
                         <div className='relative mt-12'>
-                            <input onChange={passwordValue} className='input_css rounded-none border-t-0 border-l-0 border-r-0  border-b pl-1' type={passwordShow? 'text':'password'} placeholder='input your password' />
-                            <span className='input_span_css left-0 mobile:p-0'>Password</span>
+                            <input onChange={passwordValue} className='input_css ' type={passwordShow? 'text':'password'} placeholder='input your password' />
+                            <span className='input_span_css  '>Password</span>
                             {passwordShow? 
                             <RiEyeFill onClick={handleShowPassword} className='text-2xl text-slate-600 absolute right-4 top-1/3 cursor-pointer'/>
                             :
@@ -180,11 +180,11 @@ const Signin = () => {
                         </div>
                     
                         {signinError ? 
-                        <p className='text-red-500 bg-red-200 py-2 px-4 font-nunito rounded mt-1'>{signinError}</p>
+                        <p className='text-red-200 bg-red-200 py-2 px-4 font-nunito rounded mt-1'>{signinError}</p>
                         : ''}
                         <button onClick={handleSubmit} className='py-5 mt-12 font-nunito font-semibold text-base text-white bg-primary text-center w-full rounded-lg'> Sign in </button>
                         <p className='font-nunito font-normal text-sm text-left mt-2 text-[#03014C]'>Don’t have an account ?  <Link to='/registration' className='text-[#EA6C00] font-bold'>Sign up </Link> </p>
-                        <p onClick={HandleResetPassword} className='font-nunito  text-sm  mt-2  text-[#EA6C00] font-bold cursor-pointer text-center'> Reset Password  </p>
+                        <p onClick={HandleResetPassword} className='font-nunito  text-sm  mt-2  text-[#ffffff] font-bold cursor-pointer text-center'> Reset Password  </p>
                     </form>
                      </div>
                 </div>
@@ -193,7 +193,7 @@ const Signin = () => {
              
        </div>
        {showModal ? 
-        <div className=' w-1/3 p-10 h-auto bg-white border-gray-700 border-2 rounded-lg absolute top-0 left-1/2 -translate-x-1/2 shadow-lg shadow-gray'>
+        <div className=' w-1/3 p-10 h-auto bg-white border-gray-200 border-2 rounded-lg absolute top-0 left-1/2 -translate-x-1/2 shadow-lg shadow-gray'>
               <h2 className='font-nunito font-bold tablet:text-4xl mobile:text-3xl text-[#11175D]'>Forgot Your password </h2>
               <input  onChange={ForgetPassword} className='input_css rounded-none border-t-0 border-l-0 border-r-0  border-b pl-1 pb-2' type={'email'} placeholder='your email' />
                 {errorFEmail ? 

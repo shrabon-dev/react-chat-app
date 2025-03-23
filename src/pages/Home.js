@@ -10,6 +10,7 @@ import { MyGroups } from '../component/mygroups'
 import { SearchBar } from '../component/search'
 import { Sidebar } from '../component/sidebar'
 import { Userlist } from '../component/userlist'
+import Posts from '../component/post'
 
 export const Home = () => {
   const userData = useSelector((state)=>state.userLoginInfo.userInfo);
@@ -33,9 +34,12 @@ export const Home = () => {
         <div className='mobile:w-screen tablet:w-[180px] tablet:h-full fixed  mobile:bottom-0 z-[99999]'>
           <Sidebar active='home' />
         </div>
-        <div className='w-full h-full tablet:flex tablet:flex-wrap justify-between px-4 large_tablet:pl-48 tablet:pl-48'>
-              <div className='tablet:w-[445px] large_tablet:w-[48%] desktop:w-[33%] '>
-                    {/* <SearchBar/> */}
+        {/* <div className='w-full h-full tablet:flex tablet:flex-wrap justify-between px-4 large_tablet:pl-48 tablet:pl-48'> */}
+        <div className='w-full h-full tablet:flex tablet:flex-wrap justify-center px-4 large_tablet:pl-48 tablet:pl-48'>
+
+           <Posts/>
+              {/* <div className='tablet:w-[445px] large_tablet:w-[48%] desktop:w-[33%] '>
+                
                     <Grouprequest/>
                     <FriendsRequest/>
               </div>   
@@ -46,7 +50,7 @@ export const Home = () => {
               <div className='tablet:w-[345px] large_tablet:w-[100%] desktop:w-[33%] desktop:block large_tablet:flex large_tablet:justify-between large_tablet:items-baseline'>
                     <Userlist/>
                     <BlockUsers/>
-              </div>   
+              </div>    */}
         </div>
        </div>
     </>
