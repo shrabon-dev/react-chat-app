@@ -45,17 +45,17 @@ useEffect(()=>{
  if(friendList.length>0){
    return (
      <>
-     <div  className={`${modeStatus ? 'dark_mode !mt-3 mb-4':'light_mode  !mt-3 mb-4'}`}>
+     <div  className={`${modeStatus ? 'card p-4 bg-semi-white rounded-lg mt-10':'card p-4 bg-semi-white rounded-lg mt-10'}`}>
          {/* title start */}
-          <div className='flex justify-between items-center'>
-             <h2 className={`${modeStatus ? 'dark_heading':'light_heading'}`}>Friends</h2>
-             <BiDotsVerticalRounded className='text-primary text-xl'/>
+          <div className='sml_tle flex justify-between items-center pb-5'>
+            <h4 className='font-poppin text-base text-black font-normal'>Your Friends</h4>
+            <button className='font-poppin text-xs text-white font-normal bg-primary py-2 px-4 rounded-lg'>Add Friend</button>
           </div>
          {/* title end */}
   {/* *************************************************** */}
-         {/* members start */}
-         <div className='h-[390px] overflow-y-scroll scrollbar-hide'>
-           {friendList.map((item)=>(
+          {/* members start */}
+          <div className='h-[300px] overflow-y-scroll scrollbar-hide'>
+          {friendList.map((item)=>(
              <>
              {auth.currentUser.uid == item.senderid ? 
                <FriendsReuseable id={item.id} getid={item.receiverid} profile={item.receiverprofilephoto} name={item.receivername} message='Hi! are you free now?' date='today, 9.00 am' />
@@ -65,30 +65,26 @@ useEffect(()=>{
              </>
             ))}
           </div>
-         {/* members end */}
-  
+          {/* members end */}
      </div>
     </>
    )
  }else{
   return (
     <>
-    <div className={`${modeStatus ? 'dark_mode  !mt-4':'light_mode  !mt-4'}`}>
+    <div className={`${modeStatus ? 'card p-4 bg-semi-white rounded-lg mt-10':'card p-4 bg-semi-white rounded-lg mt-10'}`}>
         {/* title start */}
          <div className='flex justify-between items-center'>
             <h2 className={`${modeStatus ? 'dark_heading':'light_heading'}`}>Friends</h2>
             <BiDotsVerticalRounded className='text-primary text-xl'/>
          </div>
         {/* title end */}
- {/* *************************************************** */}
+        {/* *************************************************** */}
         {/* members start */}
         <div className='h-[390px] overflow-y-scroll scrollbar-hide'>
-       
               <p className={`${modeStatus ? 'bg-[#3d3e51] text-red-500 py-2 px-4 font-nunito rounded mb-2 text-center mt-28':'text-red-500 bg-red-200 text-center py-2 px-4 font-nunito rounded mt-28 mb-2'}`}>You have no Friends</p>
-
-         </div>
+        </div>
         {/* members end */}
- 
     </div>
    </>
   )

@@ -24,16 +24,17 @@ export const FriendsReuseable = (props) => {
 
   return (
     <>
-       <div className='flex justify-around items-center mt-5 border-b pb-3 border-[#00000041] last:border-0'>
+       <div className='flex justify-around items-center mt-2 border-b pb-2 border-bdr last:border-0'>
                <div >
-                <img className='w-12 h-12 rounded-full' src={props.profile} />
+                <img className='w-10 h-10 rounded-full' src={props.profile} />
                </div>
                <div>
-               <h4 className={`${modeStatus ? 'bold_text text-sm text-gray-200':'bold_text text-sm'}`}>{props.name}</h4>
+               <h4 className={`${modeStatus ? 'bold_text text-xs text-gray-200':'bold_text text-xs'}`}>{props.name}</h4>
                 <p className={`${modeStatus ? 'p_text text-xs text-gray-200':'p_text text-xs'}`}>{props.message}</p>
                </div>
                <div>
-               <button onClick={()=>handleUserBlock(props.allvalue)} className='bg-primary text-sm font-poppin font-normal text-white px-2 py-1 rounded-lg'>Block</button>
+               <button onClick={()=>handleUserBlock(props.allvalue)} className='bg-red-700 text-xs font-poppin font-normal text-white px-2 py-1 rounded-lg'>Unfriend</button>
+               <button onClick={()=>handleUserBlock(props.allvalue)} className='bg-primary text-xs font-poppin font-normal text-white px-2 py-1 rounded-lg ml-2'>Block</button>
                </div>
           </div>
     </>

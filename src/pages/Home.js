@@ -11,6 +11,7 @@ import { SearchBar } from '../component/search'
 import { Sidebar } from '../component/sidebar'
 import { Userlist } from '../component/userlist'
 import Posts from '../component/post'
+import RightSideBar from '../component/right_sidebar'
 
 export const Home = () => {
   const userData = useSelector((state)=>state.userLoginInfo.userInfo);
@@ -38,6 +39,10 @@ export const Home = () => {
         <div className='w-full h-full tablet:flex tablet:flex-wrap justify-center px-4 large_tablet:pl-48 tablet:pl-48'>
 
            <Posts/>
+
+
+
+
               {/* <div className='tablet:w-[445px] large_tablet:w-[48%] desktop:w-[33%] '>
                 
                     <Grouprequest/>
@@ -51,6 +56,9 @@ export const Home = () => {
                     <Userlist/>
                     <BlockUsers/>
               </div>    */}
+        </div>
+        <div className='right_sidebar w-[450px]'>
+          <RightSideBar/>
         </div>
        </div>
     </>

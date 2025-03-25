@@ -99,7 +99,7 @@ let handleRemoveGropMembers = (id) =>{
 if(myGroupList.length > 0){
   return (
     <>
-    <div  className={`${modeStatus ? 'dark_mode  mt-8':'light_mode mt-8'}`}>
+    <div  className={`${modeStatus ? 'card p-4 bg-semi-white rounded-lg mt-5':'card p-4 bg-semi-white rounded-lg mt-5'}`}>
         {/* title start */}
          <div className='flex justify-between items-center'>
             <h2 className={`${modeStatus ? 'dark_heading':'light_heading'}`}>My Groups</h2>
@@ -169,7 +169,7 @@ if(myGroupList.length > 0){
             <>
                          {requestGroupList.map((item)=>(
 
-                        <div className='flex justify-between items-center mt-5 border-b pb-3 border-[#00000041] last:border-0'>
+                        <div className='flex justify-between items-center mt-2 border-b pb-2 border-bdr last:border-0'>
                         <div className='flex'>
                         <div >
                         <img className='w-12 h-12 rounded-full' src={item.user_profile} />
@@ -213,7 +213,7 @@ if(myGroupList.length > 0){
 
 
                   <button onClick={()=>showRequstMember(item)} className='bg-red-700 text-white font-poppin font-normal text-xs p-1 rounded-md cursor-pointer inline-block'>Mem Req</button>
-                  <button onClick={()=>showGroupInfo(item)} className='bg-primary text-white mb-2 font-poppin font-normal text-sm p-1 rounded-md cursor-pointer'>info</button>
+                  <button onClick={()=>showGroupInfo(item)} className='bg-primary text-white mb-2 font-poppin font-normal text-xs ml-2 p-1 rounded-md cursor-pointer'>info</button>
      
                   </div>
               </div>
@@ -233,7 +233,7 @@ if(myGroupList.length > 0){
 
   return (
     <>
-    <div className={`${modeStatus ? 'dark_mode mt-8':'light_mode mt-8'}`}>
+    <div className={`${modeStatus ? 'card p-4 bg-semi-white rounded-lg mt-10':'card p-4 bg-semi-white rounded-lg mt-10'}`}>
         {/* title start */}
          <div className='flex justify-between items-center'>
             <h2 className={`${modeStatus ? 'dark_heading':'light_heading'}`}>My Groups</h2>
