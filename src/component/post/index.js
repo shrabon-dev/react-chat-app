@@ -13,6 +13,9 @@ import { FaShare } from "react-icons/fa";
 export default function Posts() {
   return (
     <div className='w-[780px] py-10'>
+        {/* Notice Start */}
+        <p className='text-center text-red-700 bg-red-100 rounded py-2 mb-5'>This site is currently under construction as we are upgrading the UI of our chat application for a more enhanced and professional experience. Stay tuned for updates!</p>
+        {/* Notice End */}
         <div className='story_lists flex items-center gap-5 justify-between'>
             <div className='item w-[200px]  flex justify-center items-center h-[280px] overflow-hidden bg-black/80 rounded relative'>
                <div className='w-20 cursor-pointer h-20 border-2 flex items-center justify-center rounded-full border-gray-400'>
