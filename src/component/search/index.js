@@ -10,7 +10,7 @@ export const SearchBar = ({type}) => {
     <div>
         <div className='relative w-full'>
 
-          <input onChange={type} type='search' placeholder='search' className={`${modeStatus ? 'search_dark_style' : 'search_light_style'}`} />
+          <input onChange={type} type='search' placeholder='search' className='search_light_style' />
           <span className='absolute text-2xl left-3 top-[22px] text-black'>
             <FiSearch/>
           </span>

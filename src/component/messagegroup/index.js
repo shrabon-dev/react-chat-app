@@ -65,15 +65,11 @@ export default function MessageGroup() {
 
   return (
     <>
-    <div className={`${modeStatus ? 'dark_mode':'light_mode'}`}>
-        {/* title start */}
-         <div className='flex justify-between items-center'>
-            <h2 className={`${modeStatus ? 'dark_heading':'light_heading'}`}>Groups </h2>
-         </div>
-        {/* title end */}
+    <div>
+       
 {/* *************************************************** */}
         {/* members start */}
-         <div className='h-[300px] overflow-y-scroll scrollbar-hide'>   
+         <div className='  '>   
          {myGroupList.map((item)=>(
           <div onClick={()=>handleMessageforClick(item,item.id)} className='flex justify-between items-center mt-5 border-b pb-3 border-[#00000041] last:border-0'>
                 

@@ -47,15 +47,11 @@ function MessageFriends() {
 
   return (
     <>
-    <div className={`${modeStatus ? 'dark_mode':'light_mode'}`}>
-        {/* title start */}
-         <div className='flex justify-between items-center'>
-            <h2 className={`${modeStatus ? 'dark_heading':'light_heading'}`}> Friends </h2>
-         </div>
-        {/* title end */}
+    <div  >
+        
 {/* *************************************************** */}
         {/* members start */}
-         <div className='h-[300px] overflow-y-scroll scrollbar-hide'>         
+         <div className=''>         
          {myfriend.map((item)=>( 
            <>
            {auth.currentUser.uid == item.senderid ? 

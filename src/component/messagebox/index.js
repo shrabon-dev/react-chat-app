@@ -249,33 +249,33 @@ uploadTask.on('state_changed',
 
   return (
         <>
-            <div className={`${modeStatus ? 'p-5 tablet:h-[97vh] mobile:h-[100%] bg-[#323949]  border-[#3d3e51] shadow-xl  mt-4 border-l-2':'p-5 tablet:h-[97vh] mobile:h-[100%] bg-white shadow-xl  mt-4 border-l-2 border-blue-300 '}`}>
+            <div className={`${modeStatus ? ' tablet:h-[98vh] mobile:h-[100%] bg-[#323949]  border-[#3d3e51] shadow-xl ':' tablet:h-[98vh] mobile:h-[100%] bg-white shadow-xl border-blue-300 '}`}>
             {/* PROFILE */}
-            <div >           
-                <div className='flex justify-between items-center mt-5 border-b pb-3 border-[#00000041] last:border-0'>   
+            <div className='bg-primary py-2 px-4'>           
+                <div className='flex justify-between items-center  border-[#00000041] last:border-0'>   
                     <div className='flex items-center gap-x-4'>
                         <div>
                             <img className='w-11 h-11 rounded-full' src='../images/group/grp3.webp' />
                         </div>
-                        <div className='ml-3'>
-                            <h4 className={`${modeStatus ? 'bold_text text-sm text-gray-200':'bold_text text-sm'}`}>{data ? data.name : 'demo' }</h4>
-                            <p className={`${modeStatus ? 'p_text text-xs text-gray-200':'p_text text-xs'}`}>Online</p>
+                        <div className='ml-2'>
+                            <h4 className={`bold_text text-sm text-gray-200`}>{data ? data.name : 'demo' }</h4>
+                            <p className={` text-sm text-gray-200`}>Online</p>
                         </div>
                         <div>
-                        <p className='text-xs text-gray-600'>1 minute ago</p> 
+                        <p className=' text-xs text-gray-200'>1 minute ago</p> 
                        </div>
                     </div>
 
                     <div>
-                        <p ><BiDotsVertical/></p> 
+                        <p  className=' text-xl text-gray-200'><BiDotsVertical/></p> 
                     </div>
                 </div>
             </div>
             {/* PROFILE */}
     {/* *************************************************** */}
           {/* message start */}
-  
-        <ScrollToBottom  className='message_show_box tablet:h-[72vh] mobile:h-[60vh] mb-0 mobile:mb-20 custom-scrollbar'>
+          <div className='py-5 px-3'>
+          <ScrollToBottom  className='message_show_box tablet:h-[72vh] mobile:h-[40vh] mb-0 mobile:mb-20 custom-scrollbar'>
        
        {data.status == 'group' ? 
        
@@ -408,12 +408,15 @@ uploadTask.on('state_changed',
        }
 
          </ScrollToBottom>
+          </div>
+  
+     
    
          <div>
-         <div className='message_send_option flex tablet:gap-4 mobile:gap-1 relative mobile:bottom-16'>
-                  <div className='w-3/4'><input  value={message} onChange={messagewrite} className={`${modeStatus ? 'dark_msg_input':'light_msg_input'}`}/></div>
+         <div className='message_send_option flex tablet:gap-4 mobile:gap-1 relative mobile:bottom-5 left-10'>
+                  <div className='w-[70%]'><input  value={message} onChange={messagewrite} className={`${modeStatus ? 'dark_msg_input':'light_msg_input'}`}/></div>
                   
-                  <div className='w-1/4 flex tablet:gap-4 mobile:gap-1 items-center'> 
+                  <div className='w-[20%] flex tablet:gap-4 mobile:gap-1 items-center'> 
                   {emojiPopUp && 
                   <span className='tablet:p-3 mobile:p-1 text-lg absolute  w-1/4 bottom-11 right-52'> 
                   <EmojiPicker onEmojiClick={(e)=>setMessage(message + e.emoji)} />
