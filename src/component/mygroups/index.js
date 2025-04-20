@@ -99,7 +99,7 @@ let handleRemoveGropMembers = (id) =>{
 if(myGroupList.length > 0){
   return (
     <>
-    <div  className={`${modeStatus ? 'card p-4 bg-semi-white rounded-lg mt-5':'card p-4 bg-semi-white rounded-lg mt-5'}`}>
+    <div  >
         {/* title start */}
          <div className='flex justify-between items-center'>
             <h2 className={`${modeStatus ? 'dark_heading':'light_heading'}`}>My Groups</h2>
@@ -108,7 +108,7 @@ if(myGroupList.length > 0){
         {/* title end */}
 {/* *************************************************** */}
         {/* members start */}
-        <div className='h-[300px] overflow-y-scroll scrollbar-hide'>
+        <div className=' '>
         
         {show ? 
           <>

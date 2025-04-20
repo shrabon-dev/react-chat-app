@@ -19,6 +19,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
     "react-loader-spinner": "^5.3.4",
+    "react-loading-skeleton": "^3.5.0",
     "react-nice-scroll": "^1.0.0",
     "react-nice-scrollbar": "^0.0.3",
     "react-redux": "^8.0.5",

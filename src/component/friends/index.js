@@ -5,6 +5,8 @@ import {BiDotsVerticalRounded} from 'react-icons/bi'
 import { FriendsReuseable } from '../../reuseable/FriendsReuseable'
 import { useDispatch, useSelector } from 'react-redux'
 import { activechat } from '../../slice/activeChatSlice'
+import Skeleton from "react-loading-skeleton";
+import { closeSidebarModal } from "../../slice/SidebarModalSlice";
 
 export const Friends = () => {
   const modeStatus = useSelector((state)=>state.darkmode.value)
@@ -12,6 +14,10 @@ export const Friends = () => {
   let db = getDatabase();
   let auth = getAuth();
   let [friendList,setFriendList] = useState([]);
+
+ const handleBackModal = () =>{
+    dispatch(closeSidebarModal())
+  }
 
 useEffect(()=>{  
  onValue(ref(db, 'myfriends/' ), (snapshot) => {
@@ -45,26 +51,31 @@ useEffect(()=>{
  if(friendList.length>0){
    return (
      <>
-     <div  className={`${modeStatus ? 'card p-4 bg-semi-white rounded-lg mt-10':'card p-4 bg-semi-white rounded-lg mt-10'}`}>
+     <div>
          {/* title start */}
           <div className='sml_tle flex justify-between items-center pb-5'>
             <h4 className='font-poppin text-base text-black font-normal'>Your Friends</h4>
-            <button className='font-poppin text-xs text-white font-normal bg-primary py-2 px-4 rounded-lg'>Add Friend</button>
+            <button onClick={handleBackModal} className='font-poppin text-xs text-white font-normal bg-primary py-2 px-4 rounded-lg'>Back</button>
           </div>
          {/* title end */}
   {/* *************************************************** */}
           {/* members start */}
-          <div className='h-[300px] overflow-y-scroll scrollbar-hide'>
-          {friendList.map((item)=>(
-             <>
-             {auth.currentUser.uid == item.senderid ? 
-               <FriendsReuseable id={item.id} getid={item.receiverid} profile={item.receiverprofilephoto} name={item.receivername} message='Hi! are you free now?' date='today, 9.00 am' />
-               : 
-               <FriendsReuseable id={item.id} getid={item.senderid} profile={item.senderprofilephoto} name={item.sendername} message='Hi! are you free now?' date='today, 9.00 am' />
-             }
-             </>
-            ))}
-          </div>
+          {friendList ? 
+                    <div className=' '>
+                    {friendList.map((item)=>(
+                       <>
+                       {auth.currentUser.uid == item.senderid ? 
+                         <FriendsReuseable id={item.id} getid={item.receiverid} profile={item.receiverprofilephoto} name={item.receivername} message='Hi! are you free now?' date='today, 9.00 am' />
+                         : 
+                         <FriendsReuseable id={item.id} getid={item.senderid} profile={item.senderprofilephoto} name={item.sendername} message='Hi! are you free now?' date='today, 9.00 am' />
+                       }
+                       </>
+                      ))}
+                    </div>
+          :
+          <Skeleton/>
+          }
+
           {/* members end */}
      </div>
     </>
@@ -72,7 +83,7 @@ useEffect(()=>{
  }else{
   return (
     <>
-    <div className={`${modeStatus ? 'card p-4 bg-semi-white rounded-lg mt-10':'card p-4 bg-semi-white rounded-lg mt-10'}`}>
+    <div>
         {/* title start */}
          <div className='flex justify-between items-center'>
             <h2 className={`${modeStatus ? 'dark_heading':'light_heading'}`}>Friends</h2>

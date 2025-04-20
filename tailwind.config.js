@@ -9,6 +9,7 @@ module.exports = {
         'primary': '#5F35F5',
         'pbg': '#f8f8f8',
         'bdr': '#d1d1d1',
+        'semi-black': '#575757',
         'semi-white': '#f3f3f3',
       },
       boxShadow: {

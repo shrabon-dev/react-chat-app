@@ -28,14 +28,14 @@ function App() {
   return (
     <>
     <div className={`${modeStatus ? 'bg-[#2d3342] text-white h-screen':''}`}>
-      {userData && (
+      {/* {userData && (
         location.pathname != '/signin' && 
         <div className='inline-flex justify-center fixed z-[99999999] top-2 right-2'>
             <input onChange={handleDarkMode} id="mode" type={'checkbox'} />
             <label for="mode" className='custom_swicth'></label>
         </div>
       )
-     }
+     } */}
     <Routes>
       <Route path='/' element={<Home/>} />
       <Route path='/messenger' element={<Messenger/>} />

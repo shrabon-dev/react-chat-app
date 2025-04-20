@@ -37,12 +37,7 @@ export const Home = () => {
         </div>
         {/* <div className='w-full h-full tablet:flex tablet:flex-wrap justify-between px-4 large_tablet:pl-48 tablet:pl-48'> */}
         <div className='w-full h-full tablet:flex tablet:flex-wrap justify-center px-4 large_tablet:pl-48 tablet:pl-48'>
-
            <Posts/>
-
-
-
-
               {/* <div className='tablet:w-[445px] large_tablet:w-[48%] desktop:w-[33%] '>
                 
                     <Grouprequest/>
