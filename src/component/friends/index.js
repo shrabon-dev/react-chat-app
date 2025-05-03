@@ -51,7 +51,7 @@ useEffect(()=>{
  if(friendList.length>0){
    return (
      <>
-     <div>
+     <div className='px-2'>
          {/* title start */}
           <div className='sml_tle flex justify-between items-center pb-5'>
             <h4 className='font-poppin text-base text-black font-normal'>Your Friends</h4>
@@ -83,11 +83,11 @@ useEffect(()=>{
  }else{
   return (
     <>
-    <div>
+    <div className='px-2'>
         {/* title start */}
          <div className='flex justify-between items-center'>
             <h2 className={`${modeStatus ? 'dark_heading':'light_heading'}`}>Friends</h2>
-            <BiDotsVerticalRounded className='text-primary text-xl'/>
+            <button onClick={handleBackModal} className='font-poppin text-xs text-white font-normal bg-primary py-2 px-4 rounded-lg'>Back</button>
          </div>
         {/* title end */}
         {/* *************************************************** */}
