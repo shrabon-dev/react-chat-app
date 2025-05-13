@@ -136,9 +136,9 @@ export default function MessageBox() {
       });
   
       
-    },[data.id])
+    },[data?.id])
 
-useEffect(()=>{
+    useEffect(()=>{
    
         const messageRef = ref(db, 'singleMessages/');
         onValue(messageRef, (snapshot) => {
@@ -155,7 +155,7 @@ useEffect(()=>{
           
         });
               
-    },[data.id])
+    },[data?.id])
 
     useEffect(()=>{
    
@@ -174,7 +174,7 @@ useEffect(()=>{
         
       });
             
-  },[data.id])
+    },[data?.id])
 
 let handleMessageSelect = (e) =>{
   setImage(e.target.files[0])
@@ -248,228 +248,244 @@ uploadTask.on('state_changed',
   }
 
   return (
+     
         <>
-            <div className={`${modeStatus ? ' tablet:h-[98vh] mobile:h-[100%] bg-[#323949]  border-[#3d3e51] shadow-xl ':' tablet:h-[98vh] mobile:h-[100%] bg-white shadow-xl border-blue-300 '}`}>
-            {/* PROFILE */}
-            <div className='bg-primary py-2 px-4'>           
-                <div className='flex justify-between items-center  border-[#00000041] last:border-0'>   
-                    <div className='flex items-center gap-x-4'>
-                        <div>
-                            <img className='w-11 h-11 rounded-full' src='../images/group/grp3.webp' />
+          <div className={`${modeStatus ? ' tablet:h-[98vh] mobile:h-[100%] bg-[#323949]  border-[#3d3e51] shadow-xl ':' tablet:h-[98vh] mobile:h-[100%] bg-white shadow-xl border-blue-300 '}`}>
+           {  data ? 
+            <div className='msg_container'>
+              {/* PROFILE */}
+              <div className='bg-primary py-2 px-4'>           
+                  <div className='flex justify-between items-center  border-[#00000041] last:border-0'>   
+                      <div className='flex items-center gap-x-4'>
+                          <div>
+                              <img className='w-11 h-11 rounded-full' src='../images/group/grp3.webp' />
+                          </div>
+                          <div className='ml-2'>
+                              <h4 className={`bold_text text-sm text-gray-200`}>{data ? data.name : 'demo' }</h4>
+                              <p className={` text-sm text-gray-200`}>Online</p>
+                          </div>
+                          <div>
+                          <p className=' text-xs text-gray-200'>1 minute ago</p> 
                         </div>
-                        <div className='ml-2'>
-                            <h4 className={`bold_text text-sm text-gray-200`}>{data ? data.name : 'demo' }</h4>
-                            <p className={` text-sm text-gray-200`}>Online</p>
-                        </div>
-                        <div>
-                        <p className=' text-xs text-gray-200'>1 minute ago</p> 
-                       </div>
-                    </div>
+                      </div>
 
-                    <div>
-                        <p  className=' text-xl text-gray-200'><BiDotsVertical/></p> 
-                    </div>
-                </div>
-            </div>
-            {/* PROFILE */}
-    {/* *************************************************** */}
-          {/* message start */}
-          <div className='py-5 px-3'>
-          <ScrollToBottom  className='message_show_box tablet:h-[72vh] mobile:h-[40vh] mb-0 mobile:mb-20 custom-scrollbar'>
-       
-       {data.status == 'group' ? 
-       
-       (
-        groupMessagelist.map((item)=>(
+                      <div>
+                          <p  className=' text-xl text-gray-200'><BiDotsVertical/></p> 
+                      </div>
+                  </div>
+              </div>
+              {/* PROFILE */}
+              {/* *************************************************** */}
+              {/* message start */}
+              <div className='py-5 px-3'>
+              <ScrollToBottom  className='message_show_box tablet:h-[72vh] mobile:h-[40vh] mb-0 mobile:mb-20 custom-scrollbar'>
+          
+          {data.status == 'group' ? 
+          
+          (
+            groupMessagelist.map((item)=>(
 
-          
-          
-          ((item.who_send_id == auth.currentUser.uid && data.id == item.whom_send_id) ||
-            (groupUserHaveorNot.includes(item.whom_send_id + auth.currentUser.uid) && data.id == item.whom_send_id) ||
-            (groupUserHaveorNot.includes(auth.currentUser.uid + item.whom_send_id) && data.id == item.whom_send_id)) && 
               
-            item.msg ? (
-              auth.currentUser.uid == item.who_send_id ? ( 
+              
+              ((item.who_send_id == auth.currentUser.uid && data.id == item.whom_send_id) ||
+                (groupUserHaveorNot.includes(item.whom_send_id + auth.currentUser.uid) && data.id == item.whom_send_id) ||
+                (groupUserHaveorNot.includes(auth.currentUser.uid + item.whom_send_id) && data.id == item.whom_send_id)) && 
+                  
+                item.msg ? (
+                  auth.currentUser.uid == item.who_send_id ? ( 
 
-              <div className='flex justify-end mt-4'>
-              <div>
-                <p className={`${modeStatus ? 'current_dark_msg':'current_light_msg'}`}>{item.msg}</p>
-                <p className='text-xs font-nunito text-gray-500 font-normal mt-1 text-right'>{moment(item.date, "YYYYMMDD hh:mm").fromNow()}</p>
-              </div>
-              </div>
-              )
-          : (
-              <div className='mt-4'>
-              <p className={`${modeStatus ? 'dark_msg_tex':'light_msg_tex'}`}>{ item.msg}</p>
-              <p className='text-xs font-nunito text-gray-500 font-normal mt-1'>{moment(item.date, "YYYYMMDD hh:mm").fromNow()}</p>
-              </div>
-              )
-            
-            ) : (
-
-              item.audio_msg ? (       
-                auth.currentUser.uid == item.who_send_id ? 
-                <div className='flex justify-end mt-4'>
+                  <div className='flex justify-end mt-4'>
                   <div>
-                <audio controls src={item.audio_msg} type="audio/ogg"></audio> 
-                  <p className='text-xs font-nunito text-gray-500 font-normal mt-1 text-right'>{moment(item.date, "YYYYMMDD hh:mm").fromNow()}</p>
-                </div>
-                </div>
+                    <p className={`${modeStatus ? 'current_dark_msg':'current_light_msg'}`}>{item.msg}</p>
+                    <p className='text-xs font-nunito text-gray-500 font-normal mt-1 text-right'>{moment(item.date, "YYYYMMDD hh:mm").fromNow()}</p>
+                  </div>
+                  </div>
+                  )
+              : (
+                  <div className='mt-4'>
+                  <p className={`${modeStatus ? 'dark_msg_tex':'light_msg_tex'}`}>{ item.msg}</p>
+                  <p className='text-xs font-nunito text-gray-500 font-normal mt-1'>{moment(item.date, "YYYYMMDD hh:mm").fromNow()}</p>
+                  </div>
+                  )
+                
+                ) : (
+
+                  item.audio_msg ? (       
+                    auth.currentUser.uid == item.who_send_id ? 
+                    <div className='flex justify-end mt-4'>
+                      <div>
+                    <audio controls src={item.audio_msg} type="audio/ogg"></audio> 
+                      <p className='text-xs font-nunito text-gray-500 font-normal mt-1 text-right'>{moment(item.date, "YYYYMMDD hh:mm").fromNow()}</p>
+                    </div>
+                    </div>
+              
+                : 
+            
+                  <div className='mt-4'>
+                    <audio controls src={item.audio_msg} type="audio/ogg"></audio> 
+                    <p className='text-xs font-nunito text-gray-500 font-normal mt-1'>{moment(item.date, "YYYYMMDD hh:mm").fromNow()}</p>
+                  </div>
+                  )
+                  : 
+                  (
+                    auth.currentUser.uid == item.who_send_id ? 
+                    <div className='flex justify-end mt-4'>
+                    <div>
+      
+                    <img className='max-w-xs' src={item.img_msg} />
+                      <p className='text-xs font-nunito text-gray-500 font-normal mt-1 text-right'>{moment(item.date, "YYYYMMDD hh:mm").fromNow()}</p>
+                    </div>
+                    </div>
+              
+                : 
+            
+                <div className='mt-4'>
+                    <img className='max-w-xs'  src={item.img_msg} />
+                    <p className='text-xs font-nunito text-gray-500 font-normal mt-1'>{moment(item.date, "YYYYMMDD hh:mm").fromNow()}</p>
+                    </div>
+                  )
+                )
+          ))
+            )
           
-            : 
-        
-              <div className='mt-4'>
-                 <audio controls src={item.audio_msg} type="audio/ogg"></audio> 
-                 <p className='text-xs font-nunito text-gray-500 font-normal mt-1'>{moment(item.date, "YYYYMMDD hh:mm").fromNow()}</p>
-              </div>
-              )
-              : 
-              (
+          : 
+          
+          (
+            messagelist.map((item)=>(
+              
+              item.msg ? (
                 auth.currentUser.uid == item.who_send_id ? 
+
                 <div className='flex justify-end mt-4'>
                 <div>
-  
-                <img className='max-w-xs' src={item.img_msg} />
+                  <p className={`${modeStatus ? 'current_dark_msg':'current_light_msg'}`}>{item.msg}</p>
                   <p className='text-xs font-nunito text-gray-500 font-normal mt-1 text-right'>{moment(item.date, "YYYYMMDD hh:mm").fromNow()}</p>
                 </div>
                 </div>
-          
             : 
-        
-            <div className='mt-4'>
-                 <img className='max-w-xs'  src={item.img_msg} />
+                <div className='mt-4'>
+                <p className={`${modeStatus ? 'dark_msg_tex':'light_msg_tex'}`}>{item.msg}</p>
                 <p className='text-xs font-nunito text-gray-500 font-normal mt-1'>{moment(item.date, "YYYYMMDD hh:mm").fromNow()}</p>
                 </div>
+              ) : (
+
+                item.audio_msg ? 
+                (
+                  auth.currentUser.uid == item.who_send_id ? 
+
+                  <div className='flex justify-end mt-4'>
+                  <div>
+
+                  <audio  controls src={item.audio_msg} type="audio/ogg"></audio> 
+                    <p className='text-xs font-nunito text-gray-500 font-normal mt-1 text-right'>{moment(item.date, "YYYYMMDD hh:mm").fromNow()}</p>
+                  </div>
+                  </div>
+              : 
+                  <div className='mt-4'>
+                  <audio  controls src={item.audio_msg} type="audio/ogg"></audio> 
+                  <p className='text-xs font-nunito text-gray-500 font-normal mt-1'>{moment(item.date, "YYYYMMDD hh:mm").fromNow()}</p>
+                  </div>
+                )
+                : 
+                (
+                  auth.currentUser.uid == item.who_send_id ? 
+
+                  <div className='flex justify-end mt-4'>
+                  <div>
+                    <img className='max-w-xs'  src={item.img_msg} />
+                    <p className='text-xs font-nunito text-gray-500 font-normal mt-1 text-right'>{moment(item.date, "YYYYMMDD hh:mm").fromNow()}</p>
+                  </div>
+                  </div>
+              : 
+                  <div className='mt-4'>
+                  <img className='max-w-xs' src={item.img_msg} />
+                  <p className='text-xs font-nunito text-gray-500 font-normal mt-1'>{moment(item.date, "YYYYMMDD hh:mm").fromNow()}</p>
+                  </div>
+                )
+
+
               )
-            )
-       ))
-        )
-       
-       : 
-       
-       (
-        messagelist.map((item)=>(
-          
-          item.msg ? (
-            auth.currentUser.uid == item.who_send_id ? 
 
-            <div className='flex justify-end mt-4'>
-            <div>
-              <p className={`${modeStatus ? 'current_dark_msg':'current_light_msg'}`}>{item.msg}</p>
-              <p className='text-xs font-nunito text-gray-500 font-normal mt-1 text-right'>{moment(item.date, "YYYYMMDD hh:mm").fromNow()}</p>
-            </div>
-            </div>
-        : 
-            <div className='mt-4'>
-            <p className={`${modeStatus ? 'dark_msg_tex':'light_msg_tex'}`}>{item.msg}</p>
-            <p className='text-xs font-nunito text-gray-500 font-normal mt-1'>{moment(item.date, "YYYYMMDD hh:mm").fromNow()}</p>
-            </div>
-          ) : (
-
-            item.audio_msg ? 
-            (
-              auth.currentUser.uid == item.who_send_id ? 
-
-              <div className='flex justify-end mt-4'>
-              <div>
-
-              <audio  controls src={item.audio_msg} type="audio/ogg"></audio> 
-                <p className='text-xs font-nunito text-gray-500 font-normal mt-1 text-right'>{moment(item.date, "YYYYMMDD hh:mm").fromNow()}</p>
-              </div>
-              </div>
-          : 
-              <div className='mt-4'>
-              <audio  controls src={item.audio_msg} type="audio/ogg"></audio> 
-              <p className='text-xs font-nunito text-gray-500 font-normal mt-1'>{moment(item.date, "YYYYMMDD hh:mm").fromNow()}</p>
-              </div>
-            )
-            : 
-            (
-              auth.currentUser.uid == item.who_send_id ? 
-
-              <div className='flex justify-end mt-4'>
-              <div>
-                <img className='max-w-xs'  src={item.img_msg} />
-                <p className='text-xs font-nunito text-gray-500 font-normal mt-1 text-right'>{moment(item.date, "YYYYMMDD hh:mm").fromNow()}</p>
-              </div>
-              </div>
-          : 
-              <div className='mt-4'>
-               <img className='max-w-xs' src={item.img_msg} />
-              <p className='text-xs font-nunito text-gray-500 font-normal mt-1'>{moment(item.date, "YYYYMMDD hh:mm").fromNow()}</p>
-              </div>
-            )
-
-
+            ))
           )
+          }
 
-        ))
-       )
-       }
+              </ScrollToBottom>
+              </div>
 
-         </ScrollToBottom>
-          </div>
-  
-     
-   
-         <div>
-         <div className='message_send_option flex tablet:gap-4 mobile:gap-1 relative mobile:bottom-5 left-10'>
-                  <div className='w-[70%]'><input  value={message} onChange={messagewrite} className={`${modeStatus ? 'dark_msg_input':'light_msg_input'}`}/></div>
-                  
-                  <div className='w-[20%] flex tablet:gap-4 mobile:gap-1 items-center'> 
-                  {emojiPopUp && 
-                  <span className='tablet:p-3 mobile:p-1 text-lg absolute  w-1/4 bottom-11 right-52'> 
-                  <EmojiPicker onEmojiClick={(e)=>setMessage(message + e.emoji)} />
-                  </span> 
-                  }
-                  <span className='tablet:p-3 mobile:p-1 text-lg '> 
-                  <HiOutlineEmojiHappy onClick={()=>setEmojiPopUp(!emojiPopUp)} className='cursor-pointer'/> 
-                  </span> 
-                  <div className=''>
-                    {audio && 
-                    <div>
-                      <audio className='absolute left-0 bottom-14' controls src={audio} type="audio/ogg"></audio> 
-                    </div>
+              <div>
+              <div className='message_send_option flex tablet:gap-4 mobile:gap-1 relative mobile:bottom-5 left-10'>
+                        <div className='w-[70%]'><input  value={message} onChange={messagewrite} className={`${modeStatus ? 'dark_msg_input':'light_msg_input'}`}/></div>
+                        
+                        <div className='w-[20%] flex tablet:gap-4 mobile:gap-1 items-center'> 
+                        {emojiPopUp && 
+                        <span className='tablet:p-3 mobile:p-1 text-lg absolute  w-1/4 bottom-11 right-52'> 
+                        <EmojiPicker onEmojiClick={(e)=>setMessage(message + e.emoji)} />
+                        </span> 
+                        }
+                        <span className='tablet:p-3 mobile:p-1 text-lg '> 
+                        <HiOutlineEmojiHappy onClick={()=>setEmojiPopUp(!emojiPopUp)} className='cursor-pointer'/> 
+                        </span> 
+                        <div className=''>
+                          {audio && 
+                          <div>
+                            <audio className='absolute left-0 bottom-14' controls src={audio} type="audio/ogg"></audio> 
+                          </div>
+                          
+                          }
+                          
+                          <AudioRecorder
+                            onRecordingComplete={(blob) => addAudioElement(blob)}
+                            recorderControls={recorderControls}
+                          />
+                
+                        </div>
+                        <span onClick={()=>setImagePopUp(!imagePopUp)} className='tablet:p-3 mobile:p-1 text-lg cursor-pointer'><AiOutlineCamera/></span>
+                        {audio ?
+                        <span onClick={handleAudioMessageSent} className='bg-primary text-white tablet:p-3 mobile:p-1 rounded-lg text-lg cursor-pointer'><FiSend/></span>
+                        : 
+                        <span onClick={handleMessageSent} className='bg-primary text-white tablet:p-3 mobile:p-1 rounded-lg text-lg cursor-pointer'><FiSend/></span>
                     
-                    }
-                    
-                    <AudioRecorder
-                      onRecordingComplete={(blob) => addAudioElement(blob)}
-                      recorderControls={recorderControls}
-                    />
-           
-                  </div>
-                  <span onClick={()=>setImagePopUp(!imagePopUp)} className='tablet:p-3 mobile:p-1 text-lg cursor-pointer'><AiOutlineCamera/></span>
-                  {audio ?
-                  <span onClick={handleAudioMessageSent} className='bg-primary text-white tablet:p-3 mobile:p-1 rounded-lg text-lg cursor-pointer'><FiSend/></span>
-                  : 
-                  <span onClick={handleMessageSent} className='bg-primary text-white tablet:p-3 mobile:p-1 rounded-lg text-lg cursor-pointer'><FiSend/></span>
-              
-                    }
-                  </div>
-          </div>
-         </div>
-          {/* message End */}
+                          }
+                        </div>
+                </div>
+              </div>
+                {/* message End */}
             </div>
+           :
+          //  Waiting For Message Select
+           <>
+           <div className='waiting_msg h-full flex flex-col items-center justify-center'>
+            <img src='../images/waiting_bird.gif' className='w-96 h-96 rounded-full block object-cover' alt='waiting msg img'/>
+            <h3 className='font-poppin text-lg italic font-medium w-1/2 mx-auto pt-10 text-center'>🎯 Don't just stare at the screen – pick a friend and let the nonsense flow! You know you want to. 😉</h3>
+           </div>
+           </>
+           }
+             
+          </div>
 
-          {/* image upoload popup start */}
-               {imagePopUp &&
-                  <div className='w-96 h-60 p-4 rounded-md absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[999] bg-primary'>
-                      <h4 className='text-white font-nunito font-medium text-2xl'>Select Image</h4>
-                      <input onChange={handleMessageSelect} className='text-white my-4 outline-none'  type="file"  />
-                      
-                      {errorImage && 
-                        <p  className='bg-red p-2 text-white font-nunito rounded-lg bg-red-500 cursor-pointer'>{errorImage}</p>
-                      
-                      }
-                    <div className='mt-8'>
-                        <span onClick={handleImageUpload} className='bg-red p-2 text-white font-nunito rounded-lg bg-lime-500 cursor-pointer mr-6'>Upload</span>
-                        <span onClick={()=>setImagePopUp(!imagePopUp)} className='bg-red p-2 text-white font-nunito rounded-lg bg-red-500 cursor-pointer'>Cencel</span>
-                    </div>
-                  </div>
-               }
-          {/* image upoload popup end */}
+              {/* image upoload popup start */}
+                  {imagePopUp &&
+                      <div className='w-96 h-60 p-4 rounded-md absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[999] bg-primary'>
+                          <h4 className='text-white font-nunito font-medium text-2xl'>Select Image</h4>
+                          <input onChange={handleMessageSelect} className='text-white my-4 outline-none'  type="file"  />
+                          
+                          {errorImage && 
+                            <p  className='bg-red p-2 text-white font-nunito rounded-lg bg-red-500 cursor-pointer'>{errorImage}</p>
+                          
+                          }
+                        <div className='mt-8'>
+                            <span onClick={handleImageUpload} className='bg-red p-2 text-white font-nunito rounded-lg bg-lime-500 cursor-pointer mr-6'>Upload</span>
+                            <span onClick={()=>setImagePopUp(!imagePopUp)} className='bg-red p-2 text-white font-nunito rounded-lg bg-red-500 cursor-pointer'>Cencel</span>
+                        </div>
+                      </div>
+                  }
+              {/* image upoload popup end */}
 
         </>
+        
+
+       
+       
   )
 }

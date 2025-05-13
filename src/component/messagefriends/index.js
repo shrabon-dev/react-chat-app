@@ -56,7 +56,7 @@ function MessageFriends() {
            <>
            {auth.currentUser.uid == item.senderid ? 
            <>
-              <div onClick={()=>handleMessageforClick(item)} className='flex justify-between items-center mt-5 border-b pb-3 border-[#00000041] last:border-0 cursor-pointer'>   
+              <div onClick={()=>handleMessageforClick(item)} className='flex justify-between items-center mt-5 border-b pb-3 border-semi-bdr last:border-0 cursor-pointer'>   
               <div className='flex '>
                     <div>
                       <img className='w-11 h-11 rounded-full' src={item.receiverprofilephoto} />
@@ -73,7 +73,7 @@ function MessageFriends() {
            </>
            : 
            <>
-              <div onClick={()=>handleMessageforClick(item)} className='flex justify-between items-center mt-5 border-b pb-3 border-[#00000041] last:border-0 cursor-pointer'>   
+              <div onClick={()=>handleMessageforClick(item)} className='flex justify-between items-center mt-5 border-b pb-3 border-semi-bdr last:border-0 cursor-pointer'>   
               <div className='flex '>
                     <div>
                       <img className='w-11 h-11 rounded-full' src={item.senderprofilephoto} />

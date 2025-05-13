@@ -54,12 +54,16 @@ export const Messenger = () => {
         </div>
        </div> */}
        <div className='  large_tablet:flex justify-between pt-5 gap-5  '>
-        <div className='tablet:w-[25%] overflow-y-scroll bg-white shadow-xl p-5'>     
-                    <SearchBar/>
-                    <MessageGroup/>
-                    <MessageFriends/>
+        <div className='tablet:w-[22%] tablet:h-[98vh] fixed  bg-white shadow-xl p-5'>
+            <div className='pb-2 border-b border-semi-bdr'>
+              <SearchBar/>
+            </div>  
+            <div className='overflow-y-scroll tablet:h-[90%]' >
+                <MessageGroup/>
+                <MessageFriends/>
+            </div>  
         </div> 
-        <div className='tablet:w-[75%] bg-white shadow-xl'>     
+        <div className='tablet:w-[67%] fixed right-0 bg-white shadow-xl'>     
              <MessageBox/>
         </div> 
        </div>

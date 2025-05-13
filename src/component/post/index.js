@@ -22,29 +22,29 @@ export default function Posts() {
                     <FiPlus className='text-4xl text-white'/>
                </div>
                <div className='usr absolute flex gap-4 items-center p-2 bottom-0 left-0 z-1 w-full bg-gradient-to-t to-black/20 from-black'>
-                 <img className='w-10 h-10 rounded-full' src='https://media.istockphoto.com/id/1082483460/photo/beautiful-black-man.jpg?s=612x612&w=0&k=20&c=MmNFcZf6z2WLY7jMBAmtLxo6YNItudiRuzn-z7V3tZk=' />
+                 <img className='w-10 h-10 rounded-full  object-cover' src='https://media.istockphoto.com/id/1082483460/photo/beautiful-black-man.jpg?s=612x612&w=0&k=20&c=MmNFcZf6z2WLY7jMBAmtLxo6YNItudiRuzn-z7V3tZk=' />
                 <Link to={'/'}><p className='text-sm font-poppin text-white'>Ruman Uddin</p></Link>               
                </div>
             </div>
             <div className='item w-[200px] flex relative justify-center items-center h-[280px] overflow-hidden bg-black/80 rounded'>
-               <img className='object-center' src='https://img.freepik.com/premium-photo/dawn-with-flowers-mountains_209487-41.jpg' alt='story_img' />
+               <img className='object-center my-auto' src='https://img.freepik.com/premium-photo/dawn-with-flowers-mountains_209487-41.jpg' alt='story_img' />
                <div className='usr absolute flex gap-4 items-center p-2 bottom-0 left-0 z-1 w-full bg-gradient-to-t to-black/20 from-black'>
-                 <img className='w-10 h-10 rounded-full' src='https://media.istockphoto.com/id/1082483460/photo/beautiful-black-man.jpg?s=612x612&w=0&k=20&c=MmNFcZf6z2WLY7jMBAmtLxo6YNItudiRuzn-z7V3tZk=' />
-                <Link to={'/'}><p className='text-sm font-poppin text-white'>Ruman Uddin</p></Link>               
+                 <img className='w-10 h-10 rounded-full object-cover' src='https://media.istockphoto.com/id/1082483460/photo/beautiful-black-man.jpg?s=612x612&w=0&k=20&c=MmNFcZf6z2WLY7jMBAmtLxo6YNItudiRuzn-z7V3tZk=' />
+                <Link to={'/'}><p className='text-sm font-poppin text-white'>Bulu Miya</p></Link>               
                </div>
             </div>
             <div className='item w-[200px] relative flex justify-center items-center h-[280px] overflow-hidden bg-black/80 rounded'>
-               <img className='object-center' src='https://natureconservancy-h.assetsadobe.com/is/image/content/dam/tnc/nature/en/photos/w/o/WOPA160517_D056-resized.jpg?crop=864%2C0%2C1728%2C2304&wid=600&hei=800&scl=2.88' alt='story_img' />
+               <img className='object-center my-auto' src='https://natureconservancy-h.assetsadobe.com/is/image/content/dam/tnc/nature/en/photos/w/o/WOPA160517_D056-resized.jpg?crop=864%2C0%2C1728%2C2304&wid=600&hei=800&scl=2.88' alt='story_img' />
                <div className='usr absolute flex gap-4 items-center p-2 bottom-0 left-0 z-1 w-full bg-gradient-to-t to-black/20 from-black'>
-                 <img className='w-10 h-10 rounded-full' src='https://media.istockphoto.com/id/1082483460/photo/beautiful-black-man.jpg?s=612x612&w=0&k=20&c=MmNFcZf6z2WLY7jMBAmtLxo6YNItudiRuzn-z7V3tZk=' />
-                <Link to={'/'}><p className='text-sm font-poppin text-white'>Ruman Uddin</p></Link>               
+                 <img className='w-10 h-10 rounded-full  object-cover' src='https://media.istockphoto.com/id/1082483460/photo/beautiful-black-man.jpg?s=612x612&w=0&k=20&c=MmNFcZf6z2WLY7jMBAmtLxo6YNItudiRuzn-z7V3tZk=' />
+                <Link to={'/'}><p className='text-sm font-poppin text-white'>Miya Vai</p></Link>               
                </div>
             </div>
             <div className='item w-[200px] relative flex justify-center items-center h-[280px] overflow-hidden bg-black/80 rounded'>
-               <img className='object-center' src='https://st4.depositphotos.com/8660766/39016/i/450/depositphotos_390165278-stock-photo-blue-green-summer-park.jpg' alt='story_img' />
+               <img className='object-center my-auto' src='https://st4.depositphotos.com/8660766/39016/i/450/depositphotos_390165278-stock-photo-blue-green-summer-park.jpg' alt='story_img' />
                <div className='usr absolute flex gap-4 items-center p-2 bottom-0 left-0 z-1 w-full bg-gradient-to-t to-black/20 from-black'>
-                 <img className='w-10 h-10 rounded-full' src='https://media.istockphoto.com/id/1082483460/photo/beautiful-black-man.jpg?s=612x612&w=0&k=20&c=MmNFcZf6z2WLY7jMBAmtLxo6YNItudiRuzn-z7V3tZk=' />
-                <Link to={'/'}><p className='text-sm font-poppin text-white'>Ruman Uddin</p></Link>               
+                 <img className='w-10 h-10 rounded-full  object-cover' src='https://media.istockphoto.com/id/1082483460/photo/beautiful-black-man.jpg?s=612x612&w=0&k=20&c=MmNFcZf6z2WLY7jMBAmtLxo6YNItudiRuzn-z7V3tZk=' />
+                <Link to={'/'}><p className='text-sm font-poppin text-white'>Bappi Sekh</p></Link>               
                </div>
             </div>
         </div>

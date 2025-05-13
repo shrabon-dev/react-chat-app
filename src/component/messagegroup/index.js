@@ -71,7 +71,7 @@ export default function MessageGroup() {
         {/* members start */}
          <div className='  '>   
          {myGroupList.map((item)=>(
-          <div onClick={()=>handleMessageforClick(item,item.id)} className='flex justify-between items-center mt-5 border-b pb-3 border-[#00000041] last:border-0'>
+          <div onClick={()=>handleMessageforClick(item,item.id)} className='flex justify-between cursor-pointer items-center mt-5 border-b pb-3 border-semi-bdr last:border-0'>
                 
               <div className='flex '>
                     <div>
@@ -89,7 +89,7 @@ export default function MessageGroup() {
           </div>
          ))}  
         {joinGroupList.map((item)=>(
-          <div onClick={()=>handleMessageforClick(item)} className='flex justify-between items-center mt-5 border-b pb-3 border-[#00000041] last:border-0'>
+          <div onClick={()=>handleMessageforClick(item)} className='flex justify-between cursor-pointer items-center mt-5 border-b pb-3 border-semi-bdr last:border-0'>
                 
               <div className='flex '>
                     <div>
