@@ -153,7 +153,7 @@ const { popup, type, data } = sidebar;
                   <div className='menus'>
                     <ul className='flex gap-5 items-center'>
                       <li>
-                        <Link  className='flex gap-1 items-center icon_menu_a bg-white p-2 px-2 rounded' to={'/'}><RiMessage3Fill /> Chat </Link>
+                        <Link  className='flex gap-1 items-center icon_menu_a bg-white p-2 px-2 rounded' to={'/messenger'}><RiMessage3Fill /> Chat </Link>
                         {/* <Link  className='flex gap-2 items-center icon_menu_a bg-primary/10 p-2 px-2 rounded' to={'/'}><FaBookmark /> Saved </Link> */}
                       </li>
                       <li>
