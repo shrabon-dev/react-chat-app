@@ -12,7 +12,7 @@ import { FaShare } from "react-icons/fa";
 
 export default function Posts() {
   return (
-    <div className='w-[780px] py-10'>
+    <div className='w-[700px] py-10'>
         {/* Notice Start */}
         <p className='text-center text-red-700 bg-red-100 rounded py-2 mb-5'>This site is currently under construction as we are upgrading the UI of our chat application for a more enhanced and professional experience. Stay tuned for updates! <b> Last Updated - 13/05/25</b></p>
         {/* Notice End */}
@@ -65,8 +65,8 @@ export default function Posts() {
                 {/* Post cntn Start */}
                 <div className='pst_cntn py-5'>
                     <p>Naaaa bro Hin still dey house jare , I no sure say i wan sell am tho Naaaa bro Hin still dey house jare , I no sure say i wan sell am thoNaaaa bro Hin still dey house jare , I no sure say i wan sell am thoNaaaa bro Hin still dey house jare , I no sure say i wan sell am tho</p>
-                    <div className=' w-full h-[400px] rounded-xl my-5 overflow-hidden '>
-                        <img className='w-full object-cover' src='https://w0.peakpx.com/wallpaper/204/667/HD-wallpaper-spring-nature.jpg' alt='img_cont'/>
+                    <div className=' !aspect-square  rounded-xl my-5 overflow-hidden '>
+                        <img className='!aspect-square object-cover' src='https://w0.peakpx.com/wallpaper/204/667/HD-wallpaper-spring-nature.jpg' alt='img_cont'/>
                     </div>
                 </div>
                 {/* Post cntn Start */}
@@ -96,8 +96,8 @@ export default function Posts() {
                 {/* Post cntn Start */}
                 <div className='pst_cntn py-5'>
                     <p>Naaaa bro Hin still dey house jare , I no sure say i wan sell am tho Naaaa bro Hin still dey house jare , I no sure say i wan sell am thoNaaaa bro Hin still dey house jare , I no sure say i wan sell am thoNaaaa bro Hin still dey house jare , I no sure say i wan sell am tho</p>
-                    <div className=' w-full h-[400px] rounded-xl my-5 overflow-hidden '>
-                        <img className='w-full object-cover' src='https://w0.peakpx.com/wallpaper/204/667/HD-wallpaper-spring-nature.jpg' alt='img_cont'/>
+                    <div className=' !aspect-square  rounded-xl my-5 overflow-hidden '>
+                        <img className='!aspect-square object-cover' src='https://w0.peakpx.com/wallpaper/204/667/HD-wallpaper-spring-nature.jpg' alt='img_cont'/>
                     </div>
                 </div>
                 {/* Post cntn Start */}
@@ -127,8 +127,8 @@ export default function Posts() {
                 {/* Post cntn Start */}
                 <div className='pst_cntn py-5'>
                     <p>Naaaa bro Hin still dey house jare , I no sure say i wan sell am tho Naaaa bro Hin still dey house jare , I no sure say i wan sell am thoNaaaa bro Hin still dey house jare , I no sure say i wan sell am thoNaaaa bro Hin still dey house jare , I no sure say i wan sell am tho</p>
-                    <div className=' w-full h-[400px] rounded-xl my-5 overflow-hidden '>
-                        <img className='w-full object-cover' src='https://w0.peakpx.com/wallpaper/204/667/HD-wallpaper-spring-nature.jpg' alt='img_cont'/>
+                    <div className=' !aspect-square  rounded-xl my-5 overflow-hidden '>
+                        <img className='!aspect-square object-cover' src='https://w0.peakpx.com/wallpaper/204/667/HD-wallpaper-spring-nature.jpg' alt='img_cont'/>
                     </div>
                 </div>
                 {/* Post cntn Start */}
@@ -158,8 +158,8 @@ export default function Posts() {
                 {/* Post cntn Start */}
                 <div className='pst_cntn py-5'>
                     <p>Naaaa bro Hin still dey house jare , I no sure say i wan sell am tho Naaaa bro Hin still dey house jare , I no sure say i wan sell am thoNaaaa bro Hin still dey house jare , I no sure say i wan sell am thoNaaaa bro Hin still dey house jare , I no sure say i wan sell am tho</p>
-                    <div className=' w-full h-[400px] rounded-xl my-5 overflow-hidden '>
-                        <img className='w-full object-cover' src='https://w0.peakpx.com/wallpaper/204/667/HD-wallpaper-spring-nature.jpg' alt='img_cont'/>
+                    <div className=' !aspect-square  rounded-xl my-5 overflow-hidden '>
+                        <img className='!aspect-square object-cover' src='https://w0.peakpx.com/wallpaper/204/667/HD-wallpaper-spring-nature.jpg' alt='img_cont'/>
                     </div>
                 </div>
                 {/* Post cntn Start */}

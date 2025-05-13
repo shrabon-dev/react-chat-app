@@ -26,7 +26,7 @@ export const FriendsReuseable = (props) => {
     <>
        <div className='flex justify-around items-center mt-2 border-b pb-2 border-bdr last:border-0'>
                <div >
-                <img className='w-10 h-10 rounded-full' src={props.profile} />
+                <img   className='w-10 h-10 rounded-full object-cover' src={props.profile} />
                </div>
                <div>
                <h4 className={`${modeStatus ? 'bold_text text-xs text-gray-200':'bold_text text-xs'}`}>{props.name}</h4>

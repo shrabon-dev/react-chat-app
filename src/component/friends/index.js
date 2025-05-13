@@ -54,7 +54,7 @@ useEffect(()=>{
      <div className=''>
          {/* title start */}
           <div className='sml_tle flex justify-between items-center pb-5'>
-            <h4 className='font-poppin text-base text-black font-normal'>Your Friends</h4>
+            <h4 className='font-poppin text-base text-semi-black  font-normal'>Your Friends</h4>
             <button onClick={handleBackModal} className='font-poppin text-xs text-white font-normal bg-primary py-2 px-4 rounded-lg'>Back</button>
           </div>
          {/* title end */}

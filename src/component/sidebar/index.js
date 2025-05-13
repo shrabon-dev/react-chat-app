@@ -121,12 +121,12 @@ export const Sidebar = ({active}) => {
  
   return (
     <>
-    <div className='w-full h-full border-r border-semi-bdr bg-bg tablet:p-2 tablet:py-5 large_tablet:p-0 large_tablet:pt-6  mobile:flex mobile:items-center mobile:justify-center tablet:block text-center'>
+    <div className='mobile:w-screen tablet:w-[300px] tablet:h-full w-full fixed mobile:bottom-0 z-[99999] border-r border-semi-bdr bg-bg mobile:flex mobile:items-center mobile:justify-center tablet:block text-center'>
 
 {/* profile image start */}
 
-   <div className='logo text-center pb-10'>
-    <img className='w-24 block m-auto' src='../images/dc.png'  alt={'logo dcchat'}/>
+   <div className='logo text-center py-6 bg-primary'>
+    <img className='w-32 block m-auto' src='../images/dc.png'  alt={'logo dcchat'}/>
    </div>
       {/* <h6 className='text-semi-black font-nunito text-base tablet:block mt-1 mobile:hidden'>{userData && userData.displayName}</h6> */}
 {/* profile image end */}
@@ -144,10 +144,10 @@ export const Sidebar = ({active}) => {
     </div>
     Messanger
     </Link>
-    <Link to='/notification' className='menu_a'>
-    <div className={`${active=='notification' ? 'hoverAfterBefore':'menu'}`}>
+    <Link to='/notification' className='menu_a '>
+    <div className={`${active=='notification' ? 'hoverAfterBefore relative':'menu relative'}`}>
     <MdOutlineNotifications className={`${active=='notification'? " ":" "}`}/>
-     <span className='text-black text-base'>{alert.filter(notification => !notification.readStatus).length}</span>
+     <span className='text-black text-xs absolute top-2 right-2'>{alert.filter(notification => !notification.readStatus).length}</span>
     </div>
     Notification
     </Link>

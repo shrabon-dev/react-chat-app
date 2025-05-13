@@ -15,7 +15,6 @@ export default function MessageGroup() {
   useEffect(()=>{  
   
     onValue(ref(db, 'mygroups/' ), (snapshot) => {
-      
         let arr = []
             snapshot.forEach((item)=>{
                if(auth.currentUser.uid == item.val().admin_id ){
@@ -27,7 +26,6 @@ export default function MessageGroup() {
   
     },[])
     useEffect(()=>{  
-  
       onValue(ref(db, 'groups/' ), (snapshot) => {
         
           let arr = []

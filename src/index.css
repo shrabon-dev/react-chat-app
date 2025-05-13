@@ -33,7 +33,7 @@
       @apply flex gap-2 items-center pl-5 font-poppin font-semibold text-sm text-semi-black
     }
     .bold_text{
-      @apply font-poppin text-lg font-semibold text-black
+      @apply font-poppin text-lg font-semibold text-semi-black 
     }
     .p_text{
       @apply font-poppin text-sm font-normal text-[#4d4d4dbd]
@@ -57,13 +57,13 @@
       @apply flex justify-between text-xs font-bold font-nunito text-gray-700
     }
     .light_heading{
-      @apply relative text-black font-poppin font-semibold text-xl
+      @apply relative text-semi-black  font-poppin font-semibold text-xl
     }
     .dark_heading{
       @apply relative text-gray-200 font-poppin font-semibold text-xl
     }
     .light_msg_tex{
-      @apply text-sm font-nunito font-semibold text-black bg-white shadow-lg rounded-lg p-3 inline-block
+      @apply text-sm font-nunito font-semibold text-semi-black  bg-white shadow-lg rounded-lg p-3 inline-block
     }
     .dark_msg_tex{
       @apply text-sm font-nunito font-semibold text-gray-300 bg-[#3d3e51] shadow-lg rounded-lg p-3 inline-block

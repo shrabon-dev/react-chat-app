@@ -9,7 +9,7 @@ export const GrouprequestReuseble = (props) => {
                
                <div className='flex '>
                <div>
-                <img className='w-11 h-11 rounded-full' src={props.profile} />
+                <img   className='w-10 h-10 rounded-full object-cover' src={props.profile} />
                </div>
                <div className='ml-2'>
                 <h4 className={`${modeStatus ? 'bold_text text-sm text-gray-200':'bold_text text-sm'}`}>{props.groupName}</h4>
