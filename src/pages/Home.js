@@ -31,7 +31,7 @@ export const Home = () => {
 
   return (
     <>
-       <div className='flex'>
+       <div className='flex bg-bg'>
         <div className='mobile:w-screen tablet:w-[180px] tablet:h-full fixed  mobile:bottom-0 z-[99999]'>
           <Sidebar active='home' />
         </div>

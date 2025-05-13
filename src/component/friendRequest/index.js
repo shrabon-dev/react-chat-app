@@ -33,7 +33,7 @@ export const FriendsRequest = () => {
 if(friendRequestList.length > 0){
   return (
     <>
-    <div className='px-2'>
+    <div className=''>
         {/* title start */}
          <div className='flex justify-between items-center'>
             <h2 className={`${modeStatus ? 'dark_heading':'light_heading'}`}>Friends Request</h2>
@@ -56,7 +56,7 @@ if(friendRequestList.length > 0){
 }else{
   return (
     <>
-    <div className='px-2'>
+    <div className=''>
         {/* title start */}
          <div className='flex justify-between items-center'>
             <h2 className={`${modeStatus ? 'dark_heading':'light_heading'}`}>Friends Request</h2>

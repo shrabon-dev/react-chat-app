@@ -106,12 +106,11 @@ const handleBackModal = () =>{
 if(myGroupList.length > 0){
   return (
     <>
-    <div  className='px-2'>
+    <div  className=''>
         {/* title start */}
          <div className='flex justify-between items-center'>
             <h2 className={`${modeStatus ? 'dark_heading':'light_heading'}`}>My Groups</h2>
-            <button onClick={handleBackModal} className='font-poppin text-xs text-white font-normal bg-primary py-2 px-4 rounded-lg'>Back</button>
-
+            <button onClick={handleBackModal} className='font-poppin text-xs text-white font-normal bg-primary py-2 px-4 rounded-lg'> Back </button>
          </div>
         {/* title end */}
 {/* *************************************************** */}
@@ -238,7 +237,7 @@ if(myGroupList.length > 0){
 
   return (
     <>
-    <div className='px-2' >
+    <div className='' >
         {/* title start */}
          <div className='flex justify-between items-center'>
             <h2 className={`${modeStatus ? 'dark_heading':'light_heading'}`}>My Groups</h2>

@@ -20,11 +20,17 @@
     .input_span_css{
       @apply absolute large_tablet:left-5 border-2 border-[#11175d38] tablet:left-8 mobile:left-5 -top-5 bg-white rounded-full py-2 px-2  font-nunito font-semibold text-sm text-[#11175db6]
     }
+    .icon_menu_a{
+      @apply font-poppin font-semibold text-sm text-semi-black
+    }
     .hoverAfterBefore{
-      @apply  text-center z-10 relative mobile:p-2 tablet:p-4 large_tablet:p-7 after:absolute mobile:after:right-[-10px] tablet:after:right-[-16px]  large_tablet:after:right-[-44px] mobile:after:top-1 tablet:after:top-0 after:h-full after:bg-white after:z-[-1] after:w-[152%] tablet:after:w-[120%] large_tablet:after:w-[152%]  mobile:after:rounded-r-lg tablet:after:rounded-r-none mobile:after:rounded-l-lg tablet:after:rounded-l-3xl mobile:before:w-0  tablet:before:w-4 mobile:before:h-0 tablet:before:h-full before:absolute tablet:before:right-[-16px] large_tablet:before:right-[-44px] before:top-0 before:bg-primary before:z-10 before:rounded-l-2xl before:shadow-ownshadow
+      @apply  text-primary mobile:text-lg tablet:text-xl inline-flex justify-center items-center bg-primary/20 w-10 h-10 rounded-full
     }
     .menu{
-      @apply text-center z-10 relative mobile:p-2 tablet:p-4 large_tablet:p-7 
+      @apply  text-primary mobile:text-lg tablet:text-xl inline-flex justify-center items-center bg-primary/20 w-10 h-10 rounded-full
+    }
+    .menu_a{
+      @apply flex gap-2 items-center pl-5
     }
     .bold_text{
       @apply font-poppin text-lg font-semibold text-black

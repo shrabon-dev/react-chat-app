@@ -12,7 +12,7 @@ export const RightsideModal = () => {
   console.log('type : ', type)
   console.log('Data : ', data)
   return (
-    <div className='rgt_side w-full h-screen bg-semi-white p-2 relative'>
+    <div className='rgt_side w-[320px] h-screen relative overflow-y-scroll bg-semi-white '>
     {type == 'suggest-friend'?
         <Friends/>
     :

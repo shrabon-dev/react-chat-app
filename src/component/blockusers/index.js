@@ -34,7 +34,7 @@ if(blocklist.length > 0){
 
   return (
     <>
-      <div className='px-2'>
+      <div className=''>
         {/* <div className={`${modeStatus ? 'dark_mode laptop:mt-2 laptop:max-w-[360px] tablet:max-w-[294px] tablet:mt-8  laptop:mr-0 tablet:mr-0':'light_mode laptop:mr-0 tablet:mr-0 laptop:mt-2 laptop:max-w-[360px] tablet:max-w-[294px] tablet:mt-8'}`}> */}
 
         {/* title start */}
@@ -58,7 +58,7 @@ if(blocklist.length > 0){
 }else{
   return (
     <>
-    <div className='px-2'>
+    <div className=''>
     {/* <div className={`${modeStatus ? 'dark_mode laptop:mt-2 laptop:max-w-[360px] tablet:max-w-[294px] tablet:mt-8  laptop:mr-0 tablet:mr-0':'light_mode laptop:mr-0 tablet:mr-0 laptop:mt-2 laptop:max-w-[360px] tablet:max-w-[294px] tablet:mt-8'}`}> */}
         {/* title start */}
          <div className='flex justify-between items-center'>

@@ -14,9 +14,9 @@ export default function Posts() {
   return (
     <div className='w-[780px] py-10'>
         {/* Notice Start */}
-        <p className='text-center text-red-700 bg-red-100 rounded py-2 mb-5'>This site is currently under construction as we are upgrading the UI of our chat application for a more enhanced and professional experience. Stay tuned for updates!</p>
+        <p className='text-center text-red-700 bg-red-100 rounded py-2 mb-5'>This site is currently under construction as we are upgrading the UI of our chat application for a more enhanced and professional experience. Stay tuned for updates! <b> Last Updated - 13/05/25</b></p>
         {/* Notice End */}
-        <div className='story_lists flex items-center gap-5 justify-between'>
+        <div className='story_lists flex items-center gap-5 justify-between '>
             <div className='item w-[200px]  flex justify-center items-center h-[280px] overflow-hidden bg-black/80 rounded relative'>
                <div className='w-20 cursor-pointer h-20 border-2 flex items-center justify-center rounded-full border-gray-400'>
                     <FiPlus className='text-4xl text-white'/>
@@ -49,7 +49,7 @@ export default function Posts() {
             </div>
         </div>
         <div className='post_lists p-5 mt-10 border border-bdr rounded-xl h-[1080px] overflow-y-scroll'>
-            <div className='item bg-pbg p-5 rounded-2xl'>
+            <div className='item bg-white p-5 rounded-2xl'>
                 {/* Post hdr Start */}
                 <div className='flex items-start justify-between'>
                     <div className='usr flex gap-3'>
@@ -80,7 +80,7 @@ export default function Posts() {
                 </div>
 
             </div>
-            <div className='item bg-pbg p-5 rounded-2xl mt-5'>
+            <div className='item bg-white p-5 rounded-2xl mt-5'>
                 {/* Post hdr Start */}
                 <div className='flex items-start justify-between'>
                     <div className='usr flex gap-3'>
@@ -111,7 +111,7 @@ export default function Posts() {
                 </div>
 
             </div>
-            <div className='item bg-pbg p-5 rounded-2xl mt-5'>
+            <div className='item bg-white p-5 rounded-2xl mt-5'>
                 {/* Post hdr Start */}
                 <div className='flex items-start justify-between'>
                     <div className='usr flex gap-3'>
@@ -142,7 +142,7 @@ export default function Posts() {
                 </div>
 
             </div>
-            <div className='item bg-pbg p-5 rounded-2xl mt-5'>
+            <div className='item bg-white p-5 rounded-2xl mt-5'>
                 {/* Post hdr Start */}
                 <div className='flex items-start justify-between'>
                     <div className='usr flex gap-3'>

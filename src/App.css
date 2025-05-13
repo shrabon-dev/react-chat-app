@@ -1,6 +1,9 @@
 *{
     box-sizing: border-box;
 }
+body{
+    background: #f3f3f39c;
+}
 
 .custom_swicth{
     width: 80px;

@@ -131,7 +131,7 @@ const handleBackModal = () =>{
   
   return (
    <>
-    <div className='px-2'>
+    <div className=''>
         {/* title start */}
          <div className='flex justify-between items-center'>
             <h2 className={`${modeStatus ? 'dark_heading':'light_heading'}`}>Group List </h2>

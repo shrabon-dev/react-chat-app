@@ -9,7 +9,7 @@ import { Sidebar } from '../component/sidebar'
 export const Messenger = () => {
   return (
     <>
-       <div className='flex'>
+       <div className='flex bg-bg'>
        <div className='mobile:w-screen tablet:w-[180px] tablet:h-screen fixed  mobile:bottom-0 z-[99999]'>
           <Sidebar active='messenger' />
         </div>
