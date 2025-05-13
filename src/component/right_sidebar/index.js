@@ -161,7 +161,7 @@ const { popup, type, data } = sidebar;
                       </li>
                     </ul>
                   </div>
-                  <div  className='group relative overflow-hidden cursor-pointer mobile:w-12 tablet:w-[80px] large_tablet:w-16 mobile:h-12 tablet:h-[80px] large_tablet:h-16 rounded-full  '>
+                  <div  className='group relative overflow-hidden cursor-pointer mobile:w-12 tablet:w-[80px] large_tablet:w-12 mobile:h-12 tablet:h-[80px] large_tablet:h-12 rounded-full  '>
                       <picture>
                         <img  className='mobile:w-12 tablet:w-[80px] large_tablet:w-16 mobile:h-12 tablet:h-[80px] large_tablet:h-16 rounded-full' src={userData && userData.photoURL} alt='profile image'/>
                       </picture>

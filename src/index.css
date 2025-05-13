@@ -24,13 +24,13 @@
       @apply font-poppin font-semibold text-sm text-semi-black
     }
     .hoverAfterBefore{
-      @apply  text-primary mobile:text-lg tablet:text-xl inline-flex justify-center items-center bg-primary/20 w-10 h-10 rounded-full
+      @apply  text-primary mobile:text-lg tablet:text-xl inline-flex justify-center items-center bg-primary/20 w-10 h-10 rounded-full 
     }
     .menu{
       @apply  text-primary mobile:text-lg tablet:text-xl inline-flex justify-center items-center bg-primary/20 w-10 h-10 rounded-full
     }
     .menu_a{
-      @apply flex gap-2 items-center pl-5
+      @apply flex gap-2 items-center pl-5 font-poppin font-semibold text-sm text-semi-black
     }
     .bold_text{
       @apply font-poppin text-lg font-semibold text-black
