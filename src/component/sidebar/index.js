@@ -131,7 +131,7 @@ export const Sidebar = ({active}) => {
       {/* <h6 className='text-semi-black font-nunito text-base tablet:block mt-1 mobile:hidden'>{userData && userData.displayName}</h6> */}
 {/* profile image end */}
 {/* Navbar start */}
- <div className='Navbar mobile:flex justify-center items-center gap-3 tablet:block text-left tablet:pt-6 mobile:space-x-5 tablet:space-x-0 tablet:space-y-8'>
+ <div className='Navbar mobile:flex justify-center items-center mobile:gap-1 tablet:gap-3 tablet:block text-left tablet:pt-6 mobile:space-x-5 tablet:space-x-0 tablet:space-y-8'>
   <Link to='/' className='menu_a'>
    <div className={`${active == 'home' ? 'hoverAfterBefore':'menu'}`}>
       <AiOutlineHome className={`${active=='home'? "":""}`}/>

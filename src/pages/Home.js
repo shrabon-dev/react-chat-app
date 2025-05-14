@@ -31,12 +31,12 @@ export const Home = () => {
 
   return (
     <>
-       <div className='flex bg-bg'>
-        <div className='w-[400px]'>
+       <div className='flex flex-wrap  bg-bg'>
+        <div className='mobile:w-full tablet:w-[400px]'>
           <Sidebar active='home' />
         </div>
         {/* <div className='w-full h-full tablet:flex tablet:flex-wrap justify-between px-4 large_tablet:pl-48 tablet:pl-48'> */}
-        <div className='w-full h-full tablet:flex tablet:flex-wrap justify-center px-4  '>
+        <div className='w-full h-full justify-center px-4  '>
            <Posts/>
               {/* <div className='tablet:w-[445px] large_tablet:w-[48%] desktop:w-[33%] '>
                 
@@ -52,7 +52,7 @@ export const Home = () => {
                     <BlockUsers/>
               </div>    */}
         </div>
-        <div className='right_sidebar mobile:w-full tablet:w-[530px]'>
+        <div className='right_sidebar  tablet:w-[530px]'>
           <RightSideBar/>
         </div>
        </div>
