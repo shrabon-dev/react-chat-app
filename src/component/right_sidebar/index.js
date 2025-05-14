@@ -164,9 +164,9 @@ export default function RightSideBar() {
                     </ul>
                   </div>
                   <div className='flex gap-5 items-center'>
-                  <div  className='group relative overflow-hidden cursor-pointer mobile:w-8 desktop:w-[80px]  mobile:h-8 desktop:h-[80px]  rounded-full  '>
+                  <div  className='group relative overflow-hidden cursor-pointer mobile:w-8 desktop:w-[50px]  mobile:h-8 desktop:h-[50px]  rounded-full  '>
                       <picture>
-                        <img  className='mobile:w-8 object-cover desktop:w-[80px]  mobile:h-8 desktop:h-[80px]  rounded-full' src={userData && userData.photoURL} alt='profile image'/>
+                        <img  className='mobile:w-8 object-cover desktop:w-[50px]  mobile:h-8 desktop:h-[50px]  rounded-full' src={userData && userData.photoURL} alt='profile image'/>
                       </picture>
                       <div onClick={showPopupImgUpload} className='group-hover:top-0 duration-300 w-full h-full bg-black/70 rounded-full flex justify-center items-center text-semi-black text-3xl absolute -top-28'>
                           {/* <input onChange={(e)=>setProfileImage(e.target.files[0].name)} type={'file'}  /> <BsFillCloudUploadFill /> */}
