@@ -30,8 +30,9 @@ import { IoIosMenu } from "react-icons/io";
 
 export default function RightSideBar() {
   const dispatch = useDispatch(); 
-const sidebar = useSelector(state => state.SidebarModal) || {};
-const { popup, type, data } = sidebar;
+  const sidebar = useSelector(state => state.SidebarModal) || {};
+  const { popup, type, data } = sidebar;
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
 
   const handleRightsidebar = (value) => {
@@ -148,7 +149,7 @@ const { popup, type, data } = sidebar;
     
       <>
             
-        <div className='rgt_side mobile:left-0 tablet:left-auto w-full mobile:h-16 overflow-hidden tablet:h-screen bg-semi-white tablet:p-5 fixed border-l border-semi-bdr'>
+      <div className={`rgt_side w-full overflow-hidden bg-semi-white fixed border-l border-semi-bdr mobile:left-0 tablet:left-auto ${isMobileMenuOpen ? 'h-full' : 'h-[70px]'} tablet:h-screen tablet:p-5 duration-300`}>
           <div className='usr__info mobile:w-full tablet:w-[354px] p-3 relative tablet:top-[-20px] tablet:left-[-20px] bg-primary'>
             <div className='flex justify-between items-center'>
                   <div className='menus'>
@@ -173,9 +174,7 @@ const { popup, type, data } = sidebar;
                       </div>
                   </div>
                   <div className='mble_menu tablet:hidden'>
-                    <span>
-                        <Link  className='flex gap-1 items-center icon_menu_a bg-white p-2 px-2 rounded' to={'/messenger'}><IoIosMenu /> Menus </Link>
-                    </span>
+                        <span onClick={()=>setIsMobileMenuOpen(!isMobileMenuOpen)}  className='flex gap-1 items-center icon_menu_a bg-white p-2 px-2 rounded'  ><IoIosMenu /> Menus </span>
                   </div>
                   </div>
             </div>
@@ -183,7 +182,7 @@ const { popup, type, data } = sidebar;
           
           {!popup ?
 
-                  <ul className='space-y-6'>
+                  <ul className='mobile:space-y-8 tablet:space-y-6 mobile:pl-6 mobile:pt-12 tablet:pt-0 tablet:pl-0'>
                     <li><button onClick={() => handleRightsidebar('suggest-friend')} className='font-poppin font-semibold text-sm text-semi-black  flex items-center gap-2'><FaQuestion/> Suggest Friends <span className='...'></span></button></li>
                     <li><button onClick={() => handleRightsidebar('friend-request')} className='font-poppin font-semibold text-sm text-semi-black  flex items-center gap-2'><RiNotificationBadgeFill/> Friends Request <span className='...'></span></button></li>
                     <li><button onClick={() => handleRightsidebar('your-friend')} className='font-poppin font-semibold text-sm text-semi-black  flex items-center gap-2'> <FaUserFriends/> All Friends <span className='...'></span></button></li>

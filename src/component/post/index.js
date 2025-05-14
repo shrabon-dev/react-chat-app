@@ -12,9 +12,9 @@ import { FaShare } from "react-icons/fa";
 
 export default function Posts() {
   return (
-    <div className='w-[700px] py-10'>
+    <div className='max-w-[700px] mobile:py-20 tablet:py-10'>
         {/* Notice Start */}
-        <p className='text-center text-red-700 bg-red-100 rounded py-2 mb-5'>This site is currently under construction as we are upgrading the UI of our chat application for a more enhanced and professional experience. Stay tuned for updates! <b> Last Updated - 13/05/25</b></p>
+        <p className='text-center text-red-700 bg-red-100 rounded py-2 mb-5'>This site is currently under construction as we are upgrading the UI of our chat application for a more enhanced and professional experience. Stay tuned for updates! <b> Last Updated - 14/05/25</b></p>
         {/* Notice End */}
         <div className='story_lists flex items-center gap-5 justify-between '>
             <div className='item w-[200px]  flex justify-center items-center h-[280px] overflow-hidden bg-black/80 rounded relative'>
@@ -48,8 +48,8 @@ export default function Posts() {
                </div>
             </div>
         </div>
-        <div className='post_lists p-5 mt-10 border border-bdr rounded-xl h-[1080px] overflow-y-scroll'>
-            <div className='item bg-white p-5 rounded-2xl'>
+        <div className='post_lists mobile:p-2 tablet:p-5 mt-10 border border-bdr mobile:rounded tablet:rounded-xl  h-[1080px] overflow-y-scroll'>
+            <div className='item bg-white p-5 mobile:rounded tablet:rounded-xl '>
                 {/* Post hdr Start */}
                 <div className='flex items-start justify-between'>
                     <div className='usr flex gap-3'>
@@ -65,7 +65,7 @@ export default function Posts() {
                 {/* Post cntn Start */}
                 <div className='pst_cntn py-5'>
                     <p>Naaaa bro Hin still dey house jare , I no sure say i wan sell am tho Naaaa bro Hin still dey house jare , I no sure say i wan sell am thoNaaaa bro Hin still dey house jare , I no sure say i wan sell am thoNaaaa bro Hin still dey house jare , I no sure say i wan sell am tho</p>
-                    <div className=' !aspect-square  rounded-xl my-5 overflow-hidden '>
+                    <div className=' !aspect-square  mobile:rounded tablet:rounded-xl  my-5 overflow-hidden '>
                         <img className='!aspect-square object-cover' src='https://w0.peakpx.com/wallpaper/204/667/HD-wallpaper-spring-nature.jpg' alt='img_cont'/>
                     </div>
                 </div>
@@ -80,7 +80,7 @@ export default function Posts() {
                 </div>
 
             </div>
-            <div className='item bg-white p-5 rounded-2xl mt-5'>
+            <div className='item bg-white p-5 mobile:rounded tablet:rounded-xl  mt-5'>
                 {/* Post hdr Start */}
                 <div className='flex items-start justify-between'>
                     <div className='usr flex gap-3'>
@@ -96,7 +96,7 @@ export default function Posts() {
                 {/* Post cntn Start */}
                 <div className='pst_cntn py-5'>
                     <p>Naaaa bro Hin still dey house jare , I no sure say i wan sell am tho Naaaa bro Hin still dey house jare , I no sure say i wan sell am thoNaaaa bro Hin still dey house jare , I no sure say i wan sell am thoNaaaa bro Hin still dey house jare , I no sure say i wan sell am tho</p>
-                    <div className=' !aspect-square  rounded-xl my-5 overflow-hidden '>
+                    <div className=' !aspect-square  mobile:rounded tablet:rounded-xl  my-5 overflow-hidden '>
                         <img className='!aspect-square object-cover' src='https://w0.peakpx.com/wallpaper/204/667/HD-wallpaper-spring-nature.jpg' alt='img_cont'/>
                     </div>
                 </div>
@@ -111,7 +111,7 @@ export default function Posts() {
                 </div>
 
             </div>
-            <div className='item bg-white p-5 rounded-2xl mt-5'>
+            <div className='item bg-white p-5 mobile:rounded tablet:rounded-xl  mt-5'>
                 {/* Post hdr Start */}
                 <div className='flex items-start justify-between'>
                     <div className='usr flex gap-3'>
@@ -127,7 +127,7 @@ export default function Posts() {
                 {/* Post cntn Start */}
                 <div className='pst_cntn py-5'>
                     <p>Naaaa bro Hin still dey house jare , I no sure say i wan sell am tho Naaaa bro Hin still dey house jare , I no sure say i wan sell am thoNaaaa bro Hin still dey house jare , I no sure say i wan sell am thoNaaaa bro Hin still dey house jare , I no sure say i wan sell am tho</p>
-                    <div className=' !aspect-square  rounded-xl my-5 overflow-hidden '>
+                    <div className=' !aspect-square  mobile:rounded tablet:rounded-xl  my-5 overflow-hidden '>
                         <img className='!aspect-square object-cover' src='https://w0.peakpx.com/wallpaper/204/667/HD-wallpaper-spring-nature.jpg' alt='img_cont'/>
                     </div>
                 </div>
@@ -142,7 +142,7 @@ export default function Posts() {
                 </div>
 
             </div>
-            <div className='item bg-white p-5 rounded-2xl mt-5'>
+            <div className='item bg-white p-5 mobile:rounded tablet:rounded-xl  mt-5'>
                 {/* Post hdr Start */}
                 <div className='flex items-start justify-between'>
                     <div className='usr flex gap-3'>
@@ -158,7 +158,7 @@ export default function Posts() {
                 {/* Post cntn Start */}
                 <div className='pst_cntn py-5'>
                     <p>Naaaa bro Hin still dey house jare , I no sure say i wan sell am tho Naaaa bro Hin still dey house jare , I no sure say i wan sell am thoNaaaa bro Hin still dey house jare , I no sure say i wan sell am thoNaaaa bro Hin still dey house jare , I no sure say i wan sell am tho</p>
-                    <div className=' !aspect-square  rounded-xl my-5 overflow-hidden '>
+                    <div className=' !aspect-square  mobile:rounded tablet:rounded-xl  my-5 overflow-hidden '>
                         <img className='!aspect-square object-cover' src='https://w0.peakpx.com/wallpaper/204/667/HD-wallpaper-spring-nature.jpg' alt='img_cont'/>
                     </div>
                 </div>
