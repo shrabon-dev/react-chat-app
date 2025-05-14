@@ -125,14 +125,14 @@ export const Registration = () => {
                      <form className=' '>
 
                           
-                          <div className='relative mt-12'>
+                          <div className='relative mobile:mt-5 tablet:mt-12'>
                               <input onChange={nameValue}  className='input_css'  type={'text'} />
                               <span className='input_span_css'>Full Name</span>
                           </div>
                          {nameerror ? 
                            <p className='text-red-500 bg-red-200 py-2 px-4 font-nunito rounded mt-1'>{nameerror}</p>
                          : ''}
-                            <div onChange={emailValue} className='relative mt-6'>
+                            <div onChange={emailValue} className='relative mobile:mt-5 tablet: mt-6'>
                               <input  className='input_css'  type={'email'} />
                               <span className='input_span_css'>Email Address</span>
                             </div>
@@ -142,7 +142,7 @@ export const Registration = () => {
                             {emailChecking ? 
                            <p className='text-red-500 bg-red-200 py-2 px-4 font-nunito rounded mt-1'>{emailChecking}</p>
                           : ''}
-                          <div className='relative mt-6'>
+                          <div className='relative mobile:mt-5 tablet:mt-6'>
                               <input onChange={passwordValue} className='input_css'  type={passwordShow? 'text':'password'} />
                               <span className='input_span_css'>Password</span>
                              {passwordShow? 

@@ -164,12 +164,12 @@ const Signin = () => {
                      <button onClick={HandleLoginWithGoogle} className='tablet:py-4 mobile:py-1 tablet:px-8 mobile:px-2 tablet:mt-7 mobile:mt-4 font-nunito font-normal mobile:text-sm sm:text-base text-[#03014C] bg-white text-center rounded-lg border-2 border-slate-300 flex items-center '><FcGoogle className='mr-1'/> Login with Google</button>
 
                     <form className='large_tablet:w-[370px]'>
-                        <div className='relative mt-12'>
+                        <div className='relative mobile:mt-5 tablet:mt-12'>
                             <input onChange={emailValue}  className='input_css  '  type={'text'} placeholder='Enter Your Email'/>
                             <span className='input_span_css  '>Email Address</span>
                         </div>
 
-                        <div className='relative mt-12'>
+                        <div className='relative mobile:mt-5 tablet:mt-12'>
                             <input onChange={passwordValue} className='input_css ' type={passwordShow? 'text':'password'} placeholder='input your password' />
                             <span className='input_span_css  '>Password</span>
                             {passwordShow? 

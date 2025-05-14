@@ -21,7 +21,7 @@
       @apply border-2 border-[#11175d38] large_tablet:py-6 tablet:py-4 mobile:py-3 large_tablet:px-6 tablet:px-8 mobile:px-6 mobile:rounded tablet:rounded-lg font-nunito font-semibold tablet:text-lg mobile:text-sm text-[#11175D] outline-none w-full
     }
     .input_span_css{
-      @apply absolute large_tablet:left-5 border-2 border-[#11175d38] tablet:left-8 mobile:left-0 -top-9 tablet:-top-5 bg-white mobile:rounded tablet:rounded-full py-2 px-2  font-nunito font-semibold text-sm text-[#11175db6]
+      @apply absolute large_tablet:left-5 border-2 border-[#11175d38] tablet:left-8 mobile:hidden tablet:block mobile:left-0 -top-9 tablet:-top-5 bg-white mobile:rounded tablet:rounded-full py-2 px-2  font-nunito font-semibold text-sm text-[#11175db6]
     }
     .icon_menu_a{
       @apply font-poppin font-semibold mobile:!text-[8px] tablet:!text-[8px] desktop:!text-sm text-semi-black
