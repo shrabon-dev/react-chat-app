@@ -9,7 +9,10 @@
     align-items: flex-start;
     flex-basis: 250px 250px;
     flex-direction: row;
-}
+  }
+  body{
+    background: #F3F3F3;
+  }
 }
 
 @layer components{

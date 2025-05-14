@@ -10,6 +10,8 @@ import { useEffect, useState } from 'react';
 import {darkmode} from './slice/darkmodeSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAuth } from 'firebase/auth';
+import { UserProfile } from './pages/UserProfile.js';
+import NoticeBoard from './pages/NoticeBoard.js';
 // import { current } from '@reduxjs/toolkit';
 function App() {
   const userData = useSelector((state)=>state.userLoginInfo.userInfo);
@@ -43,6 +45,8 @@ function App() {
       <Route path='/setting' element={<Setting/>} />
       <Route path='/registration' element={<Registration/>} />
       <Route path='/signin' element={<Signin/>} />
+      <Route path='/user/profile' element={<UserProfile/>} />
+      <Route path='/noticeboard' element={<NoticeBoard/>} />
     </Routes>
     </div>
     </>

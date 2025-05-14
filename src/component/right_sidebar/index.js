@@ -164,7 +164,7 @@ export default function RightSideBar() {
                     </ul>
                   </div>
                   <div className='flex gap-5 items-center'>
-                  <div  className='group relative overflow-hidden cursor-pointer mobile:w-8 desktop:w-[50px]  mobile:h-8 desktop:h-[50px]  rounded-full  '>
+                  <Link to={'/user/profile'}  className='group relative overflow-hidden cursor-pointer mobile:w-8 desktop:w-[50px]  mobile:h-8 desktop:h-[50px]  rounded-full  '>
                       <picture>
                         <img  className='mobile:w-8 object-cover desktop:w-[50px]  mobile:h-8 desktop:h-[50px]  rounded-full' src={userData && userData.photoURL} alt='profile image'/>
                       </picture>
@@ -172,7 +172,7 @@ export default function RightSideBar() {
                           {/* <input onChange={(e)=>setProfileImage(e.target.files[0].name)} type={'file'}  /> <BsFillCloudUploadFill /> */}
                           <BsFillCloudUploadFill />
                       </div>
-                  </div>
+                  </Link>
                   <div className='mble_menu tablet:hidden'>
                         <span onClick={()=>setIsMobileMenuOpen(!isMobileMenuOpen)}  className='flex gap-1 items-center icon_menu_a bg-white p-2 px-2 rounded'  ><IoIosMenu /> Menus </span>
                   </div>
