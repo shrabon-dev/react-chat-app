@@ -121,47 +121,51 @@ export const Sidebar = ({active}) => {
  
   return (
     <>
-    <div className='mobile:w-screen tablet:w-[300px] tablet:h-full w-full fixed mobile:bottom-0 z-[99999] border-r border-semi-bdr bg-bg mobile:flex mobile:items-center mobile:justify-center tablet:block text-center'>
+    <div className='mobile:w-full tablet:w-[300px] tablet:h-full w-full fixed mobile:bottom-0 z-[99999] border-r border-semi-bdr mobile:bg-white py-3 tablet:py-0 tablet:bg-bg mobile:flex mobile:items-center mobile:justify-center tablet:block text-center'>
 
 {/* profile image start */}
 
-   <div className='logo text-center py-6 bg-primary'>
+   <div className='logo text-center py-4 bg-primary hidden tablet:block'>
     <img className='w-32 block m-auto' src='../images/dc.png'  alt={'logo dcchat'}/>
    </div>
       {/* <h6 className='text-semi-black font-nunito text-base tablet:block mt-1 mobile:hidden'>{userData && userData.displayName}</h6> */}
 {/* profile image end */}
 {/* Navbar start */}
- <div className='Navbar text-left tablet:pt-6 mobile:space-x-5 tablet:space-x-0 tablet:space-y-8'>
+ <div className='Navbar mobile:flex justify-center items-center gap-3 tablet:block text-left tablet:pt-6 mobile:space-x-5 tablet:space-x-0 tablet:space-y-8'>
   <Link to='/' className='menu_a'>
    <div className={`${active == 'home' ? 'hoverAfterBefore':'menu'}`}>
       <AiOutlineHome className={`${active=='home'? "":""}`}/>
    </div>
-   Home
+     <span className='mobile:hidden tablet:inline-block'>Home</span>
    </Link>
     <Link to='/messenger' className='menu_a'>
     <div className={`${active=='messenger' ? 'hoverAfterBefore':'menu'}`}>
     <TbMessageDots className={`${active=='messenger'? " ":" "}`}/>
     </div>
-    Messanger
+     <span className='mobile:hidden tablet:inline-block'>Messanger</span>
+
+    
     </Link>
     <Link to='/notification' className='menu_a '>
     <div className={`${active=='notification' ? 'hoverAfterBefore relative':'menu relative'}`}>
     <MdOutlineNotifications className={`${active=='notification'? " ":" "}`}/>
      <span className='text-black text-xs absolute top-2 right-2'>{alert.filter(notification => !notification.readStatus).length}</span>
     </div>
-    Notification
+     <span className='mobile:hidden tablet:inline-block'>Notification</span>
+    
     </Link>
     <Link to='/setting' className='menu_a'>
     <div className={`${active=='setting' ? 'hoverAfterBefore':'menu'}`}>
     <AiOutlineSetting  className={`${active=='setting'? " ":"tex "}`}/>
     </div>
-    Settings
+     <span className='mobile:hidden tablet:inline-block'>Settings</span>
+    
     </Link>
     <Link  onClick={handleSignOut} className='menu_a'>
       <div className={`${active=='setting' ? 'hoverAfterBefore':'menu'}`}>
       <BiLogOut className=''/>
       </div>
-      Logout
+     <span className='mobile:hidden tablet:inline-block'>Logout</span>
     </Link>
     
  </div>

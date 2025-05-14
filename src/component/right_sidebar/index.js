@@ -24,6 +24,7 @@ import { FaBookmark } from "react-icons/fa6";
 import { IoIosCreate } from "react-icons/io"; 
 import { RiMessage3Fill } from "react-icons/ri";
 import { FaQuestion } from "react-icons/fa";
+import { IoIosMenu } from "react-icons/io";
 
 
 
@@ -147,8 +148,8 @@ const { popup, type, data } = sidebar;
     
       <>
             
-        <div className='rgt_side w-full  h-screen bg-semi-white p-5 fixed border-l border-semi-bdr'>
-          <div className='usr__info w-[354px] p-3 relative top-[-20px] left-[-20px] bg-primary'>
+        <div className='rgt_side mobile:left-0 tablet:left-auto w-full mobile:h-16 overflow-hidden tablet:h-screen bg-semi-white tablet:p-5 fixed border-l border-semi-bdr'>
+          <div className='usr__info mobile:w-full tablet:w-[354px] p-3 relative tablet:top-[-20px] tablet:left-[-20px] bg-primary'>
             <div className='flex justify-between items-center'>
                   <div className='menus'>
                     <ul className='flex gap-5 items-center'>
@@ -161,6 +162,7 @@ const { popup, type, data } = sidebar;
                       </li>
                     </ul>
                   </div>
+                  <div className='flex gap-5 items-center'>
                   <div  className='group relative overflow-hidden cursor-pointer mobile:w-12 tablet:w-[80px] large_tablet:w-12 mobile:h-12 tablet:h-[80px] large_tablet:h-12 rounded-full  '>
                       <picture>
                         <img  className='mobile:w-12 object-cover tablet:w-[80px] large_tablet:w-16 mobile:h-12 tablet:h-[80px] large_tablet:h-16 rounded-full' src={userData && userData.photoURL} alt='profile image'/>
@@ -169,6 +171,12 @@ const { popup, type, data } = sidebar;
                           {/* <input onChange={(e)=>setProfileImage(e.target.files[0].name)} type={'file'}  /> <BsFillCloudUploadFill /> */}
                           <BsFillCloudUploadFill />
                       </div>
+                  </div>
+                  <div className='mble_menu tablet:hidden'>
+                    <span>
+                        <Link  className='flex gap-1 items-center icon_menu_a bg-white p-2 px-2 rounded' to={'/messenger'}><IoIosMenu /> Menus </Link>
+                    </span>
+                  </div>
                   </div>
             </div>
           </div>

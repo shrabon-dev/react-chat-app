@@ -53,7 +53,7 @@ export default function Posts() {
                 {/* Post hdr Start */}
                 <div className='flex items-start justify-between'>
                     <div className='usr flex gap-3'>
-                        <img className='w-10 h-10 rounded-full border-2 border-brd' src='https://media.istockphoto.com/id/1082483460/photo/beautiful-black-man.jpg?s=612x612&w=0&k=20&c=MmNFcZf6z2WLY7jMBAmtLxo6YNItudiRuzn-z7V3tZk=' alt='puser_image'/>
+                        <img className='w-10 h-10 rounded-full border-2 object-cover border-brd' src='https://media.istockphoto.com/id/1082483460/photo/beautiful-black-man.jpg?s=612x612&w=0&k=20&c=MmNFcZf6z2WLY7jMBAmtLxo6YNItudiRuzn-z7V3tZk=' alt='puser_image'/>
                         <Link className='text-base text-black' to={'/'}>Jumman Talukdar
                         <span className='text-xs text-gray-500 block'>Front End Developer</span>
                         </Link>
@@ -84,7 +84,7 @@ export default function Posts() {
                 {/* Post hdr Start */}
                 <div className='flex items-start justify-between'>
                     <div className='usr flex gap-3'>
-                        <img className='w-10 h-10 rounded-full border-2 border-brd' src='https://media.istockphoto.com/id/1082483460/photo/beautiful-black-man.jpg?s=612x612&w=0&k=20&c=MmNFcZf6z2WLY7jMBAmtLxo6YNItudiRuzn-z7V3tZk=' alt='puser_image'/>
+                        <img className='w-10 h-10 rounded-full border-2 object-cover border-brd' src='https://media.istockphoto.com/id/1082483460/photo/beautiful-black-man.jpg?s=612x612&w=0&k=20&c=MmNFcZf6z2WLY7jMBAmtLxo6YNItudiRuzn-z7V3tZk=' alt='puser_image'/>
                         <Link className='text-base text-black' to={'/'}>Jumman Talukdar
                         <span className='text-xs text-gray-500 block'>Front End Developer</span>
                         </Link>
@@ -115,7 +115,7 @@ export default function Posts() {
                 {/* Post hdr Start */}
                 <div className='flex items-start justify-between'>
                     <div className='usr flex gap-3'>
-                        <img className='w-10 h-10 rounded-full border-2 border-brd' src='https://media.istockphoto.com/id/1082483460/photo/beautiful-black-man.jpg?s=612x612&w=0&k=20&c=MmNFcZf6z2WLY7jMBAmtLxo6YNItudiRuzn-z7V3tZk=' alt='puser_image'/>
+                        <img className='w-10 h-10 rounded-full object-cover border-2 border-brd' src='https://media.istockphoto.com/id/1082483460/photo/beautiful-black-man.jpg?s=612x612&w=0&k=20&c=MmNFcZf6z2WLY7jMBAmtLxo6YNItudiRuzn-z7V3tZk=' alt='puser_image'/>
                         <Link className='text-base text-black' to={'/'}>Jumman Talukdar
                         <span className='text-xs text-gray-500 block'>Front End Developer</span>
                         </Link>
@@ -146,7 +146,7 @@ export default function Posts() {
                 {/* Post hdr Start */}
                 <div className='flex items-start justify-between'>
                     <div className='usr flex gap-3'>
-                        <img className='w-10 h-10 rounded-full border-2 border-brd' src='https://media.istockphoto.com/id/1082483460/photo/beautiful-black-man.jpg?s=612x612&w=0&k=20&c=MmNFcZf6z2WLY7jMBAmtLxo6YNItudiRuzn-z7V3tZk=' alt='puser_image'/>
+                        <img className='w-10 h-10 rounded-full object-cover border-2 border-brd' src='https://media.istockphoto.com/id/1082483460/photo/beautiful-black-man.jpg?s=612x612&w=0&k=20&c=MmNFcZf6z2WLY7jMBAmtLxo6YNItudiRuzn-z7V3tZk=' alt='puser_image'/>
                         <Link className='text-base text-black' to={'/'}>Jumman Talukdar
                         <span className='text-xs text-gray-500 block'>Front End Developer</span>
                         </Link>

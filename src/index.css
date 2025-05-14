@@ -24,10 +24,10 @@
       @apply font-poppin font-semibold text-sm text-semi-black
     }
     .hoverAfterBefore{
-      @apply  text-primary mobile:text-lg tablet:text-xl inline-flex justify-center items-center bg-primary/20 w-10 h-10 rounded-full 
+      @apply  text-primary mobile:text-[32px] tablet:text-xl inline-flex justify-center items-center bg-primary/20 mobile:w-16 mobile:h-16 tablet:w-10 tablet:h-10 rounded-full 
     }
     .menu{
-      @apply  text-primary mobile:text-lg tablet:text-xl inline-flex justify-center items-center bg-primary/20 w-10 h-10 rounded-full
+      @apply  text-primary mobile:text-[32px] tablet:text-xl inline-flex justify-center items-center bg-primary/20 mobile:w-16 mobile:h-16 tablet:w-10 tablet:h-10 rounded-full
     }
     .menu_a{
       @apply flex gap-2 items-center pl-5 font-poppin font-semibold text-sm text-semi-black

@@ -52,7 +52,7 @@ export const Home = () => {
                     <BlockUsers/>
               </div>    */}
         </div>
-        <div className='right_sidebar w-[530px]'>
+        <div className='right_sidebar mobile:w-full tablet:w-[530px]'>
           <RightSideBar/>
         </div>
        </div>
