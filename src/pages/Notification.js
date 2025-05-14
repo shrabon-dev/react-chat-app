@@ -5,6 +5,7 @@ import { SearchBar } from '../component/search'
 import Notifaction from '../component/notification'
 import { getDatabase, onValue, ref } from 'firebase/database'
 import { getAuth } from 'firebase/auth'
+import RightSideBar from '../component/right_sidebar'
 
 export const Notification = () => {
   let db = getDatabase();
@@ -29,23 +30,28 @@ export const Notification = () => {
 
   return (
     <>
-       <div className='flex bg-bg'>
-            <div className='mobile:w-screen tablet:w-[180px] tablet:h-screen fixed  mobile:bottom-0 z-[99999]'>
-              <Sidebar active='notification' />
-            </div>
-            <div className='bg-[#ffffff] w-full h-screen pl-28'>
-              <div className='w-full tablet:h-screen mobile:h-screen overflow-hidden large_tablet:flex justify-between px-4 tablet:pl-48'>
-                <div className='tablet:w-100% overflow-y-scroll'>     
-                    <SearchBar/>
-                 <div className='mt-12'>
-                   {notification.map((item)=>
-                    <Notifaction data={item} img={item.senderprofilephoto} name={item.sendername} notify={item.notify}/>
-                   )}
-                 </div>
-                </div> 
-              </div>
-            </div>
-       </div>
+ 
+        <div className='flex mobile:flex-wrap tablet:flex-nowrap  bg-bg'>
+               <div className='mobile:w-full tablet:w-[400px]'>
+                 <Sidebar active='notification' />
+               </div>
+               {/* <div className='w-full h-full tablet:flex tablet:flex-wrap justify-between px-4 large_tablet:pl-48 tablet:pl-48'> */}
+               <div className='w-full h-screen flex justify-center px-4  '>
+                    <div className=' '>
+                      <div className='tablet:w-100% overflow-y-scroll'>     
+                          <SearchBar/>
+                          <div className='mt-12'>
+                            {notification.map((item)=>
+                              <Notifaction data={item} img={item.senderprofilephoto} name={item.sendername} notify={item.notify}/>
+                            )}
+                          </div>
+                      </div> 
+                    </div>
+               </div>
+               <div className='right_sidebar  tablet:w-[420px] desktop:w-[530px]'>
+                 <RightSideBar/>
+               </div>
+        </div>
    </>
   )
 }
