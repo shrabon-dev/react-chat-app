@@ -21,7 +21,7 @@
       @apply absolute large_tablet:left-5 border-2 border-[#11175d38] tablet:left-8 mobile:left-5 -top-5 bg-white rounded-full py-2 px-2  font-nunito font-semibold text-sm text-[#11175db6]
     }
     .icon_menu_a{
-      @apply font-poppin font-semibold mobile:!text-[8px] tablet:text-sm text-semi-black
+      @apply font-poppin font-semibold mobile:!text-[8px] tablet:!text-[8px] desktop:!text-sm text-semi-black
     }
     .hoverAfterBefore{
       @apply  text-primary mobile:text-[16px] tablet:text-xl inline-flex justify-center items-center bg-primary/20 mobile:w-8 mobile:h-8 tablet:w-10 tablet:h-10 rounded-full 

@@ -121,7 +121,7 @@ export const Sidebar = ({active}) => {
  
   return (
     <>
-    <div className='mobile:w-full tablet:w-[300px] tablet:h-full w-full fixed mobile:bottom-0 z-[99999] border-r border-semi-bdr mobile:bg-white py-3 tablet:py-0 tablet:bg-bg mobile:flex mobile:items-center mobile:justify-center tablet:block text-center'>
+    <div className='mobile:w-full tablet:w-[210px] desktop:w-[300px] tablet:h-full w-full fixed mobile:bottom-0 z-[99999] border-r border-semi-bdr mobile:bg-white py-3 tablet:py-0 tablet:bg-bg mobile:flex mobile:items-center mobile:justify-center tablet:block text-center'>
 
 {/* profile image start */}
 
