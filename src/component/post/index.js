@@ -6,6 +6,7 @@ import { AiFillLike,AiFillDislike  } from "react-icons/ai";
 import { FaComment } from "react-icons/fa";
 import { FaShare } from "react-icons/fa";
 import PostItem from '../utils/Post';
+import CreatePost from '../utils/CreatePost';
 
 
 
@@ -49,6 +50,8 @@ export default function Posts() {
                </div>
             </div>
         </div>
+        {/* Create post Card */}
+        <CreatePost/>
         <div className='post_lists mobile:p-2 tablet:p-5 mt-10 border border-bdr mobile:rounded tablet:rounded-xl  h-[1080px] overflow-y-scroll'>
             <PostItem/>
             <PostItem/>
