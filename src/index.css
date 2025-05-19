@@ -42,7 +42,7 @@
       @apply mobile:!text-xs tablet:text-sm font-poppin text-white
     }
     .bold_text{
-      @apply font-poppin text-lg font-semibold text-semi-black 
+      @apply font-poppin text-sm large-desktop:text-lg font-semibold text-semi-black 
     }
     .p_text{
       @apply font-poppin text-sm font-normal text-[#4d4d4dbd]

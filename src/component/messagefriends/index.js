@@ -62,7 +62,7 @@ function MessageFriends() {
                       <img className='w-11 h-11 rounded-full' src={item.receiverprofilephoto} />
                     </div>
                     <div className='ml-3'>
-                      <h4 className={`${modeStatus ? 'bold_text text-sm text-gray-200':'bold_text text-sm'}`}>{item.receivername}</h4>
+                      <h4 className={`${modeStatus ? 'bold_texttext-sm large-desktop:text-lgtext-gray-200':'bold_text text-sm'}`}>{item.receivername}</h4>
                       <p className={`${modeStatus ? 'p_text text-xs text-gray-200':'p_text text-xs'}`}>hi, how are you? {item.sendername}</p>
                     </div>
               </div>
@@ -79,7 +79,7 @@ function MessageFriends() {
                       <img className='w-11 h-11 rounded-full' src={item.senderprofilephoto} />
                     </div>
                     <div className='ml-3'>
-                      <h4 className={`${modeStatus ? 'bold_text text-lg text-gray-200':'bold_text text-lg'}`}>{item.sendername}</h4>
+                      <h4 className={`${modeStatus ? 'bold_text   text-gray-200':'bold_text  '}`}>{item.sendername}</h4>
                       <p className={`${modeStatus ? 'p_text text-xs text-gray-200':'p_text text-xs'}`}>hi, how are you? {item.receivername}</p>
                     </div>
               </div>

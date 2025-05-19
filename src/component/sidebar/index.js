@@ -9,9 +9,11 @@ import { getAuth,signOut, updateProfile  } from 'firebase/auth'
 import Cropper from "react-cropper";
 import "cropperjs/dist/cropper.css";
 import { getStorage,ref,uploadString, getDownloadURL  } from "firebase/storage";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getDatabase, ref as connect, onValue } from 'firebase/database';
 import notifySound from '../../assets/audio/notify.wav' 
+import { setMobileMessagesList } from '../../slice/mobileMessagesListSlice'
+import { FaUserFriends } from "react-icons/fa";
 
 
 
@@ -26,6 +28,12 @@ export const Sidebar = ({active}) => {
   let [alert,setAlert] = useState([]);
   let [reload,setReload] = useState(false);
   let [audio] = useState(new Audio(notifySound))
+  const mobileMessagesList = useSelector((state) => state.mobileMessagesList.value);
+  const dispatch = useDispatch();
+
+  const toggleRecentMessages = () => {
+    dispatch(setMobileMessagesList(!mobileMessagesList));
+  };
 
 
   const storage = getStorage();
@@ -125,7 +133,7 @@ export const Sidebar = ({active}) => {
 
 {/* profile image start */}
 
-   <div className='logo text-center py-4 bg-primary hidden tablet:block'>
+   <div className='logo text-center py-4 bg-primary/5 hidden tablet:block'>
     <img className='w-32 block m-auto' src='../images/dc.png'  alt={'logo dcchat'}/>
    </div>
       {/* <h6 className='text-semi-black font-nunito text-base tablet:block mt-1 mobile:hidden'>{userData && userData.displayName}</h6> */}
@@ -143,8 +151,12 @@ export const Sidebar = ({active}) => {
     <TbMessageDots className={`${active=='messenger'? " ":" "}`}/>
     </div>
      <span className='mobile:hidden tablet:inline-block'>Messanger</span>
-
-    
+    </Link>
+    <Link onClick={toggleRecentMessages}  className='menu_a laptop:hidden'>
+    <div className={`${active=='messenger' ? 'hoverAfterBefore':'menu'}`}>
+    <FaUserFriends className={`${active=='messenger'? " ":" "}`}/>
+    </div>
+     <span className='mobile:hidden tablet:inline-block'>Messages List</span>
     </Link>
     <Link to='/notification' className='menu_a '>
     <div className={`${active=='notification' ? 'hoverAfterBefore relative':'menu relative'}`}>

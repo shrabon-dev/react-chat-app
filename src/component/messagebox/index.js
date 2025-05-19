@@ -33,7 +33,6 @@ export default function MessageBox() {
   let [audio,setAudio] = useState();
   let [audioMessage,setAudioMessage] = useState();
 
-
   const recorderControls = useAudioRecorder();
   const addAudioElement = (blob) => {
     const url = URL.createObjectURL(blob);
@@ -204,7 +203,7 @@ uploadTask.on('state_changed',
     }
   }, 
   (error) => {
-    // Handle unsuccessful uploads
+    
   }, 
   () => {
 
@@ -250,7 +249,7 @@ uploadTask.on('state_changed',
   return (
      
         <>
-          <div className={`${modeStatus ? ' tablet:h-[98vh] mobile:h-[100%] bg-[#323949]  border-[#3d3e51] shadow-xl ':' tablet:h-[98vh] mobile:h-[100%] bg-white shadow-xl border-blue-300 '}`}>
+          <div className={`${modeStatus ? 'tablet:h-[90vh] desktop:h-[98vh] mobile:h-[100%] bg-[#323949]  border-[#3d3e51] shadow-xl ':' tablet:h-[100vh] desktop:h-[98vh]  mobile:h-[100%] bg-white shadow-xl border-blue-300 '}`}>
            {  data ? 
             <div className='msg_container'>
               {/* PROFILE */}
@@ -278,7 +277,7 @@ uploadTask.on('state_changed',
               {/* *************************************************** */}
               {/* message start */}
               <div className='py-5 px-3'>
-              <ScrollToBottom  className='message_show_box tablet:h-[72vh] mobile:h-[40vh] mb-0 mobile:mb-20 custom-scrollbar'>
+              <ScrollToBottom  className='message_show_box tablet:h-[72vh] mobile:h-[54vh] mb-0 mobile:mb-20 custom-scrollbar'>
           
           {data.status == 'group' ? 
           
@@ -414,39 +413,40 @@ uploadTask.on('state_changed',
               </div>
 
               <div>
-              <div className='message_send_option flex tablet:gap-4 mobile:gap-1 relative mobile:bottom-5 left-10'>
-                        <div className='w-[70%]'><input  value={message} onChange={messagewrite} className={`${modeStatus ? 'dark_msg_input':'light_msg_input'}`}/></div>
+              <div className='message_send_option bg-primary laptop:bg-transparent py-1 laptop:py-0 flex tablet:gap-4 mobile:gap-1 px-2 relative laptop:bottom-20 desktop:bottom-5 laptop:left-10 z-[999] '>
+                        <div className='w-[65%] laptop:w-[56%] desktop:w-[70%]'><input  value={message} onChange={messagewrite} className={`${modeStatus ? 'dark_msg_input !bg-white laptop:!bg-semi-white ':'light_msg_input !bg-white laptop:!bg-semi-white '}`}/></div>
                         
-                        <div className='w-[20%] flex tablet:gap-4 mobile:gap-1 items-center'> 
+                        <div className='w-[42%] laptop:w-[30%] desktop:w-[20%] flex justify-end tablet:gap-4 mobile:gap-5 items-center relative'> 
                         {emojiPopUp && 
                         <span className='tablet:p-3 mobile:p-1 text-lg absolute  w-1/4 bottom-11 right-52'> 
                         <EmojiPicker onEmojiClick={(e)=>setMessage(message + e.emoji)} />
                         </span> 
                         }
-                        <span className='tablet:p-3 mobile:p-1 text-lg '> 
+                        <span className='tablet:p-3 mobile:p-1 text-lg  text-white laptop:text-semi-black'> 
                         <HiOutlineEmojiHappy onClick={()=>setEmojiPopUp(!emojiPopUp)} className='cursor-pointer'/> 
                         </span> 
-                        <div className=''>
+                        <div className='relative bottom-0'>
                           {audio && 
-                          <div>
+                          <div >
                             <audio className='absolute left-0 bottom-14' controls src={audio} type="audio/ogg"></audio> 
                           </div>
                           
                           }
-                          
+                          <div className='relative '>
                           <AudioRecorder
                             onRecordingComplete={(blob) => addAudioElement(blob)}
                             recorderControls={recorderControls}
                           />
+                          </div>
                 
                         </div>
-                        <span onClick={()=>setImagePopUp(!imagePopUp)} className='tablet:p-3 mobile:p-1 text-lg cursor-pointer'><AiOutlineCamera/></span>
+                        <span onClick={()=>setImagePopUp(!imagePopUp)} className='tablet:p-3 mobile:p-1 text-white laptop:text-semi-black text-lg cursor-pointer'><AiOutlineCamera/></span>
                         {audio ?
-                        <span onClick={handleAudioMessageSent} className='bg-primary text-white tablet:p-3 mobile:p-1 rounded-lg text-lg cursor-pointer'><FiSend/></span>
+                        <span onClick={handleAudioMessageSent} className=' bg-white tablet:bg-primary text-primary laptop:text-white tablet:p-3 mobile:p-1 rounded-lg text-lg cursor-pointer'><FiSend/></span>
                         : 
-                        <span onClick={handleMessageSent} className='bg-primary text-white tablet:p-3 mobile:p-1 rounded-lg text-lg cursor-pointer'><FiSend/></span>
+                        <span onClick={handleMessageSent} className='bg-white laptop:bg-primary text-primary laptop:text-white tablet:p-3 mobile:p-1 rounded-lg text-lg cursor-pointer'><FiSend/></span>
                     
-                          }
+                        }
                         </div>
                 </div>
               </div>
@@ -457,7 +457,7 @@ uploadTask.on('state_changed',
            <>
            <div className='waiting_msg h-full flex flex-col items-center justify-center'>
             <img src='../images/waiting_bird.gif' className='w-96 h-96 rounded-full block object-cover' alt='waiting msg img'/>
-            <h3 className='font-poppin text-lg italic font-medium w-1/2 mx-auto pt-10 text-center'>🎯 Don't just stare at the screen – pick a friend and let the nonsense flow! You know you want to. 😉</h3>
+            <h3 className='font-poppin text-sm laptop:text-lg italic font-medium w-1/2 mx-auto pt-10 text-center'>🎯 Don't just stare at the screen – pick a friend and let the nonsense flow! You know you want to. 😉</h3>
            </div>
            </>
            }

@@ -76,7 +76,7 @@ export default function MessageGroup() {
                       <img className='w-11 h-11 rounded-full' src='../images/group/grp3.webp' />
                     </div>
                     <div className='ml-3'>
-                      <h4 className={`${modeStatus ? 'bold_text text-lg text-gray-200':'bold_text text-lg'}`}>{item.group_name}</h4>
+                      <h4 className={`${modeStatus ? 'bold_text   text-gray-200':'bold_text  '}`}>{item.group_name}</h4>
                       <p className={`${modeStatus ? 'p_text text-xs text-gray-200':'p_text text-xs'}`}>{item.tag_name}</p>
                     </div>
               </div>
@@ -94,7 +94,7 @@ export default function MessageGroup() {
                       <img className='w-11 h-11 rounded-full' src='../images/group/grp3.webp' />
                     </div>
                     <div className='ml-3'>
-                      <h4 className={`${modeStatus ? 'bold_text text-lg text-gray-200':'bold_text text-lg'}`}>{item.group_name}</h4>
+                      <h4 className={`${modeStatus ? 'bold_text text-sm large-desktop:text-lg text-gray-200':'bold_text text-lg'}`}>{item.group_name}</h4>
                       <p className={`${modeStatus ? 'p_text text-xs text-gray-200':'p_text text-xs'}`}>{item.tag_name}</p>
                     </div>
               </div>

@@ -79,11 +79,11 @@ body{
     z-index: 12;
     text-align: left;
 }
-.audio-recorder{
+/* .audio-recorder{
     position: absolute;
-    bottom: 6px;
-    right: 100px;
-}
+    bottom: 0px;
+    right: 0px;
+} */
 
   ::-webkit-scrollbar {
     display: none !important;

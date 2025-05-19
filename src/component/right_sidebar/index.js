@@ -150,7 +150,7 @@ export default function RightSideBar() {
       <>
             
       <div className={`rgt_side w-full overflow-hidden bg-semi-white fixed border-l border-semi-bdr mobile:left-0 tablet:left-auto ${isMobileMenuOpen ? 'h-full' : 'h-[70px]'} tablet:h-screen tablet:p-5 duration-300`}>
-          <div className='usr__info mobile:w-full tablet:w-[219px] desktop:w-[354px] p-3 relative tablet:top-[-20px] tablet:left-[-20px] bg-primary'>
+          <div className='usr__info mobile:w-full tablet:w-[219px] desktop:w-[354px] p-3 relative tablet:top-[-20px] tablet:left-[-20px] bg-primary/5'>
             <div className='flex justify-between items-center'>
                   <div className='menus'>
                     <ul className='flex gap-5 items-center'>
