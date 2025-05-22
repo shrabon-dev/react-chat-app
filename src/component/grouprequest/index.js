@@ -52,6 +52,7 @@ export const Grouprequest = () => {
           status: 'success'
         }))
        })
+       
 
     }else{
       setErrorCreateGroup('Please, fill up all inputs')
