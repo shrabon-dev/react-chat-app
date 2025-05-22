@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAuth } from 'firebase/auth';
 import { UserProfile } from './pages/UserProfile.js';
 import NoticeBoard from './pages/NoticeBoard.js';
+import PresenceManager from './component/presenceProvider/index.js';
 // import { current } from '@reduxjs/toolkit';
 function App() {
   const userData = useSelector((state)=>state.userLoginInfo.userInfo);
@@ -38,6 +39,7 @@ function App() {
         </div>
       )
      } */}
+    <PresenceManager />
     <Routes>
       <Route path='/' element={<Home/>} />
       <Route path='/messenger' element={<Messenger/>} />

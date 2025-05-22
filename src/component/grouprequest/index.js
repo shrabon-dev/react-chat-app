@@ -77,7 +77,6 @@ useEffect(()=>{
 
   let handleGroupRequest = (value) =>{
 
-
       set(push(ref(db,'grouprequest/')),{
         admin_name:value.admin_name,
         admin_id:value.admin_id,
@@ -87,9 +86,17 @@ useEffect(()=>{
         user_name:auth.currentUser.displayName,
         user_id:auth.currentUser.uid,
         user_profile:auth.currentUser.photoURL,
-        date:`${new Date().getDate()}/${new Date().getMonth()+1}/${new Date().getFullYear()}`
-
-       })
+        date:`${new Date().getDate()}/${new Date().getMonth()+1}/${new Date().getFullYear()}`,
+       }).then(() => {
+             push(ref(db, 'notification/'), {
+               receivername: value.admin_name,
+               receiverid: value.admin_id,
+               sendername: auth.currentUser.displayName,
+               senderid: auth.currentUser.uid,
+               senderprofilephoto:auth.currentUser.photoURL,
+               notify: 'sent a group request to' + value.group_name,
+               readStatus: false,
+              })})
   }
 
 

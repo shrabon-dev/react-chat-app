@@ -1,146 +1,112 @@
-import { getDatabase, push, ref, set,onValue } from 'firebase/database'
-import React, { useEffect, useState } from 'react'
-import {AiOutlinePlus} from 'react-icons/ai'
-import { getAuth } from 'firebase/auth'
-import { useDispatch, useSelector } from 'react-redux'
+import { getDatabase, push, ref, set, onValue } from 'firebase/database';
+import React, { useEffect, useState } from 'react';
+import { getAuth } from 'firebase/auth';
+import { useSelector } from 'react-redux';
 
-export const UserListReuseable = (props) => {
-  const modeStatus = useSelector((state)=>state.darkmode.value)
+export const UserListReuseable = ({ allValue, profile, name, message }) => {
+  const modeStatus = useSelector((state) => state.darkmode.value);
 
-   let auth = getAuth();
-   let db = getDatabase();
-   let [friendHaveorNot, setFriendHaveorNot] = useState([]);
-   let [blockHaveorNot, setBlockHaveorNot] = useState([]);
-   let [myfriendHaveorNot, setMyfriendHaveorNot] = useState([]);
+  const auth = getAuth();
+  const db = getDatabase();
 
-  let handleFriendRequest = (value) =>{
-  
-         set(push(ref(db,'friendRequest/')),{
-          receivername:value.username,
-          receiverid:value.userid,
-          sendername:auth.currentUser.displayName,
-          senderid:auth.currentUser.uid,
-          senderprofilephoto:auth.currentUser.photoURL,
-          receiverprofilephoto:value.profile_picture,
-         }).then(()=>{
-          set(push(ref(db,'notification/')),{
-            receivername:value.username,
-            receiverid:value.userid,
-            sendername:auth.currentUser.displayName,
-            senderid:auth.currentUser.uid,
-            senderprofilephoto:auth.currentUser.photoURL,
-            notify:'sended friend request to you',
-            readStatus:false,
-           }).then(()=>{
+  const [friendRequests, setFriendRequests] = useState([]);
+  const [blocks, setBlocks] = useState([]);
+  const [friends, setFriends] = useState([]);
 
-           })
+  const myId = auth.currentUser.uid;
+  const userId = allValue.userid;
 
-         })
-  }
-
-    // Cheack My Friend Have or Not
-    useEffect(()=>{
-      onValue(ref(db, 'myfriends/' ), (snapshot) => {
-             let arr = []
-            snapshot.forEach((item)=>{       
-                arr.push(item.val().senderid + item.val().receiverid)
-            });
-            setMyfriendHaveorNot(arr)
+  // Send friend request
+  const handleFriendRequest = (user) => {
+    push(ref(db, 'friendRequest/'), {
+      receivername: user.username,
+      receiverid: user.userid,
+      sendername: auth.currentUser.displayName,
+      senderid: auth.currentUser.uid,
+      senderprofilephoto: auth.currentUser.photoURL,
+      receiverprofilephoto: user.profile_picture,
+    }).then(() => {
+      push(ref(db, 'notification/'), {
+        receivername: user.username,
+        receiverid: user.userid,
+        sendername: auth.currentUser.displayName,
+        senderid: auth.currentUser.uid,
+        senderprofilephoto: auth.currentUser.photoURL,
+        notify: 'sent a friend request to you',
+        readStatus: false,
       });
-    },[])
-
-  // Cheack Block Have or Not
-  useEffect(()=>{
-    onValue(ref(db, 'usersblock/' ), (snapshot) => {
-           let arr = []
-          snapshot.forEach((item)=>{       
-              arr.push(item.val().whom_bloking_id + item.val().who_block_id)
-          });
-          setBlockHaveorNot(arr)
-    }); 
-  },[])
-
-
-  // Cheack Friend Request Have or Not
-  useEffect(()=>{
-    onValue(ref(db, 'friendRequest/' ), (snapshot) => {
-           let arr = []
-          snapshot.forEach((item)=>{       
-              arr.push(item.val().senderid + item.val().receiverid)
-          });
-        setFriendHaveorNot(arr)
     });
-  },[])
+  };
 
-return (
-    <>
-        <div className='flex justify-around items-center mt-5 border-b pb-3 border-[#00000041] last:border-0'>
-               <div className='w-12 h-12'>
-                <img className='w-10 h-10 rounded-full object-cover' src={props.profile} />
-               </div>
-               <div>
-               <h4 className={`${modeStatus ? 'bold_text text-sm text-gray-200':'bold_text text-sm'}`}>{props.name}</h4>
-                <p className={`${modeStatus ? 'p_text text-xs text-gray-200':'p_text text-xs'}`}>{props.message}</p>
-               </div>
-               <div>
+  // Fetch data: Friends
+  useEffect(() => {
+    onValue(ref(db, 'myfriends/'), (snapshot) => {
+      const data = [];
+      snapshot.forEach((item) => {
+        data.push(item.val().senderid + item.val().receiverid);
+      });
+      setFriends(data);
+    });
+  }, []);
 
+  // Fetch data: Blocks
+  useEffect(() => {
+    onValue(ref(db, 'usersblock/'), (snapshot) => {
+      const data = [];
+      snapshot.forEach((item) => {
+        data.push(item.val().whom_bloking_id + item.val().who_block_id);
+      });
+      setBlocks(data);
+    });
+  }, []);
 
-                        <>
-                        {friendHaveorNot.includes(auth.currentUser.uid + props.allValue.userid) || friendHaveorNot.includes(props.allValue.userid + auth.currentUser.uid) ?
-                        
-                        <button  className='bg-primary text-sm  text-white px-2 py-1 rounded-lg'> Panding</button>
-                        :
-                        <>
-                        {myfriendHaveorNot.includes(auth.currentUser.uid + props.allValue.userid) || myfriendHaveorNot.includes(props.allValue.userid + auth.currentUser.uid) ?
-                        
-                        <button  className='bg-primary text-sm  text-white px-2 py-1 rounded-lg'> Friend</button>                 
-                 
-                        :
-                         <>
-                    {blockHaveorNot.includes(auth.currentUser.uid + props.allValue.userid) || blockHaveorNot.includes(props.allValue.userid + auth.currentUser.uid ) ? 
-                   
-                   <button  className='bg-primary text-sm  text-white px-2 py-1 rounded-lg'> Block</button>                 
-                   
-                   : 
-                   <button onClick={()=>handleFriendRequest(props.allValue)} className='bg-primary text-sm  text-white px-2 py-1 rounded-lg'> Request Sent </button>
-                 }
-                         </>
-                        
-                         }
-                        </>
-                        }
-                       </>
-                     
-                 
-                 
-                   
-       
-               {/* {myfriendHaveorNot.includes(auth.currentUser.uid + props.allValue.userid) || myfriendHaveorNot.includes(props.allValue.userid + auth.currentUser.uid) ?
-                        
-                 
-                   <button  className='bg-primary text-sm  text-white px-2 py-1 rounded-lg'> Friend</button>                 
-            
-                   :
-                  <>
-                    {blockHaveorNot.includes(auth.currentUser.uid + props.allValue.userid) || blockHaveorNot.includes(props.allValue.userid + auth.currentUser.uid) ?
-                        <button  className='bg-primary text-sm  text-white px-2 py-1 rounded-lg'> Block</button>                 
-                     :
-                 
-                    <>
-                        {friendHaveorNot.includes(auth.currentUser.uid + props.allValue.userid) || friendHaveorNot.includes(props.allValue.userid + auth.currentUser.uid) ?
-                        
-                        <button  className='bg-primary text-sm  text-white px-2 py-1 rounded-lg'> Panding</button>
-                        :
-                        <button onClick={()=>handleFriendRequest(props.allValue)} className='bg-primary text-sm  text-white px-2 py-1 rounded-lg'> Request Sent </button>
-                        }
-                    </>
-                 
-                    }
-                  </>
-                } */}
+  // Fetch data: Friend Requests
+  useEffect(() => {
+    onValue(ref(db, 'friendRequest/'), (snapshot) => {
+      const data = [];
+      snapshot.forEach((item) => {
+        data.push(item.val().senderid + item.val().receiverid);
+      });
+      setFriendRequests(data);
+    });
+  }, []);
 
-                 </div>
-          </div>
-    </>
-  )
-}
+  // Check relationships
+  const isFriend =
+    friends.includes(myId + userId) || friends.includes(userId + myId);
+  const isBlocked =
+    blocks.includes(myId + userId) || blocks.includes(userId + myId);
+  const isPending =
+    friendRequests.includes(myId + userId) || friendRequests.includes(userId + myId);
+
+  // Determine button text
+  let buttonText = 'Send Request';
+  if (isBlocked) buttonText = 'Blocked';
+  else if (isFriend) buttonText = 'Friend';
+  else if (isPending) buttonText = 'Pending';
+
+  return (
+    <div className='flex justify-around items-center mt-5 border-b pb-3 border-[#00000041] last:border-0'>
+      <div className='w-12 h-12'>
+        <img className='w-10 h-10 rounded-full object-cover' src={profile} alt="profile" />
+      </div>
+      <div>
+        <h4 className={`${modeStatus ? 'bold_text text-sm text-gray-200' : 'bold_text text-sm'}`}>
+          {name}
+        </h4>
+        <p className={`${modeStatus ? 'p_text text-xs text-gray-200' : 'p_text text-xs'}`}>
+          {message}
+        </p>
+      </div>
+      <div>
+        <button
+          onClick={() => !isFriend && !isBlocked && !isPending && handleFriendRequest(allValue)}
+          className='bg-primary text-sm text-white px-2 py-1 rounded-lg'
+          disabled={isFriend || isBlocked || isPending}
+        >
+          {buttonText}
+        </button>
+      </div>
+    </div>
+  );
+};

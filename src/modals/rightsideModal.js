@@ -6,15 +6,14 @@ import { MyGroups } from '../component/mygroups';
 import { Grouprequest } from '../component/grouprequest';
 import { FriendsRequest } from '../component/friendRequest';
 import { BlockUsers } from '../component/blockusers';
+import { Userlist } from '../component/userlist';
 export const RightsideModal = () => {
   const {popup,type,data} = useSelector(state => state.SidebarModal)
-  console.log('popup', popup)
-  console.log('type : ', type)
-  console.log('Data : ', data)
+ 
   return (
     <div className='rgt_side w-[320px] h-screen relative overflow-y-scroll bg-semi-white '>
     {type == 'suggest-friend'?
-        <Friends/>
+        <Userlist/>
     :
     (
       type === 'your-friend'?

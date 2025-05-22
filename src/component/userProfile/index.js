@@ -4,9 +4,13 @@ import Button from '../utils/Button'
 import { FcAddImage } from "react-icons/fc";
 import { FcVideoCall } from "react-icons/fc";
 import CreatePost from '../utils/CreatePost';
+import { useSelector } from 'react-redux';
+import UserStatus from '../userStatus';
 
 
 export default function Profile() {
+  const user = useSelector((state)=>state.userLoginInfo.userInfo)
+  console.log(user.uid)
   return (
     <>
         <div className='w-full h-full'>
@@ -19,16 +23,24 @@ export default function Profile() {
           <div className='w-full relative -top-16 right-0 overflow-hidden rounded-bl-xl rounded-br-xl flex items-end justify-between'>
             <div className='flex items-end gap-5'>
                     <div className='img w-32 h-32 rounded-full overflow-hidden border-4 border-primary'>
-                        <img src='../images/demo.jpg' alt='demo.jpg' />
+                        <img className='object-cover w-full h-full' src={`${user.photoURL ? user.photoURL:'../images/demo.jpg'}`} alt='demo.jpg' />
                     </div>
                     <div className='usr_info'>
-                        <h3 className='font-poppin text-2xl font-medium text-semi-black'>Yusuf Khan</h3>
-                        <h6 className='font-poppin text-sm font-normal text-semi-black'>Front End Developer</h6>
+                        <h3 className='font-poppin text-2xl font-medium text-semi-black pb-5'>{user.displayName}</h3>
+                        {/* <h6 className='font-poppin text-sm font-normal text-semi-black'>Front End Developer</h6> */}
                     </div>
+                  
             </div>
             <div className='button text-right'>
+              {user? 
+                <Button type={'status'} text={<UserStatus userId={user.uid}/>} />
+                 
+              :
+              <>
                 <Button type={'friend'} text={'Friend'} />
                 <Button type={'unfriend'} text={'Unfriend'} />
+              </>
+              }
             </div>
           </div>
           {/* Create Port Option Start */}
