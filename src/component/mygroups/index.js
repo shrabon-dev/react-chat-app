@@ -19,7 +19,7 @@ export const MyGroups = () => {
   let [aname,setAName] = useState('')
   let [requestGroupList,setRequestGroupList] = useState([])
   let [myGroupMembers,setMyGroupMembers] = useState([])
-  let [showRequest,setshowRequest] = useState('')
+  let [showRequest,setshowRequest] = useState(false)
   let dispatch = useDispatch();
 
     // My all group start
@@ -67,6 +67,7 @@ export const MyGroups = () => {
             setRequestGroupList(arr)
       });
       setshowRequest(!showRequest)
+      console.log('value req: ',showRequest)
   }
   // Delete Request Group  Members INFO
     let handleRejectGroupRequest = (id) => {
@@ -166,7 +167,7 @@ if(myGroupList.length > 0){
           {showRequest &&
 
           <>
-               <div className='absolute w-[600px] bg-semi-white shadow-2xl p-10 border border-gray-400 rounded m-10 top-0 -left-full -translate-x-full'>
+               <div className='absolute w-full h-screen bg-semi-white shadow-2xl p-2 rounded  top-0 left-0  '>
                       <>
                       {requestGroupList.length > 0 ? 
                       
