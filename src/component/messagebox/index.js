@@ -251,7 +251,7 @@ uploadTask.on('state_changed',
         <>
           <div className={`${modeStatus ? 'tablet:h-[90vh] desktop:h-[98vh] mobile:h-[100%] bg-[#323949]  border-[#3d3e51] shadow-xl ':' tablet:h-[100vh] desktop:h-[98vh]  mobile:h-[100%] bg-white shadow-xl border-blue-300 '}`}>
            {  data ? 
-            <div className='msg_container'>
+            <div className='msg_container h-full'>
               {/* PROFILE */}
               <div className='bg-primary py-2 px-4'>           
                   <div className='flex justify-between items-center  border-[#00000041] last:border-0'>   
@@ -412,13 +412,13 @@ uploadTask.on('state_changed',
               </ScrollToBottom>
               </div>
 
-              <div>
-              <div className='message_send_option bg-primary laptop:bg-transparent py-1 laptop:py-0 flex tablet:gap-4 mobile:gap-1 px-2 relative laptop:bottom-20 desktop:bottom-5 laptop:left-10 z-[999] '>
+              <div className='mobile:absolute mobile:bottom-0 mobile:w-full'>
+              <div className='message_send_option bg-primary laptop:bg-transparent py-1 laptop:py-0 flex tablet:gap-4 mobile:gap-1 px-2 relative mobile:bottom-0 laptop:bottom-1 desktop:bottom-[3rem] laptop:left-10 z-[999] '>
                         <div className='w-[65%] laptop:w-[56%] desktop:w-[70%]'><input  value={message} onChange={messagewrite} className={`${modeStatus ? 'dark_msg_input !bg-white laptop:!bg-semi-white ':'light_msg_input !bg-white laptop:!bg-semi-white '}`}/></div>
                         
-                        <div className='w-[42%] laptop:w-[30%] desktop:w-[20%] flex justify-end tablet:gap-4 mobile:gap-5 items-center relative'> 
+                        <div className='w-[42%] laptop:w-[34%] desktop:w-[20%] flex justify-end tablet:gap-2 mobile:gap-1 desktop:gap-5 items-center relative'> 
                         {emojiPopUp && 
-                        <span className='tablet:p-3 mobile:p-1 text-lg absolute  w-1/4 bottom-11 right-52'> 
+                        <span className='tablet:p-3 mobile:p-1 text-lg absolute  w-1/4 bottom-11 right-[20rem]'> 
                         <EmojiPicker onEmojiClick={(e)=>setMessage(message + e.emoji)} />
                         </span> 
                         }

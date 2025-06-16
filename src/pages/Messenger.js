@@ -24,7 +24,7 @@ export const Messenger = () => {
         <div className="w-full tablet:h-screen mobile:h-screen tablet:pl-48">
           <div className="large_tablet:flex justify-between desktop:pt-5 gap-5">
     
-            <div className={`w-full tablet:w-[75%] tablet:ml-6 h-full ${mobileMessagesList ? 'z-[12] block' : 'hidden tablet:block'} laptop:w-[24%] desktop:w-[18%] large-desktop:w-[22%] tablet:h-[100vh] desktop:h-[98vh] fixed bg-white shadow-xl p-5 laptop:ml-[30px] desktop:ml-[130px]`}>
+            <div className={`w-full tablet:w-[75%] tablet:ml-6 h-full ${mobileMessagesList ? 'z-[12] block' : 'hidden tablet:block'} laptop:w-[24%] desktop:w-[18%] large-desktop:w-[22%] tablet:h-[100vh] desktop:h-[98vh] fixed bg-white shadow-xl p-5 laptop:ml-[14px] desktop:ml-[130px]`}>
               <div className="pb-2 border-b border-semi-bdr">
                 <SearchBar />
               </div>
