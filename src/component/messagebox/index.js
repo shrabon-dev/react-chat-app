@@ -13,14 +13,18 @@ import moment from 'moment/moment';
 import EmojiPicker from 'emoji-picker-react';
 import { AudioRecorder, useAudioRecorder } from 'react-audio-voice-recorder';
 import ScrollToBottom from 'react-scroll-to-bottom';
+import { IoReturnDownBack } from "react-icons/io5";
+import { setMobileMessagesList } from '../../slice/mobileMessagesListSlice'
 
 
 export default function MessageBox() {
   let db = getDatabase();
   let auth = getAuth();
+  let dispatch = useDispatch();
   const storage = getStorage();
 
   const modeStatus = useSelector((state)=>state.darkmode.value)
+  const mobileMessagesList = useSelector((state)=>state.mobileMessagesList.value)
   let data = useSelector((state)=> state.activechat.value)
   let [message,setMessage] = useState('');
   let [messagelist,setMessagelist] = useState([])
@@ -245,6 +249,9 @@ uploadTask.on('state_changed',
     }
 
   }
+  const handleBackRecentMessageList = () =>{
+    dispatch(setMobileMessagesList(!mobileMessagesList))
+  }
 
   return (
      
@@ -270,6 +277,9 @@ uploadTask.on('state_changed',
 
                       <div>
                           <p  className=' text-xl text-gray-200'><BiDotsVertical/></p> 
+                      </div>
+                      <div onClick={handleBackRecentMessageList} className='tablet:hidden'>
+                          <p  className='text-xl bg-white text-primary rounded p-1 shadow-lg'><IoReturnDownBack/></p> 
                       </div>
                   </div>
               </div>
@@ -464,23 +474,23 @@ uploadTask.on('state_changed',
              
           </div>
 
-              {/* image upoload popup start */}
-                  {imagePopUp &&
-                      <div className='w-96 h-60 p-4 rounded-md absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[999] bg-primary'>
-                          <h4 className='text-white font-nunito font-medium text-2xl'>Select Image</h4>
-                          <input onChange={handleMessageSelect} className='text-white my-4 outline-none'  type="file"  />
-                          
-                          {errorImage && 
-                            <p  className='bg-red p-2 text-white font-nunito rounded-lg bg-red-500 cursor-pointer'>{errorImage}</p>
-                          
-                          }
-                        <div className='mt-8'>
-                            <span onClick={handleImageUpload} className='bg-red p-2 text-white font-nunito rounded-lg bg-lime-500 cursor-pointer mr-6'>Upload</span>
-                            <span onClick={()=>setImagePopUp(!imagePopUp)} className='bg-red p-2 text-white font-nunito rounded-lg bg-red-500 cursor-pointer'>Cencel</span>
-                        </div>
-                      </div>
-                  }
-              {/* image upoload popup end */}
+          {/* image upoload popup start */}
+              {imagePopUp &&
+                  <div className='w-96 h-60 p-4 rounded-md absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[999] bg-primary'>
+                      <h4 className='text-white font-nunito font-medium text-2xl'>Select Image</h4>
+                      <input onChange={handleMessageSelect} className='text-white my-4 outline-none'  type="file"  />
+                      
+                      {errorImage && 
+                        <p  className='bg-red p-2 text-white font-nunito rounded-lg bg-red-500 cursor-pointer'>{errorImage}</p>
+                      
+                      }
+                    <div className='mt-8'>
+                        <span onClick={handleImageUpload} className='bg-red p-2 text-white font-nunito rounded-lg bg-lime-500 cursor-pointer mr-6'>Upload</span>
+                        <span onClick={()=>setImagePopUp(!imagePopUp)} className='bg-red p-2 text-white font-nunito rounded-lg bg-red-500 cursor-pointer'>Cencel</span>
+                    </div>
+                  </div>
+              }
+          {/* image upoload popup end */}
 
         </>
         

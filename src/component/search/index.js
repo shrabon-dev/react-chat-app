@@ -8,7 +8,7 @@ export const SearchBar = ({type}) => {
   return (
     <>
     <div>
-        <div className='relative w-full'>
+        <div className='relative w-full mt-2'>
 
           <input onChange={type} type='search' placeholder='search' className='search_light_style' />
           <span className='absolute text-2xl left-3 top-[22px] text-black'>

@@ -5,7 +5,7 @@ import { getAuth } from "firebase/auth";
 import { getDatabase, ref, onValue} from "firebase/database";
 import { useDispatch, useSelector } from 'react-redux';
 import { closeSidebarModal } from '../../slice/SidebarModalSlice';
-
+import { IoReturnDownBack } from "react-icons/io5";
 export const BlockUsers = () => {
   const modeStatus = useSelector((state)=>state.darkmode.value)
 
@@ -38,10 +38,16 @@ if(blocklist.length > 0){
         {/* <div className={`${modeStatus ? 'dark_mode laptop:mt-2 laptop:max-w-[360px] tablet:max-w-[294px] tablet:mt-8  laptop:mr-0 tablet:mr-0':'light_mode laptop:mr-0 tablet:mr-0 laptop:mt-2 laptop:max-w-[360px] tablet:max-w-[294px] tablet:mt-8'}`}> */}
 
         {/* title start */}
-         <div className='flex justify-between items-center'>
-            <h2 className={`${modeStatus ? 'dark_heading':'light_heading'}`}>Unblock Users</h2>
-            <button onClick={handleBackModal} className='font-poppin text-xs text-white font-normal bg-primary py-2 px-4 rounded-lg'>Back</button>
-         </div>
+         
+        <div className='sml_tle flex justify-between items-center py-3 tablet:py-0 tablet:px-0 px-2'>
+                <h4 className='font-poppin text-base text-semi-black font-normal'>Unblock Users</h4>
+                <button
+                  onClick={handleBackModal}
+                  className='font-poppin text-xs text-white font-normal bg-primary py-1 px-2 rounded ' >
+                  <IoReturnDownBack className='inline-block mr-1'/>
+                  Back
+                </button>
+        </div>
         {/* title end */}
 {/* *************************************************** */}
         {/* members start */}
@@ -61,10 +67,16 @@ if(blocklist.length > 0){
     <div className=''>
     {/* <div className={`${modeStatus ? 'dark_mode laptop:mt-2 laptop:max-w-[360px] tablet:max-w-[294px] tablet:mt-8  laptop:mr-0 tablet:mr-0':'light_mode laptop:mr-0 tablet:mr-0 laptop:mt-2 laptop:max-w-[360px] tablet:max-w-[294px] tablet:mt-8'}`}> */}
         {/* title start */}
-         <div className='flex justify-between items-center'>
-            <h2 className={`${modeStatus ? 'dark_heading':'light_heading'}`}>Unblock Users</h2>
-            <button onClick={handleBackModal} className='font-poppin text-xs text-white font-normal bg-primary py-2 px-4 rounded-lg'>Back</button>
-         </div>
+   
+         <div className='sml_tle flex justify-between items-center py-3 tablet:py-0 tablet:px-0 px-2'>
+                <h4 className='font-poppin text-base text-semi-black font-normal'>Unblock Users</h4>
+                <button
+                  onClick={handleBackModal}
+                  className='font-poppin text-xs text-white font-normal bg-primary py-1 px-2 rounded ' >
+                  <IoReturnDownBack className='inline-block mr-1'/>
+                  Back
+                </button>
+        </div>
         {/* title end */}
 {/* *************************************************** */}
         {/* members start */}

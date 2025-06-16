@@ -6,7 +6,7 @@ import { getDatabase, ref, onValue, remove, push, set} from "firebase/database";
 import { useDispatch, useSelector } from 'react-redux';
 import { closeSidebarModal } from '../../slice/SidebarModalSlice';
 import { IoReturnUpBack } from "react-icons/io5";
-
+import { IoReturnDownBack } from "react-icons/io5";
 
 export const MyGroups = () => {
   const modeStatus = useSelector((state)=>state.darkmode.value)
@@ -109,10 +109,16 @@ if(myGroupList.length > 0){
     <>
     <div  className=''>
         {/* title start */}
-         <div className='flex justify-between items-center'>
-            <h2 className={`${modeStatus ? 'dark_heading':'light_heading'}`}>My Groups</h2>
-            <button onClick={handleBackModal} className='font-poppin text-xs text-white font-normal bg-primary py-2 px-4 rounded-lg'> Back </button>
-         </div>
+     
+          <div className='sml_tle flex justify-between items-center py-3 tablet:py-0 tablet:px-0 px-2'>
+                <h4 className='font-poppin text-base text-semi-black font-normal'>My Groups</h4>
+                <button
+                  onClick={handleBackModal}
+                  className='font-poppin text-xs text-white font-normal bg-primary py-1 px-2 rounded ' >
+                  <IoReturnDownBack className='inline-block mr-1'/>
+                  Back
+                </button>
+          </div>
         {/* title end */}
 {/* *************************************************** */}
         {/* members start */}
@@ -240,11 +246,15 @@ if(myGroupList.length > 0){
     <>
     <div className='' >
         {/* title start */}
-         <div className='flex justify-between items-center'>
-            <h2 className={`${modeStatus ? 'dark_heading':'light_heading'}`}>My Groups</h2>
-            <button onClick={handleBackModal} className='font-poppin text-xs text-white font-normal bg-primary py-2 px-4 rounded-lg'>Back</button>
-
-         </div>
+         <div className='sml_tle flex justify-between items-center py-3 tablet:py-0 tablet:px-0 px-2'>
+                <h4 className='font-poppin text-base text-semi-black font-normal'>My Groups</h4>
+                <button
+                  onClick={handleBackModal}
+                  className='font-poppin text-xs text-white font-normal bg-primary py-1 px-2 rounded ' >
+                  <IoReturnDownBack className='inline-block mr-1'/>
+                  Back
+                </button>
+          </div>
         {/* title end */}
 {/* *************************************************** */}
         {/* members start */}

@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { activechat } from '../../slice/activeChatSlice'
 import Skeleton from "react-loading-skeleton";
 import { closeSidebarModal } from "../../slice/SidebarModalSlice";
-
+import { IoReturnDownBack } from "react-icons/io5";
 export const Friends = () => {
   const modeStatus = useSelector((state)=>state.darkmode.value)
   let dispatch = useDispatch();
@@ -53,15 +53,21 @@ useEffect(()=>{
      <>
      <div className=''>
          {/* title start */}
-          <div className='sml_tle flex justify-between items-center pb-5'>
-            <h4 className='font-poppin text-base text-semi-black  font-normal'>Your Friends</h4>
-            <button onClick={handleBackModal} className='font-poppin text-xs text-white font-normal bg-primary py-2 px-4 rounded-lg'>Back</button>
-          </div>
+    
+                <div className='sml_tle flex justify-between items-center py-3 tablet:py-0 tablet:px-0 px-2'>
+                  <h4 className='font-poppin text-base text-semi-black font-normal'> Your Friends </h4>
+                  <button
+                    onClick={handleBackModal}
+                    className='font-poppin text-xs text-white font-normal bg-primary py-1 px-2 rounded ' >
+                    <IoReturnDownBack className='inline-block mr-1'/>
+                    Back
+                  </button>
+                </div>
          {/* title end */}
   {/* *************************************************** */}
           {/* members start */}
           {friendList ? 
-                    <div className=' '>
+                    <div className='mt-5 '>
                     {friendList.map((item)=>(
                        <>
                        {auth.currentUser.uid == item.senderid ? 
@@ -85,10 +91,15 @@ useEffect(()=>{
     <>
     <div className=''>
         {/* title start */}
-         <div className='flex justify-between items-center'>
-            <h2 className={`${modeStatus ? 'dark_heading':'light_heading'}`}>Friends</h2>
-            <button onClick={handleBackModal} className='font-poppin text-xs text-white font-normal bg-primary py-2 px-4 rounded-lg'>Back</button>
-         </div>
+        <div className='sml_tle flex justify-between items-center py-3 tablet:py-0 tablet:px-0 px-2'>
+          <h4 className='font-poppin text-base text-semi-black font-normal'> Your Friends </h4>
+          <button
+            onClick={handleBackModal}
+            className='font-poppin text-xs text-white font-normal bg-primary py-1 px-2 rounded ' >
+            <IoReturnDownBack className='inline-block mr-1'/>
+            Back
+          </button>
+        </div>
         {/* title end */}
         {/* *************************************************** */}
         {/* members start */}
