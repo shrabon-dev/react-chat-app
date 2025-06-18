@@ -1,16 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FiPlus } from "react-icons/fi";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 import { AiFillLike,AiFillDislike  } from "react-icons/ai";
 import { FaComment } from "react-icons/fa";
 import { FaShare } from "react-icons/fa";
+import { getDatabase, onValue, ref } from 'firebase/database';
 
 
-export default function PostItem() {
+export default function  PostItem({postId, post}) {
+
+  
+
   return (
     <>
-    <div className='item bg-white mobile:p-3 tablet:p-5 mobile:rounded tablet:rounded-xl mb-5'>
+    <div key={postId} className='item bg-white mobile:p-3 tablet:p-5 mobile:rounded tablet:rounded-xl mb-5'>
                     {/* Post hdr Start */}
                     <div className='flex items-start justify-between'>
                         <div className='usr flex gap-3'>
@@ -25,10 +29,12 @@ export default function PostItem() {
                     </div>
                     {/* Post cntn Start */}
                     <div className='pst_cntn py-5'>
-                        <p className='post_p'>Naaaa bro Hin still dey house jare , I no sure say i wan sell am tho Naaaa bro Hin still dey house jare , I no sure say i wan sell am thoNaaaa bro Hin still dey house jare , I no sure say i wan sell am thoNaaaa bro Hin still dey house jare , I no sure say i wan sell am tho</p>
-                        <div className=' !aspect-square  mobile:rounded tablet:rounded-xl  my-5 overflow-hidden '>
-                            <img className='!aspect-square object-cover' src='https://w0.peakpx.com/wallpaper/204/667/HD-wallpaper-spring-nature.jpg' alt='img_cont'/>
+                        <p className='post_p'> {post?.postText} </p>
+                        {post.postImg &&
+                        <div className=' !aspect-auto  mobile:rounded tablet:rounded-xl  my-5 overflow-hidden '>
+                            <img className='!aspect-auto object-cover' src={post.postImg} alt='img_cont'/>
                         </div>
+                        }
                     </div>
                     {/* Post cntn Start */}
                     <div className='pst_ftr flex justify-between items-center'>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FiPlus } from "react-icons/fi";
 import { HiOutlineDotsVertical } from "react-icons/hi";
@@ -7,12 +7,41 @@ import { FaComment } from "react-icons/fa";
 import { FaShare } from "react-icons/fa";
 import PostItem from '../utils/Post';
 import CreatePost from '../utils/CreatePost';
+import { getDatabase, onValue, ref } from 'firebase/database';
 
 
 
 
 
 export default function Posts() {
+  
+    const db = getDatabase();
+    const [posts,setPosts] = useState([]);
+  
+    useEffect(()=>{
+      const postRef = ref(db,'posts/')
+      onValue(postRef,(snapeshot)=>{
+        const data = snapeshot.val();
+        const postList = [];
+  
+        Object.entries(data).forEach(([useId,userPosts]) => {
+          Object.entries(userPosts).forEach(([postId,postData]) =>{
+            postList.push({
+              id:postId,...postData
+            })
+          })
+        })
+  
+        // Short By Newest
+        postList.sort((a,b)=> new Date(b.createdAt) - new Date(a.createdAt))
+  
+        setPosts(postList);
+  
+        console.log(posts);
+  
+      })
+    },[])
+
   return (
     <div className='min-w-[290px] tablet:max-w-[460px] desktop:max-w-[700px] mobile:py-20 tablet:pt-2 desktop:py-10'>
         {/* Notice Start */}
@@ -53,10 +82,9 @@ export default function Posts() {
         {/* Create post Card */}
         <CreatePost/>
         <div className='post_lists mobile:p-2 tablet:p-5 mt-10 border border-bdr mobile:rounded tablet:rounded-xl  h-[1080px] overflow-y-scroll'>
-            <PostItem/>
-            <PostItem/>
-            <PostItem/>
-            <PostItem/>
+              {posts.map(post => (
+                <PostItem key={post.id} post={post} />
+              ))}
         </div>
     </div>
   )

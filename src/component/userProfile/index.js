@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PostItem from '../utils/Post'
 import Button from '../utils/Button'
 import { FcAddImage } from "react-icons/fc";
@@ -6,11 +6,37 @@ import { FcVideoCall } from "react-icons/fc";
 import CreatePost from '../utils/CreatePost';
 import { useSelector } from 'react-redux';
 import UserStatus from '../userStatus';
-
+import { getDatabase, onValue, ref } from 'firebase/database';
 
 export default function Profile() {
   const user = useSelector((state)=>state.userLoginInfo.userInfo)
-  console.log(user.uid)
+   
+      const db = getDatabase();
+      const [posts,setPosts] = useState([]);
+    
+      useEffect(()=>{
+        const postRef = ref(db,'posts/')
+        onValue(postRef,(snapeshot)=>{
+          const data = snapeshot.val();
+          const postList = [];
+    
+          Object.entries(data).forEach(([useId,userPosts]) => {
+            Object.entries(userPosts).forEach(([postId,postData]) =>{
+              postList.push({
+                id:postId,...postData
+              })
+            })
+          })
+    
+          // Short By Newest
+          postList.sort((a,b)=> new Date(b.createdAt) - new Date(a.createdAt))
+    
+          setPosts(postList);
+    
+          console.log(posts);
+    
+        })
+      },[])
   return (
     <>
         <div className='w-full h-full'>
@@ -48,13 +74,9 @@ export default function Profile() {
           <CreatePost/>
           {/* Post Item Start */}
            <div className='post_lists mobile:p-2 tablet:p-5 mt-10 border border-bdr mobile:rounded tablet:rounded-xl  h-[1080px] overflow-y-scroll'>
-                <PostItem/>
-                <PostItem/>
-                <PostItem/>
-                <PostItem/>
-                <PostItem/>
-                <PostItem/>
-                <PostItem/>
+                {posts.map(post => (
+                    <PostItem key={post.id} post={post} />
+                ))}
             </div>
         </div>
     </>

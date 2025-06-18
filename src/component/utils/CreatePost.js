@@ -2,15 +2,27 @@ import React, { useState } from 'react'
 import { FcAddImage } from "react-icons/fc";
 import { FcVideoCall } from "react-icons/fc";
 import { BsArrowLeft } from "react-icons/bs";
+import { comment } from 'postcss';
+import { getAuth } from 'firebase/auth';
+import { getDatabase, push, ref, set } from 'firebase/database';
+import { ref as storageRef, getStorage, uploadString, getDownloadURL } from 'firebase/storage';
 
 export default function CreatePost() {
+  const auth = getAuth();
+  const db = getDatabase();
+  const storage = getStorage();
   const [popupShow, setPopupShow] = useState(false);
   const [preViewImgPost, setPreViewImgPost] = useState(false);
+  const [postText, setPostText] = useState('');
+  const [postImg, setPostImg] = useState('');
   
 
   let handleShowPostCreatePopup = () =>{
     setPopupShow(!popupShow)
     setPreViewImgPost('')
+  }
+  let handlePostText = (e) =>{
+    setPostText(e.target.value)
   }
   let handleUplaodPostImage = (e) =>{
     let img = e.target.files[0];
@@ -19,12 +31,57 @@ export default function CreatePost() {
    
    reader.onload = () => { 
      setPreViewImgPost(reader.result);
+     setPostImg(reader.result)
     }
-   reader.readAsDataURL(img);
+   let url = reader.readAsDataURL(img);
 
-   console.log(preViewImgPost)
   }
- 
+
+  
+  let handleCreatePost = async (e) => {
+    e.preventDefault();
+
+    if (!postText) return;
+
+    const userId = auth.currentUser.uid;
+    const postId = Date.now().toString(); // generate a unique post ID
+
+    try {
+      let imageURL = '';
+
+      // If image exists, upload it to Firebase Storage
+      if (postImg) {
+        const imgStorageRef = storageRef(storage, `posts/${userId}/${postId}.jpg`);
+        await uploadString(imgStorageRef, postImg, 'data_url');
+        imageURL = await getDownloadURL(imgStorageRef);
+      }
+
+      const postData = {
+        userId: userId,
+        postText: postText,
+        postImg: imageURL,
+        like: 0,
+        dislike: 0,
+        comment: 0,
+        share: 0,
+        impression: 0,
+        createdAt: new Date().toISOString(),
+      };
+
+      await set(push(ref(db, `posts/${userId}`)), postData);
+
+      // Reset UI
+      setPopupShow(false);
+      setPostText('');
+      setPostImg('');
+      setPreViewImgPost('');
+
+      console.log('Post created successfully with image');
+
+    } catch (error) {
+      console.error('Error creating post:', error);
+    }
+  };
   return (
     <>
     <div className='create_post w-full bg-white mt-4 rounded shadow p-4'>
@@ -43,11 +100,11 @@ export default function CreatePost() {
     {
       popupShow &&
       <>
-        <div className='create_post absolute top-1/2 left-1/2 -translate-x-[56%] -translate-y-[75%] w-[710px] bg-white border-semi-bdr rounded mt-4 shadow p-4 z-[999]'>
+        <div className='create_post fixed top-1/2 left-1/2 -translate-x-[56%] -translate-y-[75%] w-[710px] bg-white border-semi-bdr rounded mt-4 shadow p-4 z-[999999]'>
             {/* <div className='flex'></div> */}
             <p onClick={()=>setPopupShow(!popupShow)} className=' font-poppin text-lg font-semibold pb-2  text-semi-black text-center relative '> <BsArrowLeft className='absolute text-2xl left-0 top-0 cursor-pointer'/> Create Post </p>
             <div className='border border-semi-bdr/50 rounded mt-1 p-3'>
-              <textarea className=' w-full h-32 resize-none justify-between focus:outline-none text-semi-black border-semi-bdr border-0 py-2 rounded bg-transparent'>
+              <textarea onChange={handlePostText} className=' w-full h-32 resize-none justify-between focus:outline-none text-semi-black border-semi-bdr border-0 py-2 rounded bg-transparent'>
 
               </textarea>
               {preViewImgPost ?
@@ -61,7 +118,7 @@ export default function CreatePost() {
             </div>
             <div className='text-right'>
               <button onClick={()=>setPopupShow(!popupShow)} type='button' className='w-24 py-2 mt-5 ml-auto rounded bg-gray-200 mr-5 text-semi-black font-poppin text-sm '>Cancel</button>
-              <button type='submit' className='w-24 py-2 mt-5 ml-auto rounded bg-primary text-semi-white font-poppin text-sm '>Post Now</button>
+              <button onClick={handleCreatePost} type='submit' className='w-24 py-2 mt-5 ml-auto rounded bg-primary text-semi-white font-poppin text-sm '>Post Now</button>
             </div> 
         </div>
       </>
