@@ -13,6 +13,7 @@ import { getAuth } from 'firebase/auth';
 import { UserProfile } from './pages/UserProfile.js';
 import NoticeBoard from './pages/NoticeBoard.js';
 import PresenceManager from './component/presenceProvider/index.js';
+import 'react-loading-skeleton/dist/skeleton.css'
 // import { current } from '@reduxjs/toolkit';
 function App() {
   const userData = useSelector((state)=>state.userLoginInfo.userInfo);

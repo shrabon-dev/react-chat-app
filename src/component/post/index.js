@@ -31,13 +31,10 @@ export default function Posts() {
             })
           })
         })
-  
         // Short By Newest
         postList.sort((a,b)=> new Date(b.createdAt) - new Date(a.createdAt))
-  
         setPosts(postList);
   
-        console.log(posts);
   
       })
     },[])
