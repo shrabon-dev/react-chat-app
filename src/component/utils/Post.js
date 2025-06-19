@@ -126,8 +126,8 @@ const handleDislike = async (postId ) => {
             <div className='pst_cntn py-5'>
                 <p className='post_p'> {post?.postText} </p>
                 {post.postImg &&
-                <div className=' !aspect-auto  mobile:rounded tablet:rounded-xl  my-5 overflow-hidden '>
-                    <img className='!aspect-auto object-cover' src={post.postImg} alt='img_cont'/>
+                <div className=' !aspect-square  mobile:rounded tablet:rounded-xl  my-5 overflow-hidden '>
+                    <img className='!aspect-square  object-contain' src={post.postImg} alt='img_cont'/>
                 </div>
                 }
             </div>
