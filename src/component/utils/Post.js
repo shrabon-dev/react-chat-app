@@ -30,7 +30,7 @@ const handleLike = async (postId ) => {
   const db = getDatabase();
   const likeId = `${postId}_${currentUserId}`;
   const likeRef = ref(db, `likes_table/${likeId}`);
-  const postRef = ref(db, `posts/${post.userId}/${postId}`);
+  const postRef = ref(db, `posts/${post.userId}/${post.id}`);
 
   const snapshot = await get(likeRef);
   const currentLikes = post.like || 0;
