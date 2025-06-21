@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { FiPlus } from "react-icons/fi";
+import { FiPlus, FiSend } from "react-icons/fi";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 import { AiFillLike,AiFillDislike  } from "react-icons/ai";
 import { FaComment } from "react-icons/fa";
@@ -23,6 +23,7 @@ export default function  PostItem({postId, post}) {
   const postRef = ref(db,`posts/${post.userId}/${postId}`)
   const hasLiked = useLike({ postID: post.id, userID:currentUserId });
   const hasDisliked = useDislike({ postID: post.id, userID:currentUserId });
+  const [postBigModal,setPostBigModal] = useState(false);
 
   console.log('likes:', hasLiked)
 
@@ -107,7 +108,7 @@ const handleDislike = async (postId ) => {
 
   return (
       <>
-        <div key={postId} className='item bg-white mobile:p-3 tablet:p-5 mobile:rounded tablet:rounded-xl mb-5'>
+      <div key={postId} className='item bg-white mobile:p-3 tablet:p-5 mobile:rounded tablet:rounded-xl mb-5'>
             {/* Post hdr Start */}
             <div className='flex items-start justify-between'>
                 <div className='usr flex gap-3'>
@@ -141,6 +142,151 @@ const handleDislike = async (postId ) => {
                 <span className='cursor-pointer font-poppin mobile:text-xs desktop:text-base text-gray-500 flex mobile:gap-1 tablet:gap-1 items-center'><FaShare/> {post?.share} </span>
             </div>
       </div>
+      {postBigModal && 
+
+        <div className='laptop:w-[760px] desktop:w-[760px] z-[999999] h-[80%] bg-black fixed top-5 left-1/2 -translate-x-1/2'>
+          <div key={postId} className='item h-[80%] bg-white mobile:p-3 tablet:p-5 mobile:rounded tablet:rounded-xl mb-5'>
+                {/* Post hdr Start */}
+                <div className='flex items-start justify-between'>
+                    <div className='usr flex gap-3'>
+
+                        <img className='w-10 h-10 rounded-full border-2 object-cover border-brd' src={user?.profile_picture} alt='puser_image'/>
+                      <Link className='text-base text-black' to={'/'}>
+                        {user?.username || <Skeleton/>}
+                        {/* <span className='text-xs text-gray-500 block'>Front End Developer</span> */}
+                      </Link>
+                    </div>
+                    <div>
+                        <HiOutlineDotsVertical className="text-2xl text-gray-500"/>
+                    </div>
+                </div>
+                {/* Post cntn Start */}
+                <div className='pst_cntn py-5'>
+                    <p className='post_p'> {post?.postText} </p>
+                    {post.postImg &&
+                    <div className=' !aspect-[1.9/1]  mobile:rounded tablet:rounded-xl  my-5 overflow-hidden '>
+                        <img className='!aspect-[1.9/1]   object-contain' src={post.postImg} alt='img_cont'/>
+                    </div>
+                    }
+                </div>
+                {/* Post cntn Start */}
+                <div className='pst_ftr flex justify-between items-center'>
+                  <div className='flex gap-5 items-center'>
+                    <span onClick={()=>handleLike(post.id)} className={`cursor-pointer font-poppin mobile:text-xs desktop:text-base ${hasLiked ? 'text-blue-500':'text-gray-500' } text-gray-500 flex mobile:gap-1 tablet:gap-1 items-center`}><AiFillLike/> {post?.like} </span>
+                    <span onClick={()=>handleDislike(post.id)} className={`cursor-pointer font-poppin mobile:text-xs desktop:text-base ${hasDisliked ? 'text-blue-500':'text-gray-500' } text-gray-500 flex mobile:gap-1 tablet:gap-1 items-center`}><AiFillDislike /> {post?.dislike} </span>
+                    <span  className='cursor-pointer font-poppin mobile:text-xs desktop:text-base text-gray-500 flex mobile:gap-1 tablet:gap-1 items-center'><FaComment/> {post?.comment} </span>
+                  </div>
+                    <span className='cursor-pointer font-poppin mobile:text-xs desktop:text-base text-gray-500 flex mobile:gap-1 tablet:gap-1 items-center'><FaShare/> {post?.share} </span>
+                </div>
+          </div>
+          {/* Comment Box Start */}
+    
+            {/* All Comment List Start */}
+            <div className='all_comment_list h-[280px] relative overflow-hidden rounded border border-gray-300 bg-white'>
+              {/* Example Comment */}
+              <div className=' h-[200px] overflow-y-auto'>
+                  <div className='cmnt__rply'>
+                      {/* Comment */}
+                      <div className='flex items-center gap-3 p-5 border-b border-gray-200'>
+                        <img className='w-10 h-10 rounded-full border-2 object-cover border-brd' src={user?.profile_picture} alt='puser_image'/>
+                        <div>
+                          <Link className='text-base text-black' to={'/'}>
+                            {user?.username || <Skeleton/>}
+                          </Link>
+                          <p className='text-gray-600'>This is a sample comment.</p>
+                        </div>
+                      </div>
+                      {/* Reply */}
+                      <div className='flex items-center gap-3 p-5 border-b border-gray-200 ml-20'>
+                        <img className='w-10 h-10 rounded-full border-2 object-cover border-brd' src={user?.profile_picture} alt='puser_image'/>
+                        <div>
+                          <Link className='text-base text-black' to={'/'}>
+                            {user?.username || <Skeleton/>}
+                          </Link>
+                          <p className='text-gray-600'>This is a sample comment.</p>
+                        </div>
+                      </div>
+                  </div>
+                  <div className='cmnt__rply'>
+                      {/* Comment */}
+                      <div className='flex items-center gap-3 p-5 border-b border-gray-200'>
+                        <img className='w-10 h-10 rounded-full border-2 object-cover border-brd' src={user?.profile_picture} alt='puser_image'/>
+                        <div>
+                          <Link className='text-base text-black' to={'/'}>
+                            {user?.username || <Skeleton/>}
+                          </Link>
+                          <p className='text-gray-600'>This is a sample comment.</p>
+                        </div>
+                      </div>
+                      {/* Reply */}
+                      <div className='flex items-center gap-3 p-5 border-b border-gray-200 ml-20'>
+                        <img className='w-10 h-10 rounded-full border-2 object-cover border-brd' src={user?.profile_picture} alt='puser_image'/>
+                        <div>
+                          <Link className='text-base text-black' to={'/'}>
+                            {user?.username || <Skeleton/>}
+                          </Link>
+                          <p className='text-gray-600'>This is a sample comment.</p>
+                        </div>
+                      </div>
+                  </div>
+                  <div className='cmnt__rply'>
+                      {/* Comment */}
+                      <div className='flex items-center gap-3 p-5 border-b border-gray-200'>
+                        <img className='w-10 h-10 rounded-full border-2 object-cover border-brd' src={user?.profile_picture} alt='puser_image'/>
+                        <div>
+                          <Link className='text-base text-black' to={'/'}>
+                            {user?.username || <Skeleton/>}
+                          </Link>
+                          <p className='text-gray-600'>This is a sample comment.</p>
+                        </div>
+                      </div>
+                      {/* Reply */}
+                      <div className='flex items-center gap-3 p-5 border-b border-gray-200 ml-20'>
+                        <img className='w-10 h-10 rounded-full border-2 object-cover border-brd' src={user?.profile_picture} alt='puser_image'/>
+                        <div>
+                          <Link className='text-base text-black' to={'/'}>
+                            {user?.username || <Skeleton/>}
+                          </Link>
+                          <p className='text-gray-600'>This is a sample comment.</p>
+                        </div>
+                      </div>
+                  </div>
+                  <div className='cmnt__rply'>
+                      {/* Comment */}
+                      <div className='flex items-center gap-3 p-5 border-b border-gray-200'>
+                        <img className='w-10 h-10 rounded-full border-2 object-cover border-brd' src={user?.profile_picture} alt='puser_image'/>
+                        <div>
+                          <Link className='text-base text-black' to={'/'}>
+                            {user?.username || <Skeleton/>}
+                          </Link>
+                          <p className='text-gray-600'>This is a sample comment.</p>
+                        </div>
+                      </div>
+                      {/* Reply */}
+                      <div className='flex items-center gap-3 p-5 border-b border-gray-200 ml-20'>
+                        <img className='w-10 h-10 rounded-full border-2 object-cover border-brd' src={user?.profile_picture} alt='puser_image'/>
+                        <div>
+                          <Link className='text-base text-black' to={'/'}>
+                            {user?.username || <Skeleton/>}
+                          </Link>
+                          <p className='text-gray-600'>This is a sample comment.</p>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+              {/* Example Comment End */}
+            {/* All Comment List end */}
+
+              <div className='absolute w-full left-0 h-[60px] bottom-0 bg-gray-400 flex items-center gap-3 p-5'>
+                  <img className='w-10 h-10 rounded-full border-2 object-cover border-brd' src={user?.profile_picture} alt='puser_image'/>
+                  <input type="text" placeholder='Write a comment...' className='h-10 border text-semi-black font-nunito font-normal text-base border-bdr w-full outline-none focus:outline-none  border-b-2 rounded px-2 focus:border-0'/>
+                  <button className='bg-blue-500 flex items-center gap-3 text-white px-4 py-2 rounded'><FiSend className='text-base text-white cursor-pointer'/>Post</button>
+              </div>
+          </div>
+        </div>
+
+      }
+ 
       </>
   )
 }
