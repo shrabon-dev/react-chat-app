@@ -143,9 +143,9 @@ const handleDislike = async (postId ) => {
             </div>
       </div>
       {postBigModal && 
-
-        <div className='laptop:w-[760px] desktop:w-[760px] z-[999999] h-[80%] bg-black fixed top-5 left-1/2 -translate-x-1/2'>
-          <div key={postId} className='item h-[80%] bg-white mobile:p-3 tablet:p-5 mobile:rounded tablet:rounded-xl mb-5'>
+      <div className='fixed top-0 left-0 w-full h-full z-[99999999] inset-0 bg-black/10' >
+        <div className='laptop:w-[760px] desktop:w-[760px] z-[999999] h-[80%]  fixed top-5 left-1/2 -translate-x-1/2'>
+          <div key={postId} className='item h-[80%] bg-white mobile:p-3 tablet:p-5 mobile:rounded tablet:rounded-xl !rounded-b-none '>
                 {/* Post hdr Start */}
                 <div className='flex items-start justify-between'>
                     <div className='usr flex gap-3'>
@@ -182,7 +182,7 @@ const handleDislike = async (postId ) => {
           {/* Comment Box Start */}
     
             {/* All Comment List Start */}
-            <div className='all_comment_list h-[280px] relative overflow-hidden rounded border border-gray-300 bg-white'>
+            <div className='all_comment_list h-[280px] relative overflow-hidden rounded  rounded-t-none border border-gray-300 bg-white'>
               {/* Example Comment */}
               <div className=' h-[200px] overflow-y-auto'>
                   <div className='cmnt__rply'>
@@ -284,6 +284,8 @@ const handleDislike = async (postId ) => {
               </div>
           </div>
         </div>
+      </div>
+
 
       }
  
