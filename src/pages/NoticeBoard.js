@@ -17,11 +17,11 @@ export default function NoticeBoard() {
         { icon: <FaRegSmile size={24} />, title: 'Emoji Support', description: 'Express your emotions with a wide range of emojis.' },
         { icon: <AiOutlineHome size={24} />, title: 'Home', description: 'Navigate to your home page for a personalized experience.' },
         { icon: <AiOutlineBell size={24} />, title: 'Notifications', description: 'Stay updated with notifications for new messages and friend requests.' },
-        { icon: <MdOutlinePostAdd size={24} />, title: 'Create Post - Upcoming', description: 'Share updates, photos, and thoughts on your profile.' },
+        { icon: <MdOutlinePostAdd size={24} />, title: 'Create Post', description: 'Share updates, photos, and thoughts on your profile.' },
         { icon: <BsChatSquareText size={24} />, title: 'Post Edit & Delete - Upcoming', description: 'Edit or delete your posts as needed.' },
         { icon: <FaImages size={24} />, title: 'Send Story - Upcoming', description: 'Share short, time-limited stories with your friends.' },
         { icon: <AiOutlineSetting size={24} />, title: 'Settings - Upcoming', description: 'Customize your app settings and preferences.' },
-        { icon: <AiOutlineUser size={24} />, title: 'User Profile - Upcoming', description: 'View and manage your personal profile information.' },
+        { icon: <AiOutlineUser size={24} />, title: 'User Profile Edit - Upcoming', description: 'View and manage your personal profile information.' },
     ];
 
     return (
