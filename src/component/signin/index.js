@@ -157,21 +157,23 @@ const Signin = () => {
   return (
      <>
         <div className='flex justify-center items-center bg-cover bg-no-repeat bg-center h-screen' style={{backgroundImage:'url(./images/auth/log.webp)'}}>
-            <div className=' bg-white/20 backdrop-blur-md border border-white'>
+            <div className=' bg-black/40 backdrop-blur-md border border-white'>
                 <div>
-                    <h3 className='font-nunito font-bold tablet:text-3xl text-center mobile:text-xl text-white/90 bg-black p-4'>Login to your account!</h3>
+                    <h3 className='font-poppin font-normal tablet:text-2xl text-center mobile:text-xl text-white/90 bg-primary p-4'>Login to your account!</h3>
                      <div className='p-5 tablet:p-10 rounded-lg overflow-hidden tablet:pt-0'>
                      <button onClick={HandleLoginWithGoogle} className='tablet:py-4 mobile:py-1 tablet:px-8 mobile:px-2 tablet:mt-7 mobile:mt-4 font-nunito font-normal mobile:text-sm sm:text-base text-[#03014C] bg-white text-center rounded-lg border-2 border-slate-300 flex items-center '><FcGoogle className='mr-1'/> Login with Google</button>
 
                     <form className='large_tablet:w-[370px]'>
                         <div className='relative mobile:mt-5 tablet:mt-12'>
+                            <span className='font-nunito text-lg pb-2 text-white block'>Email Address</span>
                             <input onChange={emailValue}  className='input_css  '  type={'text'} placeholder='Enter Your Email'/>
-                            <span className='input_span_css  '>Email Address</span>
+                            {/* <span className='input_span_css  '>Email Address</span> */}
                         </div>
 
-                        <div className='relative mobile:mt-5 tablet:mt-12'>
+                        <div className='relative mobile:mt-5 tablet:mt-6'>
+                            <span className='font-nunito text-lg pb-2 text-white block'>Password</span>
                             <input onChange={passwordValue} className='input_css ' type={passwordShow? 'text':'password'} placeholder='input your password' />
-                            <span className='input_span_css  '>Password</span>
+                            {/* <span className='input_span_css  '>Password</span> */}
                             {passwordShow? 
                             <RiEyeFill onClick={handleShowPassword} className='text-2xl text-slate-600 absolute right-4 top-1/3 cursor-pointer'/>
                             :
@@ -183,7 +185,7 @@ const Signin = () => {
                         <p className='text-red-200 bg-red-200 py-2 px-4 font-nunito rounded mt-1'>{signinError}</p>
                         : ''}
                         <button onClick={handleSubmit} className='py-5 mt-12 font-nunito font-semibold text-base text-white bg-primary text-center w-full rounded-lg'> Sign in </button>
-                        <p className='font-nunito font-normal text-sm text-left mt-2 text-[#03014C]'>Don’t have an account ?  <Link to='/registration' className='text-[#EA6C00] font-bold'>Sign up </Link> </p>
+                        <p className='font-nunito font-normal text-sm text-left mt-2 text-white'>Don’t have an account ?  <Link to='/registration' className='text-[#EA6C00] font-bold'>Sign up </Link> </p>
                         <p onClick={HandleResetPassword} className='font-nunito  text-sm  mt-2  text-[#ffffff] font-bold cursor-pointer text-center'> Reset Password  </p>
                     </form>
                      </div>

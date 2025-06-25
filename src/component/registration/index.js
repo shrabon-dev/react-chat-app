@@ -112,10 +112,10 @@ export const Registration = () => {
   return (
      <>
        <div className='flex justify-center items-center bg-cover bg-no-repeat bg-center h-screen w-full' style={{backgroundImage:'url(./images/auth/reg.webp)'}}>
-            <div className=' bg-white/20 backdrop-blur-md border border-white flex items-center tablet:justify-end mobile:justify-center  '>
+            <div className=' bg-black/40 backdrop-blur-md border border-white flex items-center tablet:justify-end mobile:justify-center  '>
                 <div className='w-[280px] tablet:w-[450px]'>
                     <div className=''>
-                    <h3 className='font-nunito font-bold tablet:text-3xl text-center mobile:text-xl text-white/90 bg-black p-4'>Create a free account!</h3>
+                    <h3 className='font-poppin font-normal tablet:text-2xl text-center mobile:text-xl text-white/90 bg-primary p-4'>Create a free account!</h3>
                      {/* <p className='font-nunito font-bold tablet:text-xl  mobile:text-lg text-white tablet:mt-4 mobile:mt-2'>Free register and you can enjoy it</p> */}
                      {signupMessage ? 
                       <p className='text-white bg-blue-600 py-2 px-4 font-nunito rounded mt-1'>{signupMessage}</p>
@@ -126,15 +126,15 @@ export const Registration = () => {
 
                           
                           <div className='relative mobile:mt-5 tablet:mt-12'>
+                              <span className='font-nunito text-lg pb-2 text-white block'>Full Name</span>
                               <input onChange={nameValue}  className='input_css'  type={'text'} />
-                              <span className='input_span_css'>Full Name</span>
                           </div>
                          {nameerror ? 
                            <p className='text-red-500 bg-red-200 py-2 px-4 font-nunito rounded mt-1'>{nameerror}</p>
                          : ''}
                             <div onChange={emailValue} className='relative mobile:mt-5 tablet: mt-6'>
+                              <span className='font-nunito text-lg pb-2 text-white block'>Email Address</span>
                               <input  className='input_css'  type={'email'} />
-                              <span className='input_span_css'>Email Address</span>
                             </div>
                           {emailerror ? 
                            <p className='text-red-500 bg-red-200 py-2 px-4 font-nunito rounded mt-1'>{emailerror}</p>
@@ -143,8 +143,8 @@ export const Registration = () => {
                            <p className='text-red-500 bg-red-200 py-2 px-4 font-nunito rounded mt-1'>{emailChecking}</p>
                           : ''}
                           <div className='relative mobile:mt-5 tablet:mt-6'>
+                              <span className='font-nunito text-lg pb-2 text-white block'>Password</span>
                               <input onChange={passwordValue} className='input_css'  type={passwordShow? 'text':'password'} />
-                              <span className='input_span_css'>Password</span>
                              {passwordShow? 
                               <RiEyeFill onClick={handleShowPassword} className='text-2xl text-slate-600 absolute right-4 top-1/3 cursor-pointer'/>
                               :
@@ -172,7 +172,7 @@ export const Registration = () => {
                         /> </div>
                         :'' }
 
-                          <p className='font-nunito font-normal text-sm text-center mt-2 text-[#03014C]'>Already  have an account ? <Link to='/signin' className='text-[#EA6C00] font-bold'> Sign In </Link> </p>
+                          <p className='font-nunito font-normal text-sm text-center mt-2 text-white'>Already  have an account ? <Link to='/signin' className='text-[#EA6C00] font-bold'> Sign In </Link> </p>
                      </form>
                      </div>
                 </div>
