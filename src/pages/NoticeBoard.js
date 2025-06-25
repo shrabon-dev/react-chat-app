@@ -1,5 +1,6 @@
 import React from 'react';
 import { AiOutlineUser, AiOutlineTeam, AiOutlineMessage, AiOutlineSetting, AiOutlineBell, AiOutlineHome } from 'react-icons/ai';
+import { BiLike } from 'react-icons/bi';
 import { BsPencilSquare, BsChatSquareText } from 'react-icons/bs';
 import { FaUserFriends, FaUserEdit, FaImages, FaMicrophone, FaRegSmile, FaUsers  } from 'react-icons/fa';
 import { MdOutlineEditNote, MdOutlinePostAdd } from 'react-icons/md';
@@ -19,6 +20,7 @@ export default function NoticeBoard() {
         { icon: <AiOutlineBell size={24} />, title: 'Notifications', description: 'Stay updated with notifications for new messages and friend requests.' },
         { icon: <MdOutlinePostAdd size={24} />, title: 'Create Post', description: 'Share updates, photos, and thoughts on your profile.' },
         { icon: <BsChatSquareText size={24} />, title: 'Post Edit & Delete - Upcoming', description: 'Edit or delete your posts as needed.' },
+        { icon: <BiLike size={24} />, title: 'Like, Dislike & Comment', description: 'Share updates, photos, and thoughts on your profile.' },
         { icon: <FaImages size={24} />, title: 'Send Story - Upcoming', description: 'Share short, time-limited stories with your friends.' },
         { icon: <AiOutlineSetting size={24} />, title: 'Settings - Upcoming', description: 'Customize your app settings and preferences.' },
         { icon: <AiOutlineUser size={24} />, title: 'User Profile Edit - Upcoming', description: 'View and manage your personal profile information.' },
