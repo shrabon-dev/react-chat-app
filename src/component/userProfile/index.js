@@ -7,6 +7,8 @@ import CreatePost from '../utils/CreatePost';
 import { useSelector } from 'react-redux';
 import UserStatus from '../userStatus';
 import { getDatabase, onValue, ref } from 'firebase/database';
+import { FiEdit3 } from "react-icons/fi";
+import { Link } from 'react-router-dom';
 
 export default function Profile() {
   const user = useSelector((state)=>state.userLoginInfo.userInfo)
@@ -52,10 +54,9 @@ export default function Profile() {
                         <img className='object-cover w-full h-full' src={`${user.photoURL ? user.photoURL:'../images/demo.jpg'}`} alt='demo.jpg' />
                     </div>
                     <div className='usr_info'>
-                        <h3 className='font-poppin text-2xl font-medium text-semi-black pb-5'>{user.displayName}</h3>
+                        <h3 className='font-poppin text-2xl font-medium text-semi-black pb-5'>{user.displayName} <Link className='inline-flex bg-primary/10 w-4 h-4 justify-center items-center rounded text-primary text-xs' to={`/setting`}><FiEdit3 className='text-xs' /></Link> </h3>
                         {/* <h6 className='font-poppin text-sm font-normal text-semi-black'>Front End Developer</h6> */}
                     </div>
-                  
             </div>
             <div className='button text-right'>
               {user? 

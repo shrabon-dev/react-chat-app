@@ -37,7 +37,7 @@ export const UserProfile = () => {
           <Sidebar active='home' />
         </div>
         <div className='w-full h-full flex justify-center px-4  '>
-          <div className='min-w-[290px] tablet:max-w-[460px] laptop:max-w-[620px] desktop:max-w-[700px] mobile:py-20 tablet:pt-2 desktop:py-10'>
+          <div className='min-w-[290px]  tablet:max-w-[460px] laptop:min-w-[500px] laptop:max-w-[620px] desktop:min-w-[700px] desktop:max-w-[700px] mobile:py-20 tablet:pt-2 desktop:py-10'>
             <Profile/>
           </div>
         </div>
