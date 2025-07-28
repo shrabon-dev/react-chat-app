@@ -5,6 +5,10 @@ import { RiEyeCloseFill,RiEyeFill } from 'react-icons/ri';
 import { getAuth, createUserWithEmailAndPassword, updateProfile,sendEmailVerification   } from "firebase/auth";
 import { Oval } from 'react-loader-spinner'
 import { getDatabase, push, ref, set } from "firebase/database";
+import { MdOutlineMailLock } from "react-icons/md";
+import { RiLockPasswordFill } from "react-icons/ri";
+import { FaUser } from "react-icons/fa6";
+
 
 export const Registration = () => {
     const auth = getAuth();
@@ -111,8 +115,9 @@ export const Registration = () => {
 
   return (
      <>
-       <div className='flex justify-center items-center bg-cover bg-no-repeat bg-center h-screen w-full' style={{backgroundImage:'url(./images/auth/reg.webp)'}}>
-            <div className=' bg-black/40 backdrop-blur-md border border-white flex items-center tablet:justify-end mobile:justify-center  '>
+       {/* <div className='flex justify-center items-center bg-cover bg-no-repeat bg-center h-screen w-full' style={{backgroundImage:'url(./images/auth/reg.webp)'}}> */}
+       <div className='flex justify-center items-center bg-cover bg-no-repeat bg-center h-screen w-full  bg-gradient-to-br shadow-lg from-lime-400/20 to-primary/40'>
+            <div className=' bg-white backdrop-blur-md border border-white flex items-center tablet:justify-end mobile:justify-center  '>
                 <div className='w-[280px] tablet:w-[450px]'>
                     <div className=''>
                     <h3 className='font-poppin font-normal tablet:text-2xl text-center mobile:text-xl text-white/90 bg-primary p-4'>Create a free account!</h3>
@@ -126,15 +131,17 @@ export const Registration = () => {
 
                           
                           <div className='relative mobile:mt-5 tablet:mt-12'>
-                              <span className='font-nunito text-lg pb-2 text-white block'>Full Name</span>
-                              <input onChange={nameValue}  className='input_css'  type={'text'} />
+                              <span className='font-nunito text-lg pb-2 text-primary block'>Full Name</span>
+                              <FaUser  onClick={handleShowPassword} className='text-base text-primary absolute -left-0 top-[60%] cursor-pointer'/>
+                              <input onChange={nameValue}  className='input_css' placeholder='write...'  type={'text'} />
                           </div>
                          {nameerror ? 
                            <p className='text-red-500 bg-red-200 py-2 px-4 font-nunito rounded mt-1'>{nameerror}</p>
                          : ''}
                             <div onChange={emailValue} className='relative mobile:mt-5 tablet: mt-6'>
-                              <span className='font-nunito text-lg pb-2 text-white block'>Email Address</span>
-                              <input  className='input_css'  type={'email'} />
+                            <MdOutlineMailLock onClick={handleShowPassword} className='text-lg text-primary absolute -left-0 top-[59%] cursor-pointer'/>
+                              <span className='font-nunito text-lg pb-2 text-primary block'>Email Address</span>
+                              <input  className='input_css'  type={'email'} placeholder='write...' />
                             </div>
                           {emailerror ? 
                            <p className='text-red-500 bg-red-200 py-2 px-4 font-nunito rounded mt-1'>{emailerror}</p>
@@ -143,8 +150,9 @@ export const Registration = () => {
                            <p className='text-red-500 bg-red-200 py-2 px-4 font-nunito rounded mt-1'>{emailChecking}</p>
                           : ''}
                           <div className='relative mobile:mt-5 tablet:mt-6'>
-                              <span className='font-nunito text-lg pb-2 text-white block'>Password</span>
-                              <input onChange={passwordValue} className='input_css'  type={passwordShow? 'text':'password'} />
+                              <span className='font-nunito text-lg pb-2 text-primary block'>Password</span>
+                               <RiLockPasswordFill onClick={handleShowPassword} className='text-lg text-primary absolute -left-0 top-[59%] cursor-pointer'/>
+                              <input onChange={passwordValue} className='input_css' placeholder='..........'  type={passwordShow? 'text':'password'} />
                              {passwordShow? 
                               <RiEyeFill onClick={handleShowPassword} className='text-2xl text-slate-600 absolute right-4 top-1/3 cursor-pointer'/>
                               :
@@ -172,7 +180,7 @@ export const Registration = () => {
                         /> </div>
                         :'' }
 
-                          <p className='font-nunito font-normal text-sm text-center mt-2 text-white'>Already  have an account ? <Link to='/signin' className='text-[#EA6C00] font-bold'> Sign In </Link> </p>
+                          <p className='font-nunito font-normal text-sm text-center mt-2 text-black'>Already  have an account ? <Link to='/signin' className='text-[#EA6C00] font-bold'> Sign In </Link> </p>
                      </form>
                      </div>
                 </div>
