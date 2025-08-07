@@ -9,7 +9,9 @@ import { getAuth } from 'firebase/auth';
 import Skeleton from 'react-loading-skeleton';
 import GetUser from '../../hooks/GetUser'; // Assuming this fetches the post creator's user
 import useLike from '../../hooks/useLike';
-import useDislike from '../../hooks/useDislike';
+import useDislike from '../../hooks/useDislike'; 
+import { MdDelete } from "react-icons/md";
+import { FaBookmark } from "react-icons/fa";
 
 export default function PostItem({ postId, post }) {
 
@@ -22,6 +24,7 @@ export default function PostItem({ postId, post }) {
 
     const hasLiked = useLike({ postID: post.id, userID: currentUserId });
     const hasDisliked = useDislike({ postID: post.id, userID: currentUserId });
+    const [postDropMenus,setPostDropMenus] = useState(false)
 
     const [postBigModal, setPostBigModal] = useState(false);
     const [showComment, setShowComment] = useState(false);
@@ -181,6 +184,20 @@ export default function PostItem({ postId, post }) {
         );
     };
 
+   
+    const handleDeletePost = (postID) => {
+    const db = getDatabase();
+    const postRef = ref(db, `posts/${currentUserId}/${postID}`);
+
+    remove(postRef)
+        .then(() => {
+        console.log(`Post ${postID} deleted successfully.`);
+        // You can add UI updates or toast here
+        })
+        .catch((error) => {
+        console.error("Error deleting post:", error);
+        });
+    };
 
     return (
         <>
@@ -195,8 +212,15 @@ export default function PostItem({ postId, post }) {
                                 {user?.username || <Skeleton />}
                             </Link>
                         </div>
-                        <div>
-                            <HiOutlineDotsVertical className="text-2xl text-gray-500" />
+                        <div className='relative'>
+                            <HiOutlineDotsVertical className="text-2xl text-gray-500 cursor-pointer" onClick={()=>setPostDropMenus(!postDropMenus)}/>
+                            {/* Dropdown menu */}
+                            <div className={`dropdown_menu absolute  ${postDropMenus? 'scale-100 right-6 top-0':'scale-0 -right-6 -top-6'} overflow-hidden transition-all duration-200 ease-linear bg-primary rounded-lg shadow-lg  `}>
+                               {currentUserId == post.userId &&
+                                <button onClick={() => handleDeletePost(post.id)} className='py-2 w-full px-5 border-b border-gray-400 cursor-pointer hover:bg-white hover:text-primary duration-200 list-none font-poppin text-sm text-white flex items-center gap-1'> <MdDelete className='text-lg'/> Delete</button>
+                               }
+                                <button className='py-2 px-5 border-b border-gray-400 cursor-pointer w-full hover:bg-white hover:text-primary duration-200 list-none font-poppin text-sm text-white flex items-center gap-1'> <FaBookmark/> Save</button>
+                            </div>
                         </div>
                     </div>
                     {/* Post cntn Start */}
