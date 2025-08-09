@@ -13,8 +13,8 @@ import useDislike from '../../hooks/useDislike';
 import { MdDelete } from "react-icons/md";
 import { FaBookmark } from "react-icons/fa";
 
-export default function PostItem({ postId, post }) {
-    const [savedPostIDs, setSavedPostIDs] = useState([]);
+export default function SavePostItem({ postId, post }) {
+
     let userId = post.userId;
     const { user, loading } = GetUser(userId); // User is the post creator
     const db = getDatabase();
@@ -199,66 +199,39 @@ export default function PostItem({ postId, post }) {
     };
 
 
-    const handleSavePost = async (id) => {
-        const db = getDatabase();
-        const postSaveRef = ref(db, `savepost/${currentUserId}_${id}`);
+const handleSavePost = async (id) => {
+    const db = getDatabase();
+    const postSaveRef = ref(db, `savepost/${currentUserId}_${id}`);
 
-        // Check if the post is already saved
-        const snapshot = await get(postSaveRef);
+    // Check if the post is already saved
+    const snapshot = await get(postSaveRef);
 
-        let alreadySavedKey = null;
+    let alreadySavedKey = null;
 
-        if (snapshot.exists()) {
-            snapshot.forEach((child) => {
-                if (child.val().postID === id) {
-                    alreadySavedKey = child.key; // Found saved post
-                }
-            });
-        }
+    if (snapshot.exists()) {
+        snapshot.forEach((child) => {
+            if (child.val().postID === id) {
+                alreadySavedKey = child.key; // Found saved post
+            }
+        });
+    }
 
-        if (alreadySavedKey) {
-            // Remove saved post
-            const savedPostRef = ref(db, `savepost/${currentUserId}_${id}/${alreadySavedKey}`);
-            await remove(savedPostRef);
-            console.log(`Post ${id} removed from saved.`);
-        } else {
-            // Save new post
-            await push(postSaveRef, {
-                who_save: currentUserId,
-                postID: id,
-                timestamp: new Date().toISOString(),
-            });
-            console.log(`Post ${id} saved.`);
-        }
-        setPostDropMenus(!postDropMenus)
-    };
-
-    useEffect(() => {
-    if (!currentUserId) return;
-
-    const savedRef = ref(db, 'savepost');
-    onValue(savedRef, (snapshot) => {
-      if (!snapshot.exists()) {
-        setSavedPostIDs([]);
-        return;
-      }
-      const ids = [];
-      snapshot.forEach(child => {
-        const key = child.key;  // key like "currentUserId_postId"
-        if (key.startsWith(currentUserId + '_')) {
-          // The value is an object with multiple children potentially
-          Object.values(child.val()).forEach(val => {
-            ids.push(val.postID);
-          });
-        }
-      });
-      setSavedPostIDs(ids);
-    });
-    }, [currentUserId, db]);
-
-    // Check if current post is saved
-    const isSaved = savedPostIDs.includes(post.id);
-
+    if (alreadySavedKey) {
+        // Remove saved post
+        const savedPostRef = ref(db, `savepost/${currentUserId}_${id}/${alreadySavedKey}`);
+        await remove(savedPostRef);
+        console.log(`Post ${id} removed from saved.`);
+    } else {
+        // Save new post
+        await push(postSaveRef, {
+            who_save: currentUserId,
+            postID: id,
+            timestamp: new Date().toISOString(),
+        });
+        console.log(`Post ${id} saved.`);
+    }
+    setPostDropMenus(!postDropMenus)
+};
 
     return (
         <>
@@ -280,7 +253,7 @@ export default function PostItem({ postId, post }) {
                                {currentUserId == post.userId &&
                                 <button onClick={() => handleDeletePost(post.id)} className='py-2 w-full px-5 border-b border-gray-400 cursor-pointer hover:bg-white hover:text-primary duration-200 list-none font-poppin text-sm text-white flex items-center gap-1'> <MdDelete className='text-lg'/> Delete</button>
                                }
-                                <button onClick={()=>handleSavePost(post.id)} className='py-2 px-5 border-b border-gray-400 cursor-pointer w-full hover:bg-white hover:text-primary duration-200 list-none font-poppin text-sm text-white flex items-center gap-1'> <FaBookmark/> {isSaved ? "Unsave" : "Save"}</button>
+                                <button onClick={()=>handleSavePost(post.id)} className='py-2 px-5 border-b border-gray-400 cursor-pointer w-full hover:bg-white hover:text-primary duration-200 list-none font-poppin text-sm text-white flex items-center gap-1'> <FaBookmark/> Save</button>
                             </div>
                         </div>
                     </div>

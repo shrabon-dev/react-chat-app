@@ -189,7 +189,7 @@ export default function RightSideBar() {
                     {/* <li><button onClick={() => handleRightsidebar('suggest-group')} className='font-poppin font-semibold text-sm text-semi-black'>Suggest Group  </button></li> */}
                     <li><button onClick={() => handleRightsidebar('your-group')} className='font-poppin font-semibold text-sm text-semi-black  flex items-center gap-2'><TiGroup/> All Groups <span className='...'></span></button></li>
                     <li><button onClick={() => handleRightsidebar('create-group')} className='font-poppin font-semibold text-sm text-semi-black flex items-center gap-2'><IoCreate className='text-lg'/> Create Group</button></li>
-                    <li><button onClick={() => handleRightsidebar('create-group')} className='font-poppin font-semibold text-sm text-semi-black flex items-center gap-2'><FaBookmark/> Saved</button></li>
+                    <li><Link  to={'/save'} className='font-poppin font-semibold text-sm text-semi-black flex items-center gap-2'><FaBookmark/> Saved</Link></li>
                     <li><button onClick={() => handleRightsidebar('block-users')} className='font-poppin font-semibold text-sm text-semi-black  flex items-center gap-2'><ImBlocked/> Block Users <span className='...'></span></button></li>
                   </ul>
            :

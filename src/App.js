@@ -14,6 +14,7 @@ import { UserProfile } from './pages/UserProfile.js';
 import NoticeBoard from './pages/NoticeBoard.js';
 import PresenceManager from './component/presenceProvider/index.js';
 import 'react-loading-skeleton/dist/skeleton.css'
+import { Save } from './pages/Save.js';
 // import { current } from '@reduxjs/toolkit';
 function App() {
   const userData = useSelector((state)=>state.userLoginInfo.userInfo);
@@ -50,6 +51,7 @@ function App() {
       <Route path='/signin' element={<Signin/>} />
       <Route path='/user/profile' element={<UserProfile/>} />
       <Route path='/noticeboard' element={<NoticeBoard/>} />
+      <Route path='/save' element={<Save/>} />
     </Routes>
     </div>
     </>
