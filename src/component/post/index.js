@@ -1,17 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FiPlus } from "react-icons/fi";
-import { HiOutlineDotsVertical } from "react-icons/hi";
-import { AiFillLike,AiFillDislike  } from "react-icons/ai";
-import { FaComment } from "react-icons/fa";
-import { FaShare } from "react-icons/fa";
 import PostItem from '../utils/Post';
 import CreatePost from '../utils/CreatePost';
 import { getDatabase, onValue, ref } from 'firebase/database';
-
-
-
-
 
 export default function Posts() {
   
@@ -31,11 +23,9 @@ export default function Posts() {
             })
           })
         })
-        // Short By Newest
+        
         postList.sort((a,b)=> new Date(b.createdAt) - new Date(a.createdAt))
         setPosts(postList);
-  
-  
       })
     },[])
 

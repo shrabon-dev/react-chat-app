@@ -12,7 +12,7 @@ import { RiNotificationBadgeFill } from "react-icons/ri";
 import { AiOutlineHome, AiOutlineSetting } from 'react-icons/ai';
 import { TbMessageDots } from 'react-icons/tb';
 import { MdOutlineNotifications } from 'react-icons/md';
-import { BsFillCloudUploadFill } from 'react-icons/bs';
+
 import { BiLogOut } from 'react-icons/bi';
 import { Link, useNavigate } from 'react-router-dom';
 import { getAuth, signOut, updateProfile } from 'firebase/auth';
@@ -97,52 +97,7 @@ export default function RightSideBar() {
       });
     }
   
-    let profileImgLinkGet = (e) =>{
-      setImgName(e.target.files[0].name)
-  
-      let files;
-      if(e.dataTransfer){
-          files = e.dataTransfer.files;
-      }else if (e.target){
-        files = e.target.files
-      }
-       const reader = new FileReader();
-       reader.onload = () =>{
-        setImg(reader.result);
-       }
-       reader.readAsDataURL(files[0])
-    }
-  
-    // Image Upload Popup Handle Functtion
-    let showPopupImgUpload = () => {
-      setShowImgUpload(!showImgUpload);
-      setImg('')
-      setPreimg('')
-    }
-  
-    // Profile Image Upload Handle Functtion
-    let handleProfileUpload = (e) => {
-      e.preventDefault();
-      uploadString(storageRef, preimg, 'data_url').then((snapshot) => {
-        getDownloadURL(storageRef).then((downloadURL) => {
-          updateProfile(auth.currentUser, {
-            photoURL: downloadURL
-          }).then(() => {
-            // Update localStorage
-            let updatedUserInfo = { ...userData, photoURL: downloadURL };
-            localStorage.setItem('userInfo', JSON.stringify(updatedUserInfo));
-    
-  
-             setShowImgUpload(!showImgUpload);
-             setImg('')
-             setPreimg('')
-             setReload(!reload)
-          }).catch((error) => {
-            console.log(error)
-          });
-        });
-      });
-    }
+   
    
 
   return (
@@ -168,10 +123,7 @@ export default function RightSideBar() {
                       <picture>
                         <img  className='mobile:w-8 object-cover desktop:w-[50px]  mobile:h-8 desktop:h-[50px]  rounded-full' src={userData && userData.photoURL} alt='profile image'/>
                       </picture>
-                      <div onClick={showPopupImgUpload} className='group-hover:top-0 duration-300 w-full h-full bg-black/70 rounded-full flex justify-center items-center text-semi-black text-3xl absolute -top-28'>
-                          {/* <input onChange={(e)=>setProfileImage(e.target.files[0].name)} type={'file'}  /> <BsFillCloudUploadFill /> */}
-                          <BsFillCloudUploadFill />
-                      </div>
+                    
                   </Link>
                   <div className='mble_menu tablet:hidden'>
                         <span onClick={()=>setIsMobileMenuOpen(!isMobileMenuOpen)}  className='flex gap-1 items-center icon_menu_a bg-white p-2 px-2 rounded'  ><IoIosMenu /> Menus </span>
@@ -197,33 +149,7 @@ export default function RightSideBar() {
           }
         </div>
             <>
-    { showImgUpload ? 
-      <>
-        {/* image upload modal start */}
-            <div className='w-[600px] h-[550px] z-50 bg-primary absolute top-0 -left-full translate-x-full p-10 rounded-lg shadow-2xl ease-in duration-300'>
-              <p className='text-semi-black font-nunito text-2xl '>Profile Upload</p>
-                  {preimg && 
-                       <img src={preimg} className='w-24 h-24 block rounded-full' />
-                   }
-              <input onChange={profileImgLinkGet} className='bg-white p-2 rounded-lg cursor-pointer mt-10' type={'file'} />
-              <div className='mt-4'>
-                <button onClick={handleProfileUpload} className='font-nunito font-normal text-semi-black p-2  rounded-lg text-lg bg-emerald-500 border-none inline-block' >Upload</button>
-                <button onClick={()=>setShowImgUpload(!showImgUpload)} className='font-nunito font-normal text-semi-black p-2 m-2 rounded-lg text-lg bg-red-700 border-none inline-block' >Cancel</button>
-              </div>
-              <Cropper
-              src={img}
-              style={{ height: 200, width: "100%" }}
-              // Cropper.js options
-              initialAspectRatio={16 / 9}
-              guides={false}
-              crop={onCrop}
-              ref={cropperRef}
-            />
-            </div>
-        {/* image upload modal end */}
-      </>
-      : ''
-      }
+   
          </>
     </>
  
