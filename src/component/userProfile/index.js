@@ -234,7 +234,7 @@ export default function Profile() {
           <Cropper
             src={img}
             style={{ height: 200, width: '100%' }}
-            initialAspectRatio={1 / 1}
+            initialAspectRatio={1 / 1}  
             guides={true}
             crop={() => onCrop('profile')}
             ref={cropperRef}

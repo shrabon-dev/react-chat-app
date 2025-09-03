@@ -37,14 +37,23 @@ export const Notification = () => {
                </div>
                {/* <div className='w-full h-full tablet:flex tablet:flex-wrap justify-between px-4 large_tablet:pl-48 tablet:pl-48'> */}
                <div className='w-full h-screen flex justify-center px-4  '>
-                    <div className=' '>
-                      <div className='tablet:w-100% overflow-y-scroll'>     
+                    <div className='desktop:w-1/2 border-x border-gray-300 px-5 desktop:px-10 '>
+                      <div className='tablet:w-100% overflow-y-scroll '>     
                           <SearchBar/>
+                          {notification.length === 0 ? 
+                          <>
+                            <p class="alert bg-red-100 text-red-700 font-medium text-center p-2 rounded-2xl mt-5"  >
+                               You have no notifications
+                            </p>
+                          </>
+                          :
+                          
                           <div className='mt-12'>
                             {notification.map((item)=>
                               <Notifaction data={item} img={item.senderprofilephoto} name={item.sendername} notify={item.notify}/>
                             )}
                           </div>
+                          }
                       </div> 
                     </div>
                </div>
