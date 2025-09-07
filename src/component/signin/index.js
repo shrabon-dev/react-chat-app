@@ -165,6 +165,11 @@ const Signin = () => {
                     <h3 className='font-poppin font-normal tablet:text-2xl text-center mobile:text-xl text-white/90 bg-primary p-4'>Login to your account!</h3>
                      <div className='p-5 tablet:p-10 rounded-lg overflow-hidden tablet:pt-0'>
 
+                    <div className='loginInfo'>
+                        <p className='font-nunito text-gray-500 text-base italic pt-5'>Email: <b>mdshrabon331@gmail.com</b></p>
+                        <p className='font-nunito text-gray-500 text-base italic'>Password: <b>112233</b></p>
+                    </div>
+
                     <form className='large_tablet:w-[370px]'>
                         <div className='relative mobile:mt-5 tablet:mt-12'>
                             <span className='font-nunito text-lg pb-2 text-primary block'>Email Address</span>
