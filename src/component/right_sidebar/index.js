@@ -104,8 +104,8 @@ export default function RightSideBar() {
     
       <>
             
-      <div className={`rgt_side w-full overflow-hidden bg-semi-white fixed border-l border-semi-bdr mobile:left-0 tablet:left-auto ${isMobileMenuOpen ? 'h-full' : 'h-[70px]'} tablet:h-screen tablet:p-5 duration-300`}>
-          <div className='usr__info mobile:w-full tablet:w-[219px] desktop:w-[354px] p-3 relative tablet:top-[-20px] tablet:left-[-20px] bg-primary/5'>
+      <div className={`rgt_side w-full overflow-hidden bg-semi-white fixed border-l border-semi-bdr mobile:left-0 laptop:left-auto ${isMobileMenuOpen ? 'h-full' : 'h-[70px]'} laptop:h-screen laptop:p-5 duration-300`}>
+          <div className='usr__info mobile:w-full laptop:w-[219px] desktop:w-[354px] p-3 relative laptop:top-[-20px] laptop:left-[-20px] bg-primary/5'>
             <div className='flex justify-between items-center'>
                   <div className='menus'>
                     <ul className='flex gap-5 items-center'>
@@ -125,7 +125,7 @@ export default function RightSideBar() {
                       </picture>
                     
                   </Link>
-                  <div className='mble_menu tablet:hidden'>
+                  <div className='mble_menu laptop:hidden'>
                         <span onClick={()=>setIsMobileMenuOpen(!isMobileMenuOpen)}  className='flex gap-1 items-center icon_menu_a bg-white p-2 px-2 rounded'  ><IoIosMenu /> Menus </span>
                   </div>
                   </div>
@@ -134,7 +134,7 @@ export default function RightSideBar() {
           
           {!popup ?
 
-                  <ul className='mobile:space-y-8 tablet:space-y-6 mobile:pl-6 mobile:pt-12 tablet:pt-0 tablet:pl-0'>
+                  <ul className='mobile:space-y-8 laptop:space-y-6 mobile:pl-6 mobile:pt-12 laptop:pt-0 laptop:pl-0'>
                     <li><button onClick={() => handleRightsidebar('suggest-friend')} className='font-poppin font-semibold text-sm text-semi-black  flex items-center gap-2'><FaQuestion/> Suggest Friends <span className='...'></span></button></li>
                     <li><button onClick={() => handleRightsidebar('friend-request')} className='font-poppin font-semibold text-sm text-semi-black  flex items-center gap-2'><RiNotificationBadgeFill/> Friends Request <span className='...'></span></button></li>
                     <li><button onClick={() => handleRightsidebar('your-friend')} className='font-poppin font-semibold text-sm text-semi-black  flex items-center gap-2'> <FaUserFriends/> All Friends <span className='...'></span></button></li>

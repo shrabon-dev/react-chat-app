@@ -36,9 +36,9 @@ export const Notification = () => {
                  <Sidebar active='notification' />
                </div>
                {/* <div className='w-full h-full tablet:flex tablet:flex-wrap justify-between px-4 large_tablet:pl-48 tablet:pl-48'> */}
-               <div className='w-full h-screen flex justify-center px-4  '>
+               <div className='w-full h-screen flex justify-center px-4'>
                     <div className='desktop:w-1/2 border-x border-gray-300 px-5 desktop:px-10 '>
-                      <div className='tablet:w-100% overflow-y-scroll '>     
+                      <div className='tablet:w-100% pt-20 overflow-y-scroll '>     
                           <SearchBar/>
                           {notification.length === 0 ? 
                           <>

@@ -91,21 +91,22 @@ export const UserListReuseable = ({ allValue, profile, name, message }) => {
         <img className='w-10 h-10 rounded-full object-cover' src={profile} alt="profile" />
       </div>
       <div>
-        <h4 className={`${modeStatus ? 'bold_text text-sm text-gray-200' : 'bold_text text-sm'}`}>
+        <h4 className={`${modeStatus ? 'bold_text  text-xs lg:text-sm text-gray-200' : 'bold_text  text-xs lg:text-sm'}`}>
           {name}
         </h4>
         <p className={`${modeStatus ? 'p_text text-xs text-gray-200' : 'p_text text-xs'}`}>
           {message}
         </p>
       </div>
-      <div>
+      <div className='block'>
         <button
           onClick={() => !isFriend && !isBlocked && !isPending && handleFriendRequest(allValue)}
-          className='bg-primary text-sm text-white px-2 py-1 rounded-lg'
+          className='bg-primary  text-xs lg:text-sm hidden desktop:block text-white px-2 py-1 rounded-lg'
           disabled={isFriend || isBlocked || isPending}
         >
           {buttonText}
         </button>
+       
       </div>
     </div>
   );

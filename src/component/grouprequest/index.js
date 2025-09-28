@@ -164,7 +164,7 @@ const handleBackModal = () =>{
           }
           <input onChange={getGroupName} className='input_css text-sm p-2 mb-4' value={groupName} type={'text'} placeholder='Group Name'/>
           <input onChange={getTagName}  className='input_css text-sm p-2 mb-4' value={tagName} type={'text'} placeholder='Tag'/>
-          <div className='text-center'><button onClick={handleCreateGroup} className=' bg-primary text-white text-sm font-nunito font-normal p-2 rounded-lg '>Create</button></div>
+          <div className='text-center'><button onClick={handleCreateGroup} className=' bg-primary text-white text-xs lg:text-sm font-nunito font-normal p-2 rounded-lg '>Create</button></div>
         </div>
 
         <h2 className='relative text-stone-400 mb-2 font-poppin font-semibold text-sm mt-5'>Suggeest  Group </h2>

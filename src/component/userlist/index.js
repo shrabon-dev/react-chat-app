@@ -57,7 +57,7 @@ export const Userlist = () => {
     <div>
       {/* Header */}
       <div className='sml_tle flex justify-between items-center py-3 tablet:py-0 tablet:px-0 px-2'>
-        <h4 className='font-poppin text-base text-semi-black font-normal'>
+        <h4 className='font-poppin  text-xs lg:text-base text-semi-black font-normal'>
           Your Friends
         </h4>
         <button

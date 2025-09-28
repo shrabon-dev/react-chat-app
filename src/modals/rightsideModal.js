@@ -11,7 +11,7 @@ export const RightsideModal = () => {
   const {popup,type,data} = useSelector(state => state.SidebarModal)
  
   return (
-    <div className='rgt_side w-[320px] h-screen relative overflow-y-scroll bg-semi-white '>
+    <div className='rgt_side max-w-[170px] desktop:max-w-[320px] h-screen relative overflow-y-scroll bg-semi-white '>
     {type == 'suggest-friend'?
         <Userlist/>
     :

@@ -31,8 +31,8 @@ export const Home = () => {
 
   return (
     <>
-       <div className='flex mobile:flex-wrap tablet:flex-nowrap  bg-bg'>
-        <div className='mobile:w-full tablet:w-[400px]'>
+       <div className='flex mobile:flex-wrap laptop:flex-nowrap  bg-bg'>
+        <div className='mobile:w-full laptop:w-[400px]'>
           <Sidebar active='home' />
         </div>
         {/* <div className='w-full h-full tablet:flex tablet:flex-wrap justify-between px-4 large_tablet:pl-48 tablet:pl-48'> */}
@@ -53,7 +53,7 @@ export const Home = () => {
                     <BlockUsers/>
               </div>    */}
         </div>
-        <div className='right_sidebar  tablet:w-[420px] desktop:w-[530px]'>
+        <div className='right_sidebar  laptop:w-[420px] desktop:w-[530px]'>
           <RightSideBar/>
         </div>
        </div>

@@ -30,7 +30,7 @@ export default function Posts() {
     },[])
 
   return (
-    <div className='min-w-[290px] tablet:max-w-[460px] desktop:max-w-[700px] mobile:py-20 tablet:pt-2 desktop:py-10'>
+    <div className='min-w-[290px] tablet:max-w-[460px] desktop:max-w-[700px] mobile:py-20 laptop:pt-2 desktop:py-10'>
         {/* Notice Start */}
         <p className='text-center mobile:text-xs tablet:text-base text-red-700 bg-red-100 rounded py-2 mb-5'>This site is currently under construction as we are upgrading the UI of our chat application for a more enhanced and professional experience. Stay tuned for updates! <b> Last Updated - 07 Sept 25</b> <br/> <b> <Link to="/noticeboard">View the Important Chat Application Manual</Link> </b> </p>
         {/* Notice End */}
